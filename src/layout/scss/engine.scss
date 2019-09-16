@@ -1,0 +1,24 @@
+@import 'reset';
+@import 'functions';
+@import 'get-contrast';
+@import 'colors';
+@import 'css-vars';
+@import 'mixins';
+@import 'typography';
+@import 'spacing';
+// Move these into own file.
+
+
+.divider{
+  border-bottom: .5px solid var(--divider);
+  margin: 8px 0;
+  &--sm{
+    margin: 4px 0px;
+  }
+  &--md{
+    margin: 8px 0;
+  }
+  &--lg{
+    margin: 32px 0;
+  }
+}

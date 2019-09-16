@@ -1,0 +1,16 @@
+@mixin flatten($base, $lighter, $darker, $contrast) {
+  // No background, No border, more problems
+  background-color: none;
+  @include sd--elevation(0);
+  @media(prefers-color-scheme: 'dark'){
+    color: $lighter;
+  }
+  @media(prefers-color-scheme: 'light'){
+    color: $darker;
+  }
+  @content;
+  &:hover{
+    background-color: $base;
+    color: sd-color($contrast, text);
+  }
+}

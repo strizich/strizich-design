@@ -1,0 +1,34 @@
+@import 'colors';
+@import 'spacing';
+@import 'functions';
+
+@each $scheme, $map in $sd-color-schemes {
+  @media(prefers-color-scheme: $scheme){
+    :root{
+      @each $key, $color in $map {
+        $color: sd-color($scheme, $key);
+        --#{$key}: #{$color};
+      }
+    }
+  }
+}
+
+:root {
+  @each $key, $color in $sd-color-global {
+    $base: nth($color, 1);
+    $darker: nth($color, 2);
+    $lighter: nth($color, 3);
+    --#{$key}: #{$base};
+    --#{$key}-lighter: #{$lighter};
+    --#{$key}-darker: #{$darker};
+  };
+  // Generates CSS variables for spacing
+  // Useage: var(--space-{type}-{size})
+  @each $type in $space {
+    @each $size, $size-key in $type {
+      --space-#{$type}-#{$size-key}: #{$size};
+    }
+  }
+
+}
+

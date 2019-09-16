@@ -1,0 +1,43 @@
+
+$sd-color-global: (
+  primary: (#8F00F8, mix(#FFF, #8F00F8, 50%), mix(#000, #8F00F8, 35%)),
+  default: (#E4E4E4, mix(#FFF, #E4E4E4, 50%), mix(#000, #E4E4E4, 35%)),
+  secondary:(#48007E, mix(#FFF, #48007E, 25%), mix(#000, #48007E, 35%)),
+  danger: (#AE1A2C, mix(#FFF, #AE1A2C, 25%), mix(#000, #AE1A2C, 35%)),
+  success: (#83CF2A, mix(#FFF, #83CF2A, 25%), mix(#000, #83CF2A, 35%)),
+  warning: (#F5A623, mix(#FFF, #F5A623, 25%), mix(#000, #F5A623, 35%)),
+
+);
+
+$sd-color-schemes: (
+  light: (
+    background: #fff,
+    background-variant: #fafafa,
+    text: rgba(0,0,0, .87),
+    text-accent: rgba(0,0,0, .54),
+    text-hint: rgba(0,0,0, .38),
+    disabled: rgba(0,0,0, .26),
+    disabled-background: rgba(0,0,0, .12),
+    highlight: rgba(0,0,0, .12),
+    icon: rgba(0,0,0, .54),
+    icon-disabled: rgba(0,0,0, .38),
+    divider: rgba(0,0,0, .12),
+    scrollbar: #434444,
+    tooltip: #2E2F2F
+  ),
+  dark: (
+    background: #202020,
+    background-variant: #2E2F2F,
+    text: rgba(255,255,255,.87),
+    text-accent: rgba(255,255,255,.54),
+    text-hint: rgba(255,255,255,.38),
+    disabled: rgba(255,255,255,.26),
+    disabled-background: rgba(255,255,255,.12),
+    highlight: rgba(255,255,255,.12),
+    icon: rgba(255,255,255,.54),
+    icon-disabled: rgba(255,255,255,.38),
+    divider: rgba(255,255,255,.12),
+    scrollbar: #434444,
+    tooltip: #000
+  )
+);

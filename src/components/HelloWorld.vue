@@ -1,60 +1,131 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa" target="_blank" rel="noopener">pwa</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest" target="_blank" rel="noopener">unit-jest</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <p class="text__caption">Yay Buttons!</p>
+    <h1 class="text__headline">Buttons</h1>
+    <h1>Header1</h1>
+    <h2>Header2</h2>
+    <h3>Header3</h3>
+    <h4>Header4</h4>
+    <h5>Header5</h5>
+    <p>Paragraph</p>
+
+    <div class="hello__content">
+      <select v-model="selectedSize">
+        <option v-for="(size, index) in sizes" :key="index" :value="size">
+          {{size}}
+        </option>
+      </select>
+      <select v-model="selectedTheme">
+        <option v-for="(theme, index) in themes" :key="index" :value="theme">
+          {{theme}}
+        </option>
+      </select>
+      <sd-check v-model="isRounded">Rounded</sd-check>
+      <sd-check v-model="isOutline">Outline</sd-check>
+      <sd-check v-model="isFlat">Flatten</sd-check>
+      <sd-icon/>
+      <div class="button__group">
+        <sd-button
+          v-for="(theme, index) in themes"
+          :key="index"
+          :theme="theme"
+          :size="selectedSize"
+          :rounded="isRounded"
+          :flat="isFlat"
+          :outline="isOutline"
+          @click="onClick">
+          {{theme}} button
+        </sd-button>
+
+        <hr class="divider divider--lg"/>
+
+        <h3>Chicklets</h3>
+        <div class="chicklet__group">
+          <sd-chicklet
+          :theme="theme"
+          :size="selectedSize"
+          v-for="(theme, index) in themes" :key="index">{{theme}}</sd-chicklet>
+        </div>
+      </div>
+      <hr class="divider"/>
+      <sd-card title="Card">
+        <sd-card-content>
+          boday
+        </sd-card-content>
+        <sd-card-footer>
+          <template v-slot:left>
+            bloop
+          </template>
+          <template v-slot:right>
+            bleep
+          </template>
+        </sd-card-footer>
+      </sd-card>
+
+      <hr class="divider"/>
+
+      <ul class="sd--list">
+        <li class="sd--list__item">
+          List item
+        </li>
+        <li class="sd--list__item">
+          List item
+        </li>
+        <li class="sd--list__item">
+          List item
+        </li>
+        <li class="sd--list__item">
+          <ol class="sd--list">
+            <li class="sd--list__item">Ordered List Item</li>
+          </ol>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
+import SdIcon from '@/layout/SdIcon'
+import SdCard from '@/layout/SdCard/SdCard'
+import SdCardContent from '@/layout/SdCard/SdCardContent'
+import SdCardFooter from '@/layout/SdCard/SdCardFooter'
+import SdCheck from '@/layout/SdCheckbox/SdCheck'
+import SdButton from '@/layout/SdButton'
+import SdChicklet from '@/layout/SdChicklet'
+
 export default {
   name: 'HelloWorld',
+  data () {
+    return {
+      sizes: ['sm', 'md', 'lg'],
+      selectedSize: 'md',
+      themes: ['primary', 'secondary', 'danger', 'success', 'warning', 'default'],
+      selectedTheme: 'primary',
+      isRounded: false,
+      isFlat: false,
+      isOutline: false
+    }
+  },
   props: {
     msg: String
+  },
+  components: {
+    SdButton, SdChicklet, SdCheck, SdCard, SdCardContent, SdCardFooter, SdIcon
+  },
+  methods: {
+    onClick: function () {
+      console.log('Emitter worked')
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+  .button__group {
+    margin-bottom: 16px;
+    .sd--button{
+      margin-right: 8px;
+    }
+  }
 </style>
