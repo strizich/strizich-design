@@ -1,12 +1,15 @@
 <template>
   <button :class="['sd--button', getTheme, modList, getSize]" @click="onClick">
+    <sd-icon :size="size" class="sd--button__icon sd--button__icon--left" v-if="iconLeft" :name="iconLeft"/>
     <span class="sd--button__content">
       <slot/>
     </span>
+    <sd-icon :size="size" class="sd--button__icon sd--button__icon--right" v-if="iconRight" :name="iconRight"/>
     </button>
 </template>
 
 <script>
+import SdIcon from '@/layout/SdIcon'
 import sdUuid from '@/utilities/SdUuid'
 
 export default {
@@ -39,7 +42,9 @@ export default {
     theme: {
       type: String,
       default: 'primary'
-    }
+    },
+    iconLeft: String,
+    iconRight: String
   },
   computed: {
     modList: function () {
@@ -62,7 +67,8 @@ export default {
       this.$emit('click')
       console.log('clicked')
     }
-  }
+  },
+  components: { SdIcon }
 }
 </script>
 
@@ -81,9 +87,21 @@ export default {
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 1px;
+  display:inline-flex;
+  align-items: center;
+
   &__content{
     position:relative;
     z-index: 10;
+    flex-grow: 2;
+  }
+  &__icon{
+    &--left{
+       margin: -8px 8px -8px 0;
+    }
+    &--right{
+       margin: -8px 0 -8px 8px;
+    }
   }
   @each $state, $color in $sd-color-global {
     $base: nth($color, 1);
@@ -119,14 +137,12 @@ export default {
       }
     }
   }
-}
 
-.is{
+&.is{
   &--sm{
     font-size: rem(14);
     line-height: rem(16);
-    padding: spacing(offset, sm)
-
+    padding: spacing(offset, sm);
   }
   &--md{
     font-size: rem(16);
@@ -150,5 +166,6 @@ export default {
   &--outline{
     background:none;
   }
+}
 }
 </style>

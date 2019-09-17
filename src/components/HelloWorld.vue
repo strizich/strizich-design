@@ -23,7 +23,7 @@
       <sd-check v-model="isRounded">Rounded</sd-check>
       <sd-check v-model="isOutline">Outline</sd-check>
       <sd-check v-model="isFlat">Flatten</sd-check>
-      <sd-icon/>
+
       <div class="button__group">
         <sd-button
           v-for="(theme, index) in themes"
@@ -33,6 +33,8 @@
           :rounded="isRounded"
           :flat="isFlat"
           :outline="isOutline"
+          icon="history"
+          iconRight="chevron_right"
           @click="onClick">
           {{theme}} button
         </sd-button>
@@ -57,7 +59,10 @@
             bloop
           </template>
           <template v-slot:right>
-            bleep
+            <sd-button>1</sd-button>
+            <sd-button>1</sd-button>
+            <sd-button>1</sd-button>
+            <sd-button iconLeft="history"  iconRight="chevron_right">View</sd-button>
           </template>
         </sd-card-footer>
       </sd-card>
@@ -99,7 +104,7 @@ export default {
     return {
       sizes: ['sm', 'md', 'lg'],
       selectedSize: 'md',
-      themes: ['primary', 'secondary', 'danger', 'success', 'warning', 'default'],
+      themes: ['primary', 'secondary', 'danger', 'success', 'warning', 'default', 'new'],
       selectedTheme: 'primary',
       isRounded: false,
       isFlat: false,

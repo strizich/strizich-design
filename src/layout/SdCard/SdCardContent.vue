@@ -5,9 +5,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'SdCardContent'
-  }
+export default {
+  name: 'SdCardContent'
+}
 </script>
 
 <style lang="scss" scoped>

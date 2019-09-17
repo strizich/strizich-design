@@ -3,10 +3,9 @@ $sd-color-global: (
   primary: (#8F00F8, mix(#FFF, #8F00F8, 50%), mix(#000, #8F00F8, 35%)),
   default: (#E4E4E4, mix(#FFF, #E4E4E4, 50%), mix(#000, #E4E4E4, 35%)),
   secondary:(#48007E, mix(#FFF, #48007E, 25%), mix(#000, #48007E, 35%)),
-  danger: (#AE1A2C, mix(#FFF, #AE1A2C, 25%), mix(#000, #AE1A2C, 35%)),
+  danger: (#AE1A2C, #fe6b7e, mix(#000, #AE1A2C, 35%)),
   success: (#83CF2A, mix(#FFF, #83CF2A, 25%), mix(#000, #83CF2A, 35%)),
-  warning: (#F5A623, mix(#FFF, #F5A623, 25%), mix(#000, #F5A623, 35%)),
-
+  warning: (#F5A623, mix(#FFF, #F5A623, 25%), mix(#000, #F5A623, 35%))
 );
 
 $sd-color-schemes: (

@@ -85,7 +85,7 @@ export default {
 
   .sd--checkbox {
     position:relative;
-    padding: 8px 0 8px 20px ;
+    padding: 8px 0 8px 24px ;
     margin: 8px;
     &.is--disabled{
       @extend %disabled;

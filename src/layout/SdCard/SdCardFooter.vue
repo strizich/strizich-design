@@ -13,7 +13,7 @@
 import SdButton from '@/layout/SdButton'
 export default {
   name: 'SdCardFooter',
-  components: {SdButton}
+  components: { SdButton }
 }
 </script>
 
@@ -27,6 +27,14 @@ export default {
   border-radius: 0 0 3px 3px;
   position: relative;
   align-items: center;
+  &--left{
+    display:flex;
+    align-items: flex-start;
+  }
+  &--right{
+    display:flex;
+    align-items: flex-end;
+  }
    &:after{
      position: absolute;
      left: spacing(inset);
