@@ -6,7 +6,6 @@
     <sd-button theme="success">Something</sd-button>
     <sd-button theme="warning">Something</sd-button>
     <sd-button theme="danger">Something</sd-button>
-
   </div>
 </template>
 

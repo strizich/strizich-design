@@ -17,17 +17,17 @@
     :size="size"
     v-if="iconRight"
     />
-
     </button>
 </template>
 
 <script>
+import SdFocused from '@/core/mixins/SdFocused.js'
 import SdIcon from '@/layout/SdIcon'
 import sdUuid from '@/utilities/SdUuid'
 
 export default {
   name: 'SdButton',
-
+  mixins: [SdFocused],
   props: {
     id: {
       type: String,
@@ -66,7 +66,8 @@ export default {
         'is--disabled': this.disabled,
         'is--rounded': this.rounded,
         'is--flat': this.flat,
-        'is--outline': this.outline
+        'is--outline': this.outline,
+        'is--focused': this.sdHasFocus
       }
     },
     getSize: function () {
