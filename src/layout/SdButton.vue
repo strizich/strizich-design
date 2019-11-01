@@ -141,7 +141,7 @@ export default {
         background-color: $lighter;
         transition: all .2s ease-out;
       }
-      &:focus {
+      &.is--focused {
         box-shadow: 0 0 0 5px transparentize($lighter, .8);
         transition: all .2s ease-out;
       }
