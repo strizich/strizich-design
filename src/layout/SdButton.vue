@@ -1,10 +1,23 @@
 <template>
   <button :class="['sd--button', getTheme, modList, getSize]" @click="onClick">
-    <sd-icon :size="size" class="sd--button__icon sd--button__icon--left" v-if="iconLeft" :name="iconLeft"/>
+    <sd-icon
+    class="sd--button__icon sd--button__icon--left"
+    :size="size"
+    :name="iconLeft"
+    v-if="iconLeft"
+    />
+
     <span class="sd--button__content">
       <slot/>
     </span>
-    <sd-icon :size="size" class="sd--button__icon sd--button__icon--right" v-if="iconRight" :name="iconRight"/>
+
+    <sd-icon
+    class="sd--button__icon sd--button__icon--right"
+    :name="iconRight"
+    :size="size"
+    v-if="iconRight"
+    />
+
     </button>
 </template>
 
@@ -14,6 +27,7 @@ import sdUuid from '@/utilities/SdUuid'
 
 export default {
   name: 'SdButton',
+
   props: {
     id: {
       type: String,
@@ -97,10 +111,10 @@ export default {
   }
   &__icon{
     &--left{
-       margin: -8px 8px -8px 0;
+       margin: -8px 8px -8px -8px;
     }
     &--right{
-       margin: -8px 0 -8px 8px;
+       margin: -8px -8px -8px 8px;
     }
   }
   @each $state, $color in $sd-color-global {
@@ -117,16 +131,18 @@ export default {
       transition: all .2s ease-out;
       &:hover {
         @include sd--elevation(4);
+        color: sd-color($contrast-darker, text);
+        background-color: $darker;
+        transition: all .2s ease-out;
+      }
+      &:active {
         color: sd-color($contrast-lighter, text);
         background-color: $lighter;
         transition: all .2s ease-out;
       }
-      &:active {
-        color: sd-color($contrast-darker, text);
-        background-color: $darker;
-      }
       &:focus {
         box-shadow: 0 0 0 5px transparentize($lighter, .8);
+        transition: all .2s ease-out;
       }
       &.is--outline {
         @include flatten($base, $lighter, $darker, $contrast);
@@ -141,16 +157,16 @@ export default {
 &.is{
   &--sm{
     font-size: rem(14);
-    line-height: rem(16);
+    line-height: rem(14);
     padding: spacing(offset, sm);
   }
   &--md{
     font-size: rem(16);
-    line-height: rem(20);
+    line-height: rem(16);
   }
   &--lg{
     font-size: rem(18);
-    line-height: rem(24);
+    line-height: rem(18);
     padding: spacing(offset, lg);
   }
   &--rounded{

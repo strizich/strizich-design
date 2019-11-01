@@ -18,9 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/spacing';
-@import '../scss/functions';
-@import '../SdElevation/mixins';
+@import '../scss/engine';
 
 .sd--card{
   background-color: v(--background-variant);

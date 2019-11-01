@@ -3,7 +3,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'SdIcon',
   props: {
@@ -30,15 +29,12 @@ export default {
 
 <style lang="scss">
 $icon-sizes: (
-  xs: 11px,
   sm: 16px,
   md: 24px,
   lg: 32px,
   xxl: 64px
 );
 
-$icon-size: 24px;
- /* fallback */
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -50,7 +46,7 @@ $icon-size: 24px;
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: $icon-size;
+  font-size: map-get($icon-sizes, md);
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
@@ -74,6 +70,5 @@ $icon-size: 24px;
     }
   }
 }
-
 
 </style>
