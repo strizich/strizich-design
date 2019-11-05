@@ -1,5 +1,5 @@
 <template>
-  <span :class="['sd--chicklet', setTheme, setSize, setMods]">
+  <span :class="[...componentClasses, modifiers]">
     <slot/>
   </span>
 </template>
@@ -7,6 +7,10 @@
 <script>
 export default {
   props: {
+    baseClass: {
+      type: String,
+      default: 'sd--chicklet'
+    },
     theme: {
       type: String,
       default: 'primary'
@@ -21,16 +25,23 @@ export default {
     }
   },
   computed: {
-    setSize: function () {
+    sizeClass: function () {
       return `is--${this.size}`
     },
-    setTheme: function () {
-      return `sd--chicklet__${this.theme}`
+    themeClass: function () {
+      return `${this.baseClass}__${this.theme}`
     },
-    setMods: function () {
+    modifiers: function () {
       return {
         'is--pill': this.pill
       }
+    },
+    componentClasses: function () {
+      return [
+        this.baseClass,
+        this.sizeClass,
+        this.themeClass
+      ]
     }
   }
 }
@@ -48,6 +59,7 @@ export default {
   vertical-align: middle;
   display:inline-block;
   margin-right: 4px;
+  align-self: center;
   @each $state, $color in $sd-color-global {
     $default: nth($color, 1);
     $variant: nth($color, 2);

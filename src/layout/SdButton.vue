@@ -1,16 +1,14 @@
 <template>
-  <button :class="['sd--button', getTheme, modList, getSize]" @click="onClick">
+  <button :class="['sd--button', themeClass, modifiers]">
     <sd-icon
     class="sd--button__icon sd--button__icon--left"
     :size="size"
     :name="iconLeft"
     v-if="iconLeft"
     />
-
-    <span class="sd--button__content">
-      <slot/>
-    </span>
-
+      <div :class="['sd--button__content', sizeClass]">
+        <slot/>
+      </div>
     <sd-icon
     class="sd--button__icon sd--button__icon--right"
     :name="iconRight"
@@ -23,7 +21,7 @@
 <script>
 import SdFocused from '@/core/mixins/SdFocused.js'
 import SdIcon from '@/layout/SdIcon'
-import sdUuid from '@/utilities/SdUuid'
+import sdUuid from '@/utilities/SdUuid.js'
 
 export default {
   name: 'SdButton',
@@ -61,7 +59,7 @@ export default {
     iconRight: String
   },
   computed: {
-    modList: function () {
+    modifiers: function () {
       return {
         'is--disabled': this.disabled,
         'is--rounded': this.rounded,
@@ -70,10 +68,10 @@ export default {
         'is--focused': this.sdHasFocus
       }
     },
-    getSize: function () {
+    sizeClass: function () {
       return `is--${this.size}`
     },
-    getTheme: function () {
+    themeClass: function () {
       return `sd--button__${this.theme}`
     }
   },
@@ -98,17 +96,33 @@ export default {
 .sd--button {
   border: none;
   border-radius: 3px;
-  padding: spacing(offset);
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 1px;
   display:inline-flex;
   align-items: center;
-
+  padding:0;
   &__content{
-    position:relative;
+    position: relative;
     z-index: 10;
     flex-grow: 2;
+    &.is{
+      &--sm{
+        font-size: rem(14);
+        line-height: rem(14);
+        padding: spacing(offset, sm);
+      }
+      &--md{
+        font-size: rem(16);
+        line-height: rem(16);
+        padding: spacing(offset);
+      }
+      &--lg{
+        font-size: rem(18);
+        line-height: rem(18);
+        padding: spacing(offset, lg);
+      }
+    }
   }
   &__icon{
     &--left{
@@ -137,12 +151,14 @@ export default {
         transition: all .2s ease-out;
       }
       &:active {
-        color: sd-color($contrast-lighter, text);
-        background-color: $lighter;
+        color: sd-color($contrast-darker, text);
+        background-color: $darker;
+        @include sd--elevation(6);
         transition: all .2s ease-out;
+
       }
       &.is--focused {
-        box-shadow: 0 0 0 5px transparentize($lighter, .8);
+        box-shadow: 0 0 0 5px transparentize($lighter, .75);
         transition: all .2s ease-out;
       }
       &.is--outline {
@@ -152,37 +168,24 @@ export default {
       &.is--flat {
         @include flatten($base, $lighter, $darker, $contrast);
       }
+      &.is--rounded{
+        border-radius: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+        .sd--button__content {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+      &.is--flat{
+        background: none;
+        border: none;
+        outline: none;
+      }
+      &.is--outline{
+        background:none;
+      }
     }
   }
-
-&.is{
-  &--sm{
-    font-size: rem(14);
-    line-height: rem(14);
-    padding: spacing(offset, sm);
-  }
-  &--md{
-    font-size: rem(16);
-    line-height: rem(16);
-  }
-  &--lg{
-    font-size: rem(18);
-    line-height: rem(18);
-    padding: spacing(offset, lg);
-  }
-  &--rounded{
-    border-radius: 30px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  &--flat{
-    background: none;
-    border: none;
-    outline: none;
-  }
-  &--outline{
-    background:none;
-  }
-}
 }
 </style>

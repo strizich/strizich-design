@@ -1,7 +1,7 @@
 <template>
  <!-- Simplified version of the checkbox -->
-  <label class="sd--checkbox" :class="isDisabledClass" @click.prevent="toggleCheck">
-    <input
+  <label class="sd--checkbox" :class="classes" @click.stop="toggleCheck">
+      <input
         type="checkbox"
         v-bind="attributes"
         class="sd--checkbox__field"
@@ -27,15 +27,16 @@ export default {
     }
   },
   computed: {
-    isDisabledClass: function () {
-      return this.checkClasses['is--disabled'] ? 'is--disabled' : ''
+    classes: function () {
+      return {
+        'is--disabled': this.disabled
+      }
     }
   }
 }
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
   %checkbox{
     &:before{
       content: '';
@@ -54,6 +55,11 @@ export default {
                   background-color .4s 0s ease-in-out;
       border: 2px solid var(--divider);
       border-radius: 2px;
+    }
+    &:focus-within{
+      &:before{
+        border-color: var(--primary);
+      }
     }
   }
   %checked{
@@ -87,6 +93,9 @@ export default {
     position:relative;
     padding: 8px 0 8px 24px ;
     margin: 8px;
+    &:hover{
+      cursor: pointer;
+    }
     &.is--disabled{
       @extend %disabled;
     }
@@ -99,12 +108,16 @@ export default {
        width: 0;
        height: 0;
        @extend %checkbox;
+
       &.is{
         &--checked{
          @extend %checked;
         }
         &--indeterminate{
           @extend %indeterminate;
+        }
+        &--disabled{
+          @extend %disabled;
         }
       }
     }

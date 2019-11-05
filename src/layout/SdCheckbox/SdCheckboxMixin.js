@@ -1,7 +1,5 @@
-// TODO: Add a focus state for when the user
-// clicks the 'tab' key and focuses each checkbox.
-
 export default {
+
   props: {
     model: [String, Boolean, Object, Number, Array],
     value: [String, Boolean, Object, Number],

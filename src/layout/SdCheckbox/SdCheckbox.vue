@@ -11,6 +11,7 @@
         :indeterminate="indeterminate"
       />
     </div>
+
     <label
       :for="id"
       class="sd--checkbox__label"
@@ -61,7 +62,13 @@ $default: #656C6E;
       background-color:transparent;
       box-shadow: inset 0 0 0 26px #ffffff;
       transform: rotateZ(90deg);
+      z-index: 10;
     }
+      .sd-ripple-wave {
+        top: 50% !important;
+        left: 50% !important;
+        border-radius: 50%;
+      }
   }
   &.is--checked{
     .sd--checkbox__container{

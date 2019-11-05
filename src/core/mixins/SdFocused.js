@@ -77,7 +77,6 @@ export default {
   watch: {
     focusedElement (el) {
       this.sdHasFocus = el === this.$el
-      console.log(el)
     }
   },
   mounted () {
