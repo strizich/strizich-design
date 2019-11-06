@@ -158,7 +158,7 @@ export default {
 
       }
       &.is--focused {
-        box-shadow: 0 0 0 5px transparentize($lighter, .75);
+        box-shadow: 0 0 0 5px $lighter;
         transition: all .2s ease-out;
       }
       &.is--outline {

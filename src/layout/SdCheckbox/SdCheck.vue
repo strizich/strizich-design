@@ -1,14 +1,13 @@
 <template>
  <!-- Simplified version of the checkbox -->
-  <label class="sd--checkbox" :class="classes" @click.stop="toggleCheck">
+  <label class="sd--checkbox" :class="classes" @click.prevent="toggleCheck">
       <input
         type="checkbox"
-        v-bind="attributes"
-        class="sd--checkbox__field"
-        :class="[checkClasses]"
         :id="id"
+        :class="['sd--checkbox__field', checkClasses]"
         :checked="isSelected"
         :indeterminate="indeterminate"
+        v-bind="attributes"
       />
       <span class="sd--checkbox__label"><slot/></span>
   </label>
@@ -58,7 +57,7 @@ export default {
     }
     &:focus-within{
       &:before{
-        border-color: var(--primary);
+        border-color: var(--primary-darker);
       }
     }
   }

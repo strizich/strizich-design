@@ -25,22 +25,18 @@ export default {
     }
   },
   computed: {
-    sizeClass: function () {
-      return `is--${this.size}`
-    },
-    themeClass: function () {
-      return `${this.baseClass}__${this.theme}`
-    },
     modifiers: function () {
       return {
         'is--pill': this.pill
       }
     },
     componentClasses: function () {
+      const sizeClass = `is--${this.size}`
+      const themeClass = `${this.baseClass}__${this.theme}`
       return [
         this.baseClass,
-        this.sizeClass,
-        this.themeClass
+        sizeClass,
+        themeClass
       ]
     }
   }
@@ -50,7 +46,8 @@ export default {
 <style lang="scss" scoped>
 @import './scss/functions';
 @import './scss/colors';
-@import './scss/_get-contrast';
+@import './scss/get-contrast';
+@import 'SdElevation/elevation';
 
 .sd--chicklet {
   padding: 4px;
@@ -60,6 +57,7 @@ export default {
   display:inline-block;
   margin-right: 4px;
   align-self: center;
+  text-shadow: 0 2px 2px -1px #202020;
   @each $state, $color in $sd-color-global {
     $default: nth($color, 1);
     $variant: nth($color, 2);

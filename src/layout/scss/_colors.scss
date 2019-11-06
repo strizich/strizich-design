@@ -12,6 +12,7 @@ $sd-color-schemes: (
   light: (
     background: #fff,
     background-variant: #fafafa,
+    background-inverse: #202020,
     text: rgba(0,0,0, .87),
     text-accent: rgba(0,0,0, .54),
     text-hint: rgba(0,0,0, .38),
@@ -27,6 +28,7 @@ $sd-color-schemes: (
   dark: (
     background: #202020,
     background-variant: #2E2F2F,
+    background-inverse: #ffffff,
     text: rgba(255,255,255,.87),
     text-accent: rgba(255,255,255,.54),
     text-hint: rgba(255,255,255,.38),

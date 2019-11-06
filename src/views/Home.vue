@@ -7,51 +7,52 @@
       <sd-button theme="success">Something</sd-button>
       <sd-button theme="warning">Something</sd-button>
       <sd-button theme="danger">Something</sd-button>
+
       <sd-chicklet theme="danger" pill>Chiket</sd-chicklet>
     </div>
     <ul>
       <li v-for="(b, index) in bools" :key="index">
-        <sd-checkbox v-model="b.active">Boolean</sd-checkbox>
-         <sd-check v-model="b.active">Boolean</sd-check>
+         <sd-check :name="b.name" v-model="boolResults" :value="b.active">{{b.name}}</sd-check>
       </li>
     </ul>
 
-    <sd-button v-for="(btn, index) in test" :key="index" v-bind="btn" rounded>Something</sd-button>
-
+    <sd-radio name="blep" v-for="(b, index) in bools" :key="index" v-model="boolResults" :value="b.active">{{b.name}}</sd-radio>
+    {{boolResults}}
+    {{bools}}
   </div>
 </template>
 
 <script>
 import SdButton from '@/layout/SdButton'
 import SdChicklet from '@/layout/SdChicklet'
-import SdCheckbox from '@/layout/SdCheckbox/SdCheckbox'
 import SdCheck from '@/layout/SdCheckbox/SdCheck'
+import SdRadio from '@/layout/SdRadio/SdRadio'
 export default {
   name: 'home',
   data () {
     return {
       rippleActive: false,
       sdRipple: true,
+      boolResults: {},
       bools: [
-        { active: false },
-        { active: true }
-      ],
-      test: [
         {
-          theme: 'primary',
-          size: 'sm'
-        }, {
-          theme: 'secondary',
-          size: 'md'
+          active: false,
+          value: 'one',
+          name: 'hello'
+        },
+        {
+          active: true,
+          value: 'two',
+          name: 'world'
         }
       ]
     }
   },
   components: {
     SdButton,
-    SdCheckbox,
     SdCheck,
-    SdChicklet
+    SdChicklet,
+    SdRadio
   }
 }
 </script>
