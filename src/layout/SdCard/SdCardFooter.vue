@@ -1,19 +1,15 @@
 <template>
-  <div class="sd--card__footer">
-      <div class="sd--card__footer--left">
-        <slot name="left" />
-      </div>
-      <div class="sd--card__footer--right">
-        <slot name="right" />
-      </div>
+  <div :class="['sd--card__footer', spacingClasses]" :style="alignmentStyle">
+    <slot/>
   </div>
 </template>
 
 <script>
-import SdButton from '@/layout/SdButton'
+import SdAlignmentMixin from '@/layout/SdCard/SdAlignmentMixin.js'
+import SdSpacingMixin from '@/layout/SdCard/SdSpacingMixin.js'
 export default {
   name: 'SdCardFooter',
-  components: { SdButton }
+  mixins: [SdAlignmentMixin, SdSpacingMixin]
 }
 </script>
 
@@ -23,18 +19,9 @@ export default {
 .sd--card__footer{
   padding: spacing(offset);
   display:flex;
-  justify-content: space-between;
   border-radius: 0 0 3px 3px;
   position: relative;
   align-items: center;
-  &--left{
-    display:flex;
-    align-items: flex-start;
-  }
-  &--right{
-    display:flex;
-    align-items: flex-end;
-  }
    &:after{
      position: absolute;
      left: spacing(inset);

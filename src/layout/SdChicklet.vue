@@ -1,6 +1,7 @@
 <template>
   <span :class="[...componentClasses, modifiers]">
-    <slot/>
+    {{content}}
+    <slot v-if="!content"/>
   </span>
 </template>
 
@@ -22,12 +23,15 @@ export default {
     pill: {
       type: Boolean,
       default: false
-    }
+    },
+    uppercase: Boolean,
+    content: String
   },
   computed: {
     modifiers: function () {
       return {
-        'is--pill': this.pill
+        'is--pill': this.pill,
+        'is--uppercase': this.uppercase
       }
     },
     componentClasses: function () {
@@ -50,7 +54,9 @@ export default {
 @import 'SdElevation/elevation';
 
 .sd--chicklet {
+  font-weight: 500;
   padding: 4px;
+  letter-spacing: .75px;
   line-height: rem(16);
   border-radius: 3px;
   vertical-align: middle;
@@ -66,11 +72,18 @@ export default {
       background-color: $default;
       color: sd-color($contrast, text);
     }
+    &:only-child, &:last-child{
+      margin-right: 0px;
+    }
+
   }
   &.is {
     &--pill {
       border-radius: 30px;
       padding: 4px 8px;
+    }
+    &--uppercase {
+      text-transform: uppercase;
     }
     &--sm {
       font-size: 11px;

@@ -1,12 +1,13 @@
 <template>
-  <div class="sd--card__content">
+  <div class="sd--card__body">
     <slot/>
   </div>
 </template>
 
 <script>
+
 export default {
-  name: 'SdCardContent'
+  name: 'SdCardBody'
 }
 </script>
 
@@ -15,8 +16,9 @@ export default {
 @import '../scss/functions';
 
 .sd--card {
-  &__content{
+  &__body{
     padding: spacing(inset);
+    flex-grow: 2;
   }
 }
 

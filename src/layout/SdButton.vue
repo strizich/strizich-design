@@ -1,5 +1,5 @@
 <template>
-  <button :class="['sd--button', themeClass, modifiers]">
+  <button :class="['sd--button', themeClass, modifiers]" @click="onClick">
     <sd-icon
     class="sd--button__icon sd--button__icon--left"
     :size="size"
@@ -39,6 +39,10 @@ export default {
       type: Boolean,
       default: false
     },
+    pill: {
+      type: Boolean,
+      default: false
+    },
     outline: {
       type: Boolean,
       default: false
@@ -63,6 +67,7 @@ export default {
       return {
         'is--disabled': this.disabled,
         'is--rounded': this.rounded,
+        'is--pill': this.pill,
         'is--flat': this.flat,
         'is--outline': this.outline,
         'is--focused': this.sdHasFocus
@@ -78,7 +83,6 @@ export default {
   methods: {
     onClick: function () {
       this.$emit('click')
-      console.log('clicked')
     }
   },
   components: { SdIcon }
@@ -106,16 +110,19 @@ export default {
     position: relative;
     z-index: 10;
     flex-grow: 2;
+    transition: padding .23s, font-size .23s, light-height .23s;
     &.is{
       &--sm{
         font-size: rem(14);
         line-height: rem(14);
-        padding: spacing(offset, sm);
+        padding: spacing(inset, sm);
+        min-width: 30px;
       }
       &--md{
         font-size: rem(16);
         line-height: rem(16);
         padding: spacing(offset);
+        min-width: 43px;
       }
       &--lg{
         font-size: rem(18);
@@ -162,13 +169,23 @@ export default {
         transition: all .2s ease-out;
       }
       &.is--outline {
-        @include flatten($base, $lighter, $darker, $contrast);
         border: 1px solid $base;
+        background:none;
+        @include flatten($base, $lighter, $darker, $contrast);
       }
       &.is--flat {
+        background: none;
+        border: none;
+        outline: none;
         @include flatten($base, $lighter, $darker, $contrast);
+        &.is--focused{
+        box-shadow: 0 0 0 5px $lighter;
+        }
       }
       &.is--rounded{
+        border-radius: 50%;
+      }
+      &.is--pill{
         border-radius: 30px;
         padding-left: 20px;
         padding-right: 20px;
@@ -176,14 +193,6 @@ export default {
           padding-left: 0;
           padding-right: 0;
         }
-      }
-      &.is--flat{
-        background: none;
-        border: none;
-        outline: none;
-      }
-      &.is--outline{
-        background:none;
       }
     }
   }

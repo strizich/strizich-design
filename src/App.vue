@@ -24,6 +24,13 @@ export default {
   }
   .app{
     &__content{
+      @supports (padding: max(32px, 32px)) {
+        margin:
+        16px
+        m#{a}x(16px, env(safe-area-inset-left))
+        16px
+        m#{a}x(16px, env(safe-area-inset-right));
+      }
       padding:rem(16);
     }
   }

@@ -1,5 +1,4 @@
 export default {
-
   props: {
     model: [String, Boolean, Object, Number, Array],
     value: [String, Boolean, Object, Number],

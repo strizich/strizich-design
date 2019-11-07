@@ -51,11 +51,12 @@ export default {
       transform: rotateZ(90deg);
       transition: box-shadow .4s ease-in,
                   transform .2s ease-in,
-                  background-color .4s 0s ease-in-out;
+                  background-color .4s 0s ease-in-out,
+                  border-color .2s ease-in-out;
       border: 2px solid var(--divider);
       border-radius: 2px;
     }
-    &:focus-within{
+    &:focus-within, &:hover{
       &:before{
         border-color: var(--primary-darker);
       }
@@ -106,6 +107,7 @@ export default {
        appearance: none;
        width: 0;
        height: 0;
+       border: none;
        @extend %checkbox;
 
       &.is{

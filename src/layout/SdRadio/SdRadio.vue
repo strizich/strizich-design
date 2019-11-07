@@ -1,6 +1,6 @@
 <template>
-  <label :class="['sd--radio', radioClasses]" @click="toggleCheck">
-    <input class="sd--radio__input" v-bind="{ id, name, disabled, required, value, checked: isSelected }" type="radio"/>
+  <label :id="id" :for="name" :class="['sd--radio', radioClasses]" @click="toggleCheck">
+    <input class="sd--radio__input" v-bind="{ name, disabled, required, value, checked: isSelected }" type="radio"/>
     <span class="sd--radio__content">
       <slot/>
     </span>
@@ -61,8 +61,8 @@ export default {
 
 %radio {
   &:before{
-    box-shadow: inset 0 0 0 1px v(--divider), inset 0 0 0 10px v(--background);
     content:'';
+    box-shadow: inset 0 0 0 2px v(--divider);
     width: 18px;
     height: 18px;
     display: inline-block;
@@ -91,14 +91,30 @@ export default {
       }
     }
   }
+  &:hover{
+    outline:none;
+    &:checked{
+      &:before{
+        box-shadow: inset 0 0 0 2px v(--primary-darker),
+                    inset 0 0 0 4px v(--background);
+      }
+    }
+    &:before{
+      box-shadow: inset 0 0 0 2px v(--primary-darker),
+                  inset 0 0 0 10px v(--background);
+    }
+  }
 }
   .sd--radio{
     position: relative;
     display:inline-flex;
     margin-right: 8px;
+    padding: 8px 0;
     &__input{
+      -webkit-appearance: none;
       appearance: none;
       @extend %radio;
+      border: none;
     }
     &__content{
       padding-left: 8px;

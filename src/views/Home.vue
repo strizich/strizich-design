@@ -2,23 +2,46 @@
   <div class="home">
     <h1 class="text__headline">Buttons</h1>
     <div class="buttons">
-      <sd-button theme="primary">Something</sd-button>
-      <sd-button theme="secondary">Something</sd-button>
-      <sd-button theme="success">Something</sd-button>
-      <sd-button theme="warning">Something</sd-button>
-      <sd-button theme="danger">Something</sd-button>
-
-      <sd-chicklet theme="danger" pill>Chiket</sd-chicklet>
+      <template v-for="(button, index) in colorThemes">
+        <sd-button :theme="button" :key="index">Something</sd-button>
+      </template>
     </div>
+    <hr class="divider divider--lg"/>
+     <h1 class="text__headline">Chicklets</h1>
+    <div class="chicklets">
+      <template v-for="(chicklet, index) in colorThemes">
+        <sd-chicklet :theme="chicklet" :key="index">Something</sd-chicklet>
+      </template>
+    </div>
+    <hr class="divider divider--lg"/>
+    <h1 class="text__headline">Checkbox</h1>
     <ul>
       <li v-for="(b, index) in bools" :key="index">
-         <sd-check :name="b.name" v-model="boolResults" :value="b.active">{{b.name}}</sd-check>
+        <sd-check
+          v-model="checkResults[index]"
+          :value="true">
+            {{b.name}}
+        </sd-check>
       </li>
     </ul>
-
+    <hr class="divider divider--lg"/>
+    <h2 class="text__headline">Radio</h2>
     <sd-radio name="blep" v-for="(b, index) in bools" :key="index" v-model="boolResults" :value="b.active">{{b.name}}</sd-radio>
-    {{boolResults}}
-    {{bools}}
+
+    <div class="card__group">
+      <sd-card :elevation="24" spacing="inset">
+        <sd-card-header title="hello"/>
+        <sd-card-body>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mollis.</p>
+        </sd-card-body>
+        <sd-card-footer>
+          Yay
+        </sd-card-footer>
+      </sd-card>
+    </div>
+    <hr class="divider divider--lg"/>
+ <article-card title="Bleep" content="bloop" article-type="Case Study"/>
+    <article-card title="Bleep" content="bloop" article-type="Case Study"/>
   </div>
 </template>
 
@@ -27,12 +50,20 @@ import SdButton from '@/layout/SdButton'
 import SdChicklet from '@/layout/SdChicklet'
 import SdCheck from '@/layout/SdCheckbox/SdCheck'
 import SdRadio from '@/layout/SdRadio/SdRadio'
+import ArticleCard from '@/components/ArticleCard'
+import SdCard from '@/layout/SdCard/SdCard'
+import SdCardHeader from '@/layout/SdCard/SdCardHeader'
+import SdCardBody from '@/layout/SdCard/SdCardBody'
+import SdCardFooter from '@/layout/SdCard/SdCardFooter'
+
 export default {
   name: 'home',
   data () {
     return {
+      colorThemes: ['primary', 'secondary', 'warning', 'danger', 'success'],
       rippleActive: false,
       sdRipple: true,
+      checkResults: [],
       boolResults: {},
       bools: [
         {
@@ -52,15 +83,22 @@ export default {
     SdButton,
     SdCheck,
     SdChicklet,
-    SdRadio
+    SdRadio,
+    SdCard,
+    SdCardHeader,
+    SdCardBody,
+    SdCardFooter,
+    ArticleCard
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .buttons{
-    width: 100%;
-    display:flex;
-    justify-content: space-between
+.card__group{
+  display:flex;
+  margin: 0 -8px;
+  .sd--card{
+    margin: 16px 8px;
   }
+}
 </style>

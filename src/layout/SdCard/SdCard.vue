@@ -1,55 +1,51 @@
 <template>
-  <div class="sd--card">
-    <div class="sd--card__header">
-      <div class="sd--card__header--left">
-        <h4 class="sd--card__title">{{title}}</h4>
-      </div>
-    </div>
+  <div :class="['sd--card', cardElevation]">
     <slot/>
   </div>
 </template>
 
 <script>
+import '@/layout/SdElevation'
+
 export default {
   props: {
-    title: String
+    title: String,
+    baseClass: {
+      type: String,
+      default: 'sd--card'
+    },
+    elevation: {
+      type: [Number, String],
+      default: 4
+    }
+  },
+  computed: {
+    cardElevation: function () {
+      return `sd--elevation--${this.elevation}`
+    }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../scss/engine';
 
 .sd--card{
   background-color: v(--background-variant);
   border: 1px solid v(--highlight);
-  @include sd--elevation(2);
   border-radius: 3px;
-  &__title{
-    margin:0;
+  display:flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  &:hover{
+    z-index: 10;
   }
-  &__header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: spacing(inset, md);
-    position:relative;
-    border-radius: 3px 3px 0 0;
-    h3{
-      margin:0;
-    }
-    &:after{
-      content: '';
-      position: absolute;
-      left: spacing(inset);
-      right: 0;
-      bottom: 0;
-      height: 1px;
-      background-color: v(--divider);
-    }
+  &--inset{
+    padding: 0 16px;
   }
-  &__body{
-    padding: spacing(inset);
+  &--offset{
+    padding: 0 0 0 16px;
   }
 }
 </style>
