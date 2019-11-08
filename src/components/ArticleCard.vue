@@ -1,12 +1,12 @@
 <template>
-  <sd-card :elevation="elevation"
-    @mouseover.native="$event => onMouseOver($event)"
-    @mouseleave.native="$event => onMouseLeave($event)"
-    >
+  <sd-card :elevation="elevation">
     <sd-card-header v-if="title" :title="title"/>
-    <sd-card-body>
+    <sd-card-body v-if="!mediaUrl">
       {{content}}
     </sd-card-body>
+    <sd-card-media ratio="4:3">
+      <img :src="`https://media.graphcms.com/${mediaUrl}`" :alt="title"/>
+    </sd-card-media>
     <sd-card-footer
       align="space-between"
       >
@@ -24,6 +24,7 @@
 import SdCard from '@/layout/SdCard/SdCard'
 import SdCardHeader from '@/layout/SdCard/SdCardHeader'
 import SdCardBody from '@/layout/SdCard/SdCardBody'
+import SdCardMedia from '@/layout/SdCard/SdCardMedia'
 import SdCardFooter from '@/layout/SdCard/SdCardFooter'
 import SdButton from '@/layout/SdButton'
 import SdChicklet from '@/layout/SdChicklet'
@@ -40,7 +41,8 @@ export default {
   props: {
     title: String,
     content: String,
-    articleType: String
+    articleType: String,
+    mediaUrl: String
   },
   methods: {
     countUp: function () {
@@ -58,6 +60,7 @@ export default {
   components: {
     SdCard,
     SdCardHeader,
+    SdCardMedia,
     SdCardBody,
     SdCardFooter,
     SdButton,

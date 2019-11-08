@@ -40,7 +40,7 @@
       </sd-card>
     </div>
     <hr class="divider divider--lg"/>
- <article-card title="Bleep" content="bloop" article-type="Case Study"/>
+ <article-card title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
     <article-card title="Bleep" content="bloop" article-type="Case Study"/>
   </div>
 </template>
