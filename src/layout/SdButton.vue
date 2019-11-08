@@ -45,9 +45,7 @@ export default {
     theme: {
       type: String,
       default: 'primary'
-    },
-    iconLeft: String,
-    iconRight: String
+    }
   },
   computed: {
     modifiers: function () {
