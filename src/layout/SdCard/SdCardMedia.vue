@@ -15,12 +15,15 @@ export default {
         '16-9',
         '16/9',
         '16:9',
+        '16x9',
         '4-3',
         '4/3',
         '4:3',
+        '4x3',
         '1-1',
         '1/1',
-        '1:1'
+        '1:1',
+        '1x1'
       ])
     },
     size: {
@@ -58,6 +61,8 @@ export default {
         ratio = this.ratio.split('/')
       } else if (this.getRatioFormat('-')) {
         ratio = this.ratio.split('-')
+      } else if (this.getRatioFormat('x')) {
+        ratio = this.ratio.split('x')
       }
       return ratio.length === 2 ? ratio : null
     },
@@ -69,31 +74,41 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../scss/mixins';
-  $ratioSizes: (
-    (16, 9),
-    (4, 3),
-    (1, 1)
-  );
+@import '../scss/mixins';
+$ratioSizes: (
+  (16, 9),
+  (4, 3),
+  (1, 1)
+);
 
-  .sd--card {
-    &__media {
-      @each $size in $ratioSizes {
-        $horz: nth($size, 1);
-        $vert: nth($size, 2);
-        &--#{$horz}-#{$vert} {
-          @include aspect-ratio($horz, $vert);
-        }
-      }
-      + .sd--card__header{
-        padding-top: 24px
-      }
-      + .sd--card__content:last-child{
-        padding-bottom :16px;
-      }
-      img {
-        width: 100%;
+.sd--card {
+  &__media {
+    position:relative;
+    @each $size in $ratioSizes {
+      $horz: nth($size, 1);
+      $vert: nth($size, 2);
+      &--#{$horz}-#{$vert} {
+        @include aspect-ratio($horz, $vert);
       }
     }
+    + .sd--card__header{
+      padding-top: 24px
+    }
+    + .sd--card__content:last-child{
+      padding-bottom :16px;
+    }
+    img {
+      width: 100%;
+    }
+    &:first-child{
+      border-radius: 3px 3px 0 0;
+    }
+    &:last-child{
+      border-radius: 0 0 3px 3px;
+    }
+    &:only-child{
+      border-radius: 3px;
+    }
   }
+}
 </style>

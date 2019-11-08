@@ -1,26 +1,13 @@
 <template>
   <button :class="['sd--button', themeClass, modifiers]" @click="onClick">
-    <sd-icon
-    class="sd--button__icon sd--button__icon--left"
-    :size="size"
-    :name="iconLeft"
-    v-if="iconLeft"
-    />
-      <div :class="['sd--button__content', sizeClass]">
-        <slot/>
-      </div>
-    <sd-icon
-    class="sd--button__icon sd--button__icon--right"
-    :name="iconRight"
-    :size="size"
-    v-if="iconRight"
-    />
+    <div :class="['sd--button__content', sizeClass]">
+      <slot/>
+    </div>
     </button>
 </template>
 
 <script>
 import SdFocused from '@/core/mixins/SdFocused.js'
-import SdIcon from '@/layout/SdIcon'
 import sdUuid from '@/utilities/SdUuid.js'
 
 export default {
@@ -84,8 +71,7 @@ export default {
     onClick: function () {
       this.$emit('click')
     }
-  },
-  components: { SdIcon }
+  }
 }
 </script>
 

@@ -1,22 +1,14 @@
 <template>
   <sd-card :elevation="elevation">
-    <sd-card-header v-if="title" :title="title"/>
-    <sd-card-body v-if="!mediaUrl">
+    <sd-card-header v-if="title" :title="title" align="space-between">
+      <sd-chicklet size="sm" :content="articleType" uppercase/>
+    </sd-card-header>
+    <sd-card-body v-if="!imgUrl">
       {{content}}
     </sd-card-body>
-    <sd-card-media ratio="4:3">
-      <img :src="`https://media.graphcms.com/${mediaUrl}`" :alt="title"/>
+    <sd-card-media :ratio="ratio">
+      <img :src="`https://media.graphcms.com/${imgUrl}`" :alt="title"/>
     </sd-card-media>
-    <sd-card-footer
-      align="space-between"
-      >
-      <sd-button
-        @click="countUp"
-        :flat="buttonFlat">
-          {{count}}
-      </sd-button>
-      <sd-chicklet size="lg" theme="warning" :content="articleType" uppercase/>
-    </sd-card-footer>
   </sd-card>
 </template>
 
@@ -25,8 +17,7 @@ import SdCard from '@/layout/SdCard/SdCard'
 import SdCardHeader from '@/layout/SdCard/SdCardHeader'
 import SdCardBody from '@/layout/SdCard/SdCardBody'
 import SdCardMedia from '@/layout/SdCard/SdCardMedia'
-import SdCardFooter from '@/layout/SdCard/SdCardFooter'
-import SdButton from '@/layout/SdButton'
+// import SdCardFooter from '@/layout/SdCard/SdCardFooter'
 import SdChicklet from '@/layout/SdChicklet'
 export default {
   name: 'ArticleCard',
@@ -42,7 +33,11 @@ export default {
     title: String,
     content: String,
     articleType: String,
-    mediaUrl: String
+    imgUrl: String,
+    ratio: {
+      type: String,
+      default: '1:1'
+    }
   },
   methods: {
     countUp: function () {
@@ -62,8 +57,7 @@ export default {
     SdCardHeader,
     SdCardMedia,
     SdCardBody,
-    SdCardFooter,
-    SdButton,
+    // SdCardFooter,
     SdChicklet
   }
 }
@@ -73,5 +67,8 @@ export default {
 .sd--card{
   transition: all .23s;
   margin-bottom:16px;
+  &__title{
+    margin-right: 8px;
+  }
 }
 </style>

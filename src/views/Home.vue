@@ -40,8 +40,11 @@
       </sd-card>
     </div>
     <hr class="divider divider--lg"/>
- <article-card title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
-    <article-card title="Bleep" content="bloop" article-type="Case Study"/>
+    <div class="card__group">
+      <article-card ratio="1:1" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
+      <article-card ratio="4:3" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7" />
+      <article-card ratio="16x9" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
+    </div>
   </div>
 </template>
 
@@ -96,9 +99,12 @@ export default {
 <style lang="scss" scoped>
 .card__group{
   display:flex;
-  margin: 0 -8px;
+  margin: 0 auto;
+  width: 800px;
+  align-items: flex-start;
   .sd--card{
     margin: 16px 8px;
+    width:50%;
   }
 }
 </style>

@@ -75,7 +75,6 @@ export default {
     &:only-child, &:last-child{
       margin-right: 0px;
     }
-
   }
   &.is {
     &--pill {
@@ -87,12 +86,15 @@ export default {
     }
     &--sm {
       font-size: 11px;
+      padding: 2px 4px;
     }
     &--md {
       font-size: 14px;
+      padding:4px;
     }
     &--lg {
       font-size: 16px;
+      padding: 4px 8px;
     }
   }
 }
