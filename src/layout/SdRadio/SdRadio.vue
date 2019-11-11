@@ -1,6 +1,9 @@
 <template>
   <label :id="id" :for="name" :class="['sd--radio', radioClasses]" @click="toggleCheck">
-    <input class="sd--radio__input" v-bind="{ name, disabled, required, value, checked: isSelected }" type="radio"/>
+    <input
+      class="sd--radio__input"
+      v-bind="{ name, disabled, required, value, checked: isSelected }"
+      type="radio"/>
     <span class="sd--radio__content">
       <slot/>
     </span>

@@ -23,10 +23,7 @@ export default {
   name: 'ArticleCard',
   data () {
     return {
-      elevation: 4,
-      count: 0,
-      isHover: false,
-      buttonFlat: true
+      elevation: 4
     }
   },
   props: {
@@ -42,14 +39,6 @@ export default {
   methods: {
     countUp: function () {
       return this.count++
-    },
-    onMouseOver: function (event) {
-      this.buttonFlat = false
-      this.elevation = 24
-    },
-    onMouseLeave: function (event) {
-      this.buttonFlat = true
-      this.elevation = 4
     }
   },
   components: {
@@ -57,7 +46,6 @@ export default {
     SdCardHeader,
     SdCardMedia,
     SdCardBody,
-    // SdCardFooter,
     SdChicklet
   }
 }

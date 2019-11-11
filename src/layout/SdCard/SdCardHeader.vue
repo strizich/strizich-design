@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import SdAlignmentMixin from '@/layout/SdCard/SdAlignmentMixin.js'
+import SdAlignmentMixin from '@/core/mixins/SdAlignmentMixin.js'
 
 export default {
   name: 'SdCardHeader',

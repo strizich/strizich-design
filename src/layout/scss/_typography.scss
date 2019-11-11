@@ -16,6 +16,12 @@
     letter-spacing: 2px;
     margin-bottom:4px;
   }
+  &__footnote{
+    color: v(--text-accent);
+    font-size: rem(14);
+    line-height: rem(14);
+    margin-bottom: 0;
+  }
 }
 
 .sd--list{

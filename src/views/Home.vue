@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <home-mast/>
     <h1 class="text__headline">Buttons</h1>
     <div class="buttons">
       <template v-for="(button, index) in colorThemes">
@@ -39,11 +40,12 @@
         </sd-card-footer>
       </sd-card>
     </div>
+
     <hr class="divider divider--lg"/>
     <div class="card__group">
       <article-card ratio="1:1" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
       <article-card ratio="4:3" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7" />
-      <article-card ratio="16x9" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
+      <article-card ratio="16:9" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
     </div>
   </div>
 </template>
@@ -58,6 +60,7 @@ import SdCard from '@/layout/SdCard/SdCard'
 import SdCardHeader from '@/layout/SdCard/SdCardHeader'
 import SdCardBody from '@/layout/SdCard/SdCardBody'
 import SdCardFooter from '@/layout/SdCard/SdCardFooter'
+import HomeMast from '@/components/HomeMast'
 
 export default {
   name: 'home',
@@ -91,7 +94,8 @@ export default {
     SdCardHeader,
     SdCardBody,
     SdCardFooter,
-    ArticleCard
+    ArticleCard,
+    HomeMast
   }
 }
 </script>

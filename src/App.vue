@@ -1,37 +1,47 @@
 <template>
-  <div id="app">
+  <sd-layout id="app">
     <the-header/>
-    <main class="app__content">
+
+    <div class="app__content">
       <router-view/>
-    </main>
-  </div>
+    </div>
+
+    <the-footer align="space-between">
+      <template v-slot:start>
+        <strong class="text__footnote">Made with love.</strong>
+      </template>
+
+      <template v-slot:end>
+        <small class="text__footnote">Powered by: <em>VueJS</em> and <em>GraphCMS</em></small>
+      </template>
+    </the-footer>
+  </sd-layout>
 </template>
 
 <script>
 import '@/layout/scss'
-import TheHeader from '@/layout/TheHeader'
+import SdLayout from '@/layout/SdLayout'
+import TheHeader from '@/components/TheHeader'
+import TheFooter from '@/components/TheFooter'
 export default {
   components: {
-    TheHeader
+    TheHeader,
+    TheFooter,
+    SdLayout
   }
 }
 </script>
 <style lang="scss">
   @import './layout/scss/functions';
+  @import './layout/scss/mixins';
   body, html{
     background: v(--background);
     color: v(--text);
   }
   .app{
     &__content{
-      @supports (padding: max(32px, 32px)) {
-        margin:
-        16px
-        m#{a}x(16px, env(safe-area-inset-left))
-        16px
-        m#{a}x(16px, env(safe-area-inset-right));
-      }
-      padding:rem(16);
+     @include iosSafeArea;
+      padding: rem(16);
     }
   }
 </style>

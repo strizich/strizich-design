@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import SdAlignmentMixin from '@/layout/SdCard/SdAlignmentMixin.js'
-import SdSpacingMixin from '@/layout/SdCard/SdSpacingMixin.js'
+import SdAlignmentMixin from '@/core/mixins/SdAlignmentMixin.js'
+import SdSpacingMixin from '@/core/mixins/SdSpacingMixin.js'
 export default {
   name: 'SdCardFooter',
   mixins: [SdAlignmentMixin, SdSpacingMixin]

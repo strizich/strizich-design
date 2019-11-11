@@ -24,21 +24,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './scss/functions';
-
+@import '../layout/scss/functions';
+@import '../layout/scss/mixins';
 .header{
   background-color: v(--background-variant);
   padding: 16px;
   &__wrapper{
     display:flex;
     justify-content: space-between;
-    @supports (padding: max(16px, 16px)) {
-      margin:
-        0
-        m#{a}x(16px, env(safe-area-inset-left))
-        0
-        m#{a}x(16px, env(safe-area-inset-right));
-    }
+    @include iosSafeArea;
   }
   &__branding{
     color: v(--text-primary);

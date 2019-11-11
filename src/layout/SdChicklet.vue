@@ -1,5 +1,5 @@
 <template>
-  <span :class="[...componentClasses, modifiers]">
+  <span :class="[componentClasses, modifiers]">
     {{content}}
     <slot v-if="!content"/>
   </span>
