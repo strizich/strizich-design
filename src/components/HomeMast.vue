@@ -1,13 +1,26 @@
 <template>
   <section class="mast">
     I am mast.
-    <span class="mouse-graphic"/>
+    <icon-mouse class="mouse-graphic"/>
+    <icon-mouse-alt/>
+    <icon-mouse-click left-click/>
+    <icon-mouse-click right-click/>
+    <icon-mouse-click left-shoulder/>
+    <icon-mouse-click right-shoulder/>
   </section>
 </template>
 
 <script>
+import IconMouse from '@/components/IconMouse'
+import IconMouseAlt from '@/components/IconMouseAlt'
+import IconMouseClick from '@/components/IconMouseClick'
 export default {
-  name: 'HomeMast'
+  name: 'HomeMast',
+  components: {
+    IconMouse,
+    IconMouseAlt,
+    IconMouseClick
+  }
 }
 </script>
 
@@ -21,19 +34,16 @@ export default {
   .mast{
     margin: -16px -16px 32px -16px;
     min-height: $mast-height;
-    background: sd-gradient(v(--secondary), v(--primary));
+    background: sd-gradient(v(--secondary-darker), v(--secondary-lighter));
     position: relative;
   }
   .mouse-graphic {
-    width: 25px;
-    height: 39px;
+    width: 32px;
+    height: 42px;
     display:block;
-    background: url('/img/mouse-graphic.svg') no-repeat;
     position: absolute;
     bottom:16px;
     left:50%;
-    margin-left: -12.5px;
-    margin-top: -19.5px;
+    margin-left: -16px;
   }
-
 </style>
