@@ -2,24 +2,15 @@
   <section class="mast">
     I am mast.
     <icon-mouse class="mouse-graphic"/>
-    <icon-mouse-alt/>
-    <icon-mouse-click left-click/>
-    <icon-mouse-click right-click/>
-    <icon-mouse-click left-shoulder/>
-    <icon-mouse-click right-shoulder/>
   </section>
 </template>
 
 <script>
 import IconMouse from '@/components/IconMouse'
-import IconMouseAlt from '@/components/IconMouseAlt'
-import IconMouseClick from '@/components/IconMouseClick'
 export default {
   name: 'HomeMast',
   components: {
-    IconMouse,
-    IconMouseAlt,
-    IconMouseClick
+    IconMouse
   }
 }
 </script>
@@ -37,6 +28,7 @@ export default {
     background: sd-gradient(v(--secondary-darker), v(--secondary-lighter));
     position: relative;
   }
+
   .mouse-graphic {
     width: 32px;
     height: 42px;

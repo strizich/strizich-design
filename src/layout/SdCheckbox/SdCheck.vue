@@ -1,10 +1,10 @@
 <template>
  <!-- Simplified version of the checkbox -->
-  <label class="sd--checkbox" :class="classes" @click.prevent="toggleCheck">
+  <label class="" :class="['sd--checkbox', classes]" @click.prevent="toggleCheck">
       <input
         type="checkbox"
         :id="id"
-        :class="['sd--checkbox__field', checkClasses]"
+        :class="['sd--checkbox__field', checkClasses, animClasses]"
         :checked="isSelected"
         :indeterminate="indeterminate"
         v-bind="attributes"
@@ -23,6 +23,10 @@ export default {
     id: {
       type: String,
       default: () => 'sd-checkbox--' + sdUuid()
+    },
+    rotateAnim: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -30,12 +34,19 @@ export default {
       return {
         'is--disabled': this.disabled
       }
+    },
+    animClasses: function () {
+      return {
+        'is--rotated': this.rotateAnim
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  $checkmarkSvgUri: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='18' viewBox='0 0 19 18'%3E%3Cpolyline fill='none' stroke='%23FFF' stroke-width='3' points='4 14 10 19 20 5' transform='translate(-3 -4)'/%3E%3C/svg%3E%0A";
+
   %checkbox{
     &:before{
       content: '';
@@ -48,7 +59,6 @@ export default {
       background-color: var(--background);
       box-shadow: inset 0 0 0 30px var(--background-accent);
       display:block;
-      transform: rotateZ(90deg);
       transition: box-shadow .4s ease-in,
                   transform .2s ease-in,
                   background-color .4s 0s ease-in-out,
@@ -61,27 +71,40 @@ export default {
         border-color: var(--primary-darker);
       }
     }
+    &.is--rotated {
+      &:before{
+        transform: rotateZ(90deg);
+      }
+    }
   }
   %checked{
     &:before{
       box-shadow: inset 0 0 0 0 #fff;
       border-color: var(--primary);
-      background: url(/img/icon-checked.svg) no-repeat center center;
+      background: url($checkmarkSvgUri) no-repeat center center;
       background-color: var(--primary);
       background-size: 12px;
-      transform: rotateZ(0deg);
       transition: box-shadow .4s ease-out,
                   transform .2s ease-out,
                   background-color .4s 0s ease-in-out;
+    }
+    &.is--rotated {
+      &:before{
+        transform: rotateZ(0deg);
+      }
     }
   }
   %indeterminate{
     &:before{
       border:2px solid var(--divider);
       background: url(/img/icon-indeterminate.svg) var(--divider) no-repeat center center;
-      transform: rotateZ(0deg);
       box-shadow: inset 0 0 0 0px var(--divider);
       background-size: 8px;
+    }
+     &.is--rotated {
+      &:before{
+        transform: rotateZ(0deg);
+      }
     }
   }
   %disabled{
