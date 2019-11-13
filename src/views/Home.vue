@@ -101,6 +101,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.buttons{
+  display: flex;
+  justify-content: space-evenly;
+}
 .card__group{
   display:flex;
   margin: 0 auto;
