@@ -140,16 +140,19 @@ export default {
         @include sd--elevation(4);
         @supports(background-image: linear-gradient(0deg, #fff, #fff)) {
           color: sd-color($contrast, text);
-          background-color: $darker;
           background-image: sd-gradient($base, transparent);
         }
-        color: sd-color($contrast, text);
+        color: sd-color($contrast-darker, text);
+        background-color: $darker;
         transition: all .2s ease-out;
       }
       &:active {
         color: sd-color($contrast-lighter, text);
         background-color: $lighter;
-        background-image: sd-gradient($darker, transparent);
+        @supports(background-image: linear-gradient(0deg, #fff, #fff)) {
+          background-image: sd-gradient($darker, transparent);
+          color: sd-color($contrast-darker, text);
+        }
         @include sd--elevation(6);
         transition: all .2s ease-out;
       }
