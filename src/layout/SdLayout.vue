@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'TheFooter'
+  name: 'TheLayout'
 }
 </script>
 

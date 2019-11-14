@@ -4,14 +4,14 @@
     <h1 class="text__headline">Buttons</h1>
     <div class="buttons">
       <template v-for="(button, index) in colorThemes">
-        <sd-button :theme="button" :key="index">Something</sd-button>
+        <sd-button :theme="button.color" :key="index">Something</sd-button>
       </template>
     </div>
     <hr class="divider divider--lg"/>
      <h1 class="text__headline">Chicklets</h1>
     <div class="chicklets">
       <template v-for="(chicklet, index) in colorThemes">
-        <sd-chicklet :theme="chicklet" :key="index">Something</sd-chicklet>
+        <sd-chicklet :theme="chicklet.color" :key="index">Something</sd-chicklet>
       </template>
     </div>
     <hr class="divider divider--lg"/>
@@ -34,6 +34,7 @@
         <sd-card-header title="hello"/>
         <sd-card-body>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mollis.</p>
+          <sd-tooltip direction="top" theme="primary">Top</sd-tooltip>
         </sd-card-body>
         <sd-card-footer>
           Yay
@@ -42,6 +43,7 @@
     </div>
 
     <hr class="divider divider--lg"/>
+
     <div class="card__group">
       <article-card ratio="1:1" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
       <article-card ratio="4:3" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7" />
@@ -61,14 +63,20 @@ import SdCardHeader from '@/layout/SdCard/SdCardHeader'
 import SdCardBody from '@/layout/SdCard/SdCardBody'
 import SdCardFooter from '@/layout/SdCard/SdCardFooter'
 import HomeMast from '@/components/HomeMast'
-
+import SdTooltip from '@/layout/SdTooltip'
 export default {
   name: 'home',
   data () {
     return {
-      colorThemes: ['primary', 'secondary', 'warning', 'danger', 'success'],
+      colorThemes: [
+        { color: 'primary', direction: 'top' },
+        { color: 'secondary', direction: 'bottom' },
+        { color: 'warning', direction: 'left' },
+        { color: 'danger', direction: 'right' },
+        { color: 'success', direction: 'top' }],
       rippleActive: false,
       sdRipple: true,
+      active: false,
       checkResults: [],
       boolResults: {},
       bools: [
@@ -95,7 +103,8 @@ export default {
     SdCardBody,
     SdCardFooter,
     ArticleCard,
-    HomeMast
+    HomeMast,
+    SdTooltip
   }
 }
 </script>
@@ -114,7 +123,6 @@ export default {
   .sd--card{
     margin: 16px 8px;
     width: 50%;
-
   }
 }
 </style>

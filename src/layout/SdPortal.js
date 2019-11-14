@@ -6,8 +6,8 @@ export default {
   abstract: true,
   data () {
     return {
-      leaveTimeout: null,
-      parentEl: null
+      originalParent: null,
+      leaveTimeout: null
     }
   },
   props: {
@@ -83,7 +83,7 @@ export default {
     killGhostElement: function (el) {
       if (el.parentNode) {
         this.changeParentEl(this.parentNode)
-        this.$options._parentElm = this.originalParentEl
+        this.$options._parentElm = this.originalParent
         el.parentNode.removeChild(el)
       }
     },
@@ -120,7 +120,13 @@ export default {
   mounted () {
     if (!this.parentEl) {
       this.parentEl = this.$el.parentNode
-      this.$emit('sd-orignal-parent', this.$el.parentNode)
+      this.$emit('sd-original-parent', this.$el.parentNode)
+    }
+
+    if (this.mdAttachToParent && this.$el.parentNode.parentNode) {
+      this.changeParentEl(this.$el.parentNode.parentNode)
+    } else if (document) {
+      this.changeParentEl(this.target || document.body)
     }
   },
   beforeDestroy () {
@@ -131,7 +137,7 @@ export default {
     }
   },
   render (createElement) {
-    const defaultSlot = this.$slots.defaultSlot[0]
+    const defaultSlot = this.$slots.default
     if (defaultSlot && defaultSlot[0]) {
       return defaultSlot[0]
     }
