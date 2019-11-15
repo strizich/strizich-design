@@ -56,6 +56,7 @@ export default {
       }
     },
     getPopperOptions: function () {
+      console.log('get options')
       return {
         placement: 'bottom',
         modifiers: {
@@ -64,6 +65,7 @@ export default {
             padding: 16
           },
           computeStyle: {
+            enabled: true,
             gpuAcceleration: false
           }
         },
@@ -77,17 +79,15 @@ export default {
       this.$nextTick().then(() => {
         if (this.originalParent) {
           this.createPopper()
-          console.log('Created')
         }
       })
     },
     createPopper: function () {
       if (this.settings) {
-        const options = deepmerge(this.getPopperOptions, this.settings)
-
+        const options = deepmerge(this.getPopperOptions(), this.settings)
+        console.log(options)
         if (this.$el.nodeType !== Node.COMMENT_NODE) {
           this.popperInstance = new Popper(this.originalParent, this.$el, options)
-          console.log('Popper Created')
         }
       }
     },
@@ -95,14 +95,12 @@ export default {
       if (this.popperInstance) {
         this.popperInstance.destroy()
         this.popperInstance = null
-        console.log('Popper Killed')
       }
     },
     resetPopper: function () {
       if (this.popperInstance) {
         this.killPopper()
         this.createPopper()
-        console.log('Popper Reset')
       }
     }
   },

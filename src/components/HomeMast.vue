@@ -1,16 +1,21 @@
 <template>
   <section class="mast">
     I am mast.
-    <icon-mouse class="mouse-graphic"/>
+    <div class="mouse-graphic">
+    <icon-mouse/>
+    <sd-tooltip direction="right">Scroll Down</sd-tooltip>
+    </div>
   </section>
 </template>
 
 <script>
 import IconMouse from '@/components/IconMouse'
+import SdTooltip from '@/layout/SdTooltip'
 export default {
   name: 'HomeMast',
   components: {
-    IconMouse
+    IconMouse,
+    SdTooltip
   }
 }
 </script>

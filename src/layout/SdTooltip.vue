@@ -1,7 +1,7 @@
 <template>
   <sd-popover :settings="popperSettings" :active="shouldRender">
-    <transition v-if="shouldRender">
-      <div :class="['sd--tooltip', tooltipClasses, themeClasses]" :style="tooltipStyles">
+    <transition duration="300" v-if="shouldRender" @enter="enter" @leave="enter">
+      <div :class="['sd--tooltip', tooltipClasses, themeClasses]" :style="[tooltipStyles, animationSetup]">
         <slot />
       </div>
     </transition>
@@ -11,6 +11,8 @@
 <script>
 import SdPopover from '@/layout/SdPopover'
 import SdPropValidator from '@/utilities/SdPropValidator.js'
+import anime from 'animejs'
+
 export default {
   name: 'SdTooltip',
   components: { SdPopover },
@@ -30,7 +32,8 @@ export default {
   data () {
     return {
       shouldRender: false,
-      targetEl: null
+      targetEl: null,
+      animationSetup: {}
     }
   },
   computed: {
@@ -47,13 +50,9 @@ export default {
       return {
         placement: this.direction,
         modifiers: {
-          offset: {
+          offsets: {
             offset: '0, 16'
           }
-        },
-        computeStyle: {
-          gpuAcceleration: false,
-          enabled: true
         }
       }
     }
@@ -72,6 +71,29 @@ export default {
     },
     hide: function () {
       this.shouldRender = false
+    },
+    beforeEnter: function () {
+      this.animationSetup = {
+        'opacity': 0,
+        'transform': 'scale(0.5)'
+      }
+    },
+    enter: function () {
+      anime({
+        targets: '.sd--tooltip',
+        keyframes: [
+          {
+            translateY: 16,
+            opacity: 0,
+            scale: 0.5
+          },
+          {
+            translateY: 0,
+            opacity: 1,
+            scale: 1
+          }
+        ]
+      })
     }
   },
   mounted () {
@@ -96,6 +118,7 @@ export default {
 
 <style lang="scss" scoped>
 @import './scss/colors';
+@import './SdElevation/elevation';
 
 .sd--tooltip {
     height: 32px;
@@ -104,39 +127,25 @@ export default {
     z-index: 111;
     pointer-events: none;
     border-radius: 2px;
-    transition: .6s ease-in;
     transition-property: opacity, transform;
     will-change: opacity, transform, top, left !important;
     font-size: 14px;
     line-height: 32px;
     text-transform: none;
     white-space: nowrap;
-    background-color: green;
+    opacity:1;
+    background-color: var(--background-variant);
+    @include sd--elevation(6);
+    &.v-enter{
+      transform: scale(0.5);
+      opacity: 0;
+    }
     @each $state, $color in $sd-color-global {
     $default: nth($color, 1);
     $variant: nth($color, 2);
     $contrast: sd-pick-contrast($default);
       &__#{$state} {
         background-color: $default;
-      }
-    }
-    &.v-enter-active {
-        transform: translate3d(0, -4px, 0) scale(0);
-    }
-    &.v-enter,
-    &.v-leave-active {
-      opacity: 0;
-      &.sd--tooltip--top {
-        transform: translate3d(0, 4px, 0) scale(0.5);
-      }
-      &.sd--tooltip--right {
-        transform: translate3d(-4px, 0, 0) scale(0.5);
-      }
-      &.sd--tooltip--bottom {
-        transform: scale(0.5);
-      }
-      &.sd--tooltip--left {
-        transform: translate3d(4px, 0, 0) scale(0.5);
       }
     }
   }
