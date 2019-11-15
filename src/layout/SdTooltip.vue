@@ -83,12 +83,10 @@ export default {
         targets: '.sd--tooltip',
         keyframes: [
           {
-            translateY: 16,
             opacity: 0,
             scale: 0.5
           },
           {
-            translateY: 0,
             opacity: 1,
             scale: 1
           }
@@ -137,7 +135,7 @@ export default {
     background-color: var(--background-variant);
     @include sd--elevation(6);
     &.v-enter{
-      transform: scale(0.5);
+      transform: scale(0);
       opacity: 0;
     }
     @each $state, $color in $sd-color-global {
