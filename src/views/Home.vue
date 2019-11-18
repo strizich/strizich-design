@@ -11,7 +11,12 @@
      <h1 class="text__headline">Chicklets</h1>
     <div class="chicklets">
       <template v-for="(chicklet, index) in colorThemes">
-        <sd-chicklet :theme="chicklet.color" :key="index">Something</sd-chicklet>
+        <sd-chicklet :theme="chicklet.color" :key="index">Something
+          <sd-tooltip direction="top" theme="primary">One</sd-tooltip>
+          <sd-tooltip direction="bottom" theme="secondary">One</sd-tooltip>
+          <sd-tooltip direction="left" theme="danger">One</sd-tooltip>
+          <sd-tooltip direction="right" theme="success">One</sd-tooltip>
+        </sd-chicklet>
       </template>
     </div>
     <hr class="divider divider--lg"/>

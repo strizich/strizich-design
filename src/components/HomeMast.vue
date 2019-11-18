@@ -1,9 +1,18 @@
 <template>
   <section class="mast">
-    I am mast.
+    <div class="mast__content">
+      <p class="text__caption">Leading Sentence</p>
+      <h1 class="text__headline">Hello, This is a thing</h1>
+      <p>Here is some more text and a thing with a
+        <span>
+          <u>Tooltip</u>
+          <sd-tooltip>Just the tip</sd-tooltip>
+        </span>
+      </p>
+    </div>
     <div class="mouse-graphic">
-    <icon-mouse/>
-    <sd-tooltip direction="right">Scroll Down</sd-tooltip>
+      <icon-mouse/>
+      <sd-tooltip direction="top" theme="secondary">Scroll Down</sd-tooltip>
     </div>
   </section>
 </template>
@@ -32,14 +41,24 @@ export default {
     min-height: $mast-height;
     background: sd-gradient(v(--secondary-darker), v(--secondary-lighter));
     position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    &__content{
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 0 64px;
+    }
   }
 
   .mouse-graphic {
     width: 32px;
     height: 42px;
+    padding:16px 0;
     display:block;
     position: absolute;
-    bottom:16px;
+    bottom:32px;
     left:50%;
     margin-left: -16px;
   }

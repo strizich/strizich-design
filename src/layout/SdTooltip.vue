@@ -1,6 +1,6 @@
 <template>
   <sd-popover :settings="popperSettings" :active="shouldRender">
-    <transition duration="300" v-if="shouldRender" @enter="enter" @leave="leave">
+    <transition duration="260" v-if="shouldRender" @enter="enter" @leave="leave">
       <div :class="['sd--tooltip', tooltipClasses, themeClasses]" :style="tooltipStyles">
         <span class="sd--tooltip__content">
           <slot />
@@ -32,7 +32,7 @@ export default {
     },
     direction: {
       type: String,
-      default: 'bottom',
+      default: 'top',
       ...SdPropValidator('direction', ['top', 'bottom', 'left', 'right'])
     }
   },
