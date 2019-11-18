@@ -5,11 +5,9 @@
     </span>
     <input class="sd--field__input" :type="type"/>
   </label>
-
 </template>
 
 <script>
-
 export default {
   name: 'SdField',
   data () {

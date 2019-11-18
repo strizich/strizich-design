@@ -1,0 +1,49 @@
+@import './breakpoints';
+
+$grid-gutter: 16px;
+$grid-gutter-tight: 8px;
+$grid-columns: 12;
+$container-max-width: 960px;
+
+
+// Mixins
+
+@mixin make-container-max-width($breakpoints: $breakpoints) {
+  @each $breakpoint in $breakpoints {
+    $max-width: map-get($breakpoint, $breakpoint-size);
+    @include breakpoint-up($breakpoint) {
+      max-width: $max-width;
+    }
+  }
+}
+
+@mixin make-row($gutter: $grid-gutters) {
+  display:flex;
+  flex-wrap: wrap;
+  margin-left: -$gutter / 2;
+  margin-right: -$gutter / 2;
+}
+
+@mixin ready-columns ($gutter: $grid-gutter) {
+  position: relative;
+  width: 100%;
+  padding-left: $gutter / 2;
+  padding-right: $gutter / 2;
+}
+
+@mixin make-col($size, $columns:  $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  $num: $size / $columns;
+  margin-left: if($num == 0, 0, percentage($num));
+}
+
+@mixin row-cols($count) {
+  & > * {
+    flex: 0 0 100% / $count;
+    max-width: 100% / $count;
+  }
+}

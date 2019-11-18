@@ -1,8 +1,10 @@
 <template>
   <sd-popover :settings="popperSettings" :active="shouldRender">
-    <transition duration="300" v-if="shouldRender" @enter="enter" @leave="enter">
-      <div :class="['sd--tooltip', tooltipClasses, themeClasses]" :style="[tooltipStyles, animationSetup]">
-        <slot />
+    <transition duration="300" v-if="shouldRender" @enter="enter" @leave="leave">
+      <div :class="['sd--tooltip', tooltipClasses, themeClasses]" :style="tooltipStyles">
+        <span class="sd--tooltip__content">
+          <slot />
+        </span>
       </div>
     </transition>
   </sd-popover>
@@ -15,7 +17,12 @@ import anime from 'animejs'
 
 export default {
   name: 'SdTooltip',
-  components: { SdPopover },
+  data () {
+    return {
+      shouldRender: false,
+      targetEl: null
+    }
+  },
   props: {
     active: Boolean,
     theme: String,
@@ -27,13 +34,6 @@ export default {
       type: String,
       default: 'bottom',
       ...SdPropValidator('direction', ['top', 'bottom', 'left', 'right'])
-    }
-  },
-  data () {
-    return {
-      shouldRender: false,
-      targetEl: null,
-      animationSetup: {}
     }
   },
   computed: {
@@ -72,26 +72,35 @@ export default {
     hide: function () {
       this.shouldRender = false
     },
-    beforeEnter: function () {
-      this.animationSetup = {
-        'opacity': 0,
-        'transform': 'scale(0.5)'
-      }
-    },
-    enter: function () {
-      anime({
-        targets: '.sd--tooltip',
-        keyframes: [
-          {
-            opacity: 0,
-            scale: 0.5
-          },
-          {
-            opacity: 1,
-            scale: 1
-          }
-        ]
+    enter: function (done) {
+      const timeline = anime.timeline({
+        delay: this.delay,
+        complete: function (anim) { done = anim }
       })
+      timeline.add({
+        targets: '.sd--tooltip__content',
+        delay: this.delay,
+        opacity: [0, 1]
+      }).add({
+        targets: '.sd--tooltip',
+        opacity: [0, 1],
+        scale: [0, 1]
+      }, 100)
+    },
+    leave: function (done) {
+      const timeline = anime.timeline({
+        delay: this.delay,
+        complete: function (anim) { done = anim }
+      })
+      timeline.add({
+        targets: '.sd--tooltip__content',
+        delay: this.delay,
+        opacity: [1, 0]
+      }).add({
+        targets: '.sd--tooltip',
+        opacity: [1, 0],
+        scale: [1, 0]
+      }, 100)
     }
   },
   mounted () {
@@ -110,7 +119,8 @@ export default {
       this.targetEl.removeEventListener('mouseenter', this.show)
       this.targetEl.removeEventListener('mouseleave', this.hide)
     }
-  }
+  },
+  components: { SdPopover }
 }
 </script>
 
@@ -125,13 +135,10 @@ export default {
     z-index: 111;
     pointer-events: none;
     border-radius: 2px;
-    transition-property: opacity, transform;
-    will-change: opacity, transform, top, left !important;
     font-size: 14px;
     line-height: 32px;
     text-transform: none;
     white-space: nowrap;
-    opacity:1;
     background-color: var(--background-variant);
     @include sd--elevation(6);
     &.v-enter{
