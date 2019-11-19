@@ -56,7 +56,6 @@ export default {
       }
     },
     getPopperOptions: function () {
-      console.log('get options')
       return {
         placement: 'bottom',
         modifiers: {
@@ -85,7 +84,6 @@ export default {
     createPopper: function () {
       if (this.settings) {
         const options = deepmerge(this.getPopperOptions(), this.settings)
-        console.log(options)
         if (this.$el.nodeType !== Node.COMMENT_NODE) {
           this.popperInstance = new Popper(this.originalParent, this.$el, options)
         }
