@@ -3,7 +3,7 @@
     <div class="mast__content">
       <p class="text__caption">Leading Sentence</p>
       <h1 class="text__headline">Hello, This is a thing</h1>
-      <p>Here is some more text and a thing with a
+      <p class="text">Here is some more text and a thing with a
         <span>
           <u>Tooltip</u>
           <sd-tooltip>Just the tip</sd-tooltip>
@@ -48,7 +48,7 @@ export default {
       width: 100%;
       max-width: 920px;
       margin: 0 auto;
-      padding: 0 0 64px;
+      padding: 0 16px 64px;
     }
   }
 

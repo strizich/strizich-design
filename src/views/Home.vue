@@ -122,12 +122,14 @@ export default {
 .card__group{
   display:flex;
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 930px;
   align-items: flex-start;
   flex-wrap: wrap;
   .sd--card{
     margin: 16px 8px;
-    width: 50%;
   }
+}
+.buttons{
+  flex-wrap: wrap;
 }
 </style>
