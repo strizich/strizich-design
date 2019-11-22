@@ -11,12 +11,7 @@
      <h1 class="text__headline">Chicklets</h1>
     <div class="chicklets">
       <template v-for="(chicklet, index) in colorThemes">
-        <sd-chicklet :theme="chicklet.color" :key="index">Something
-          <sd-tooltip direction="top" theme="primary">One</sd-tooltip>
-          <sd-tooltip direction="bottom" theme="secondary">One</sd-tooltip>
-          <sd-tooltip direction="left" theme="danger">One</sd-tooltip>
-          <sd-tooltip direction="right" theme="success">One</sd-tooltip>
-        </sd-chicklet>
+        <sd-chicklet :theme="chicklet.color" :key="index">Something</sd-chicklet>
       </template>
     </div>
     <hr class="divider divider--lg"/>
@@ -28,13 +23,29 @@
           :value="true">
             {{b.name}}
         </sd-check>
+        <sd-switch
+          v-model="checkResults[index]"
+          :value="true">
+            {{b.name}}
+        </sd-switch>
       </li>
     </ul>
+
     <hr class="divider divider--lg"/>
+
     <h2 class="text__headline">Radio</h2>
     <sd-radio name="blep" v-for="(b, index) in bools" :key="index" v-model="boolResults" :value="b.active">{{b.name}}</sd-radio>
 
-    <div class="card__group">
+    <div class="cards">
+    </div>
+
+    <hr class="divider divider--lg"/>
+
+    <div class="section__header">
+      <h3>Custom Card</h3>
+    </div>
+    <div class="cards">
+      <sd-switch>123</sd-switch>
       <sd-card :elevation="24" spacing="inset">
         <sd-card-header title="hello"/>
         <sd-card-body>
@@ -45,13 +56,11 @@
           Yay
         </sd-card-footer>
       </sd-card>
-    </div>
 
-    <hr class="divider divider--lg"/>
-
-    <div class="card__group">
       <article-card ratio="1:1" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
+
       <article-card ratio="4:3" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7" />
+
       <article-card ratio="16:9" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
     </div>
   </div>
@@ -69,6 +78,8 @@ import SdCardBody from '@/layout/SdCard/SdCardBody'
 import SdCardFooter from '@/layout/SdCard/SdCardFooter'
 import HomeMast from '@/components/HomeMast'
 import SdTooltip from '@/layout/SdTooltip'
+import SdSwitch from '@/layout/SdCheckbox/SdSwitch'
+
 export default {
   name: 'home',
   data () {
@@ -109,7 +120,8 @@ export default {
     SdCardFooter,
     ArticleCard,
     HomeMast,
-    SdTooltip
+    SdTooltip,
+    SdSwitch
   }
 }
 </script>
@@ -119,14 +131,14 @@ export default {
   display: flex;
   justify-content: space-evenly;
 }
-.card__group{
+.cards{
   display:flex;
   margin: 0 auto;
   max-width: 930px;
   align-items: flex-start;
   flex-wrap: wrap;
   .sd--card{
-    margin: 16px 8px;
+    margin: 16px 8px;;
   }
 }
 .buttons{
