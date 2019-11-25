@@ -1,7 +1,7 @@
 <template>
   <sd-layout id="app" :sidebar="menuState">
     <template v-slot:header>
-      <the-header @menu-open="menuToggle($event)"/>
+      <the-header :menuOpen="menuState" @toggle:menu="menuToggle($event)"/>
     </template>
     <template v-slot:content>
       <div class="app__content">
@@ -43,10 +43,17 @@ export default {
     TheSidebar,
     SdLayout
   },
+  created () {
+    this.getMenuState()
+  },
   methods: {
+    getMenuState: function () {
+      const state = window.localStorage.getItem('menuState')
+      this.menuState = !!state
+    },
     menuToggle: function (event) {
       this.menuState = event
-      console.log(event)
+      window.localStorage.setItem('menuState', event)
     }
   }
 }

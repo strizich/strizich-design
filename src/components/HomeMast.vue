@@ -20,6 +20,7 @@
 <script>
 import IconMouse from '@/components/IconMouse'
 import SdTooltip from '@/layout/SdTooltip'
+
 export default {
   name: 'HomeMast',
   components: {
@@ -55,11 +56,13 @@ export default {
   .mouse-graphic {
     width: 32px;
     height: 42px;
-    padding:0;
-    display:block;
+    padding: 0;
+    display: block;
     position: absolute;
-    bottom:100px;
-    left:50%;
+    bottom:0;
+    top:auto;
+    left: 50%;
+    margin-bottom: 50px;
     margin-left: -16px;
   }
 </style>

@@ -1,5 +1,5 @@
 <template>
-   <button class="sd--button sd--button__flat" @click="setAnimation">
+   <button class="sd--button sd--button__flat" :class="isFocused" @click="setAnimation">
       <span class="sd--hamburger">
         <i class="sd--hamburger__bar" :class="`bar--${n}`" v-for="n in 3" :key="n"/>
       </span>
@@ -8,67 +8,81 @@
 
 <script>
 import anime from 'animejs'
+import SdFocused from '@/core/mixins/SdFocused'
 export default {
   name: 'IconHamburger',
   data () {
     return {
-      isOpen: false
+      isOpen: this.active
     }
+  },
+  mixins: [ SdFocused ],
+  props: {
+    active: [Boolean, String]
+  },
+  mounted () {
+    this.animateHamburger(this.isOpen || this.active)
   },
   methods: {
     toggleOpen: function () {
       this.isOpen = !this.isOpen
+      this.$emit('toggle:menu', this.isOpen)
     },
     setAnimation: function () {
       this.toggleOpen()
-      const animOptions = {
+      this.animateHamburger(this.isOpen)
+    },
+
+    animateHamburger: function (open) {
+      const tl = anime.timeline({
         duration: 600,
-        direction: this.animDirection,
         easing: 'easeInOutQuart'
+      })
+
+      if (!open) {
+        tl.add({
+          targets: '.bar--1',
+          translateY: [7, 0],
+          rotateZ: [-225, 0]
+        }, 0).add({
+          targets: '.bar--2',
+          opacity: [0, 1]
+        }, 0).add({
+          targets: '.bar--3',
+          translateY: [-7, 0],
+          rotateZ: [225, 0]
+        }, 0).add({
+          targets: '.sd--button__flat',
+          backgroundColor: ['rgba(0,0,0,.1)', 'rgba(0,0,0,0)']
+        }, 0)
+      } else if (open) {
+        tl.add({
+          targets: '.bar--1',
+          translateY: [0, 7],
+          rotateZ: [0, -225]
+        }, 0).add({
+          targets: '.bar--2',
+          opacity: [1, 0]
+        }, 0).add({
+          targets: '.bar--3',
+          translateY: [0, -7],
+          rotateZ: [0, 225]
+        }, 0).add({
+          targets: '.sd--button__flat',
+          backgroundColor: ['rgba(0,0,0,0)', 'rgba(0,0,0,.1)']
+        }, 0)
       }
-      this.setTopBar(animOptions, '.bar--1')
-      this.setCenterBar(animOptions, '.bar--2')
-      this.setBottomBar(animOptions, '.bar--3')
-      this.setBackground(animOptions, '.sd--button')
-      this.$emit('on-open', this.isOpen)
-    },
-    setBackground: function (options, target) {
-      anime({
-        targets: '.sd--button__flat',
-        backgroundColor: ['rgba(0,0,0,0)', 'rgba(0,0,0,.1)'],
-        ...options
-      })
-    },
-    setTopBar: function (options, target) {
-      anime({
-        targets: target,
-        translateY: [0, 7],
-        rotateZ: [0, -225],
-        ...options
-      })
-    },
-
-    setCenterBar: function (options, target) {
-      anime({
-        targets: target,
-        opacity: [1, 0],
-        ...options
-      })
-    },
-
-    setBottomBar: function (options, target) {
-      anime({
-        targets: target,
-        translateY: [0, -7],
-        rotateZ: [0, 225],
-        ...options
-      })
+      console.log(open)
     }
-
   },
   computed: {
     animDirection: function () {
       return this.isOpen ? '' : 'reverse'
+    },
+    isFocused: function () {
+      return {
+        'is--focused': this.sdHasFocus
+      }
     }
   }
 }
@@ -78,6 +92,9 @@ export default {
 .sd--button{
   &:focus{
     outline:none;
+  }
+  &.is--focused{
+    box-shadow: inset 0 0 0 4px var(--primary-darker);
   }
   &__flat{
     background: none;
