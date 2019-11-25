@@ -10,12 +10,11 @@
 }
 
 ::-webkit-scrollbar-thumb{
-  background-color: var(--primary-darker);
-  border-radius: 30px;
+  background-color: var(--disabled);
   transition: all .6s ease-in-out;
-  @include sd--elevation(4)
+  @include sd--elevation(4);
   &:hover{
-    background-color: var(--primary);
+    background-color: var(--disabled-background);
   }
 }
 

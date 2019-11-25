@@ -40,8 +40,8 @@ export default {
   }
   &__sidebar{
     // Needs mobile support.
-    max-width:300px;
     width:100%;
+    max-width:300px;
     max-height:100vh;
     overflow-y: auto;
     overflow-x: hidden;
@@ -50,7 +50,7 @@ export default {
     left:0;
     flex-grow: 1;
     background:var(--background);
-    border-right: 1px solid var(--background-variant);
+    box-shadow: inset 0 -1px 0 var(--background-variant);
     order: 0;
     transition: all .5s ease-in-out;
   }
@@ -65,6 +65,9 @@ export default {
   will-change: width;
   width:0;
   overflow-x: hidden;
+}
+
+.slide-leave-active {
   transition-delay: .3s;
 }
 </style>

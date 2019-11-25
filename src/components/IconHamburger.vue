@@ -22,7 +22,7 @@ export default {
     setAnimation: function () {
       this.toggleOpen()
       const animOptions = {
-        duration: 300,
+        duration: 600,
         direction: this.animDirection,
         easing: 'easeInOutQuart'
       }
