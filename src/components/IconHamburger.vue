@@ -1,5 +1,5 @@
 <template>
-   <button class="sd--button sd--button__flat" :class="isFocused" @click="setAnimation">
+   <button class="sd--button sd--button__flat" :class="isFocused" @click="toggleOpen">
       <span class="sd--hamburger" :class="isActive">
         <i class="sd--hamburger__bar" :class="`bar--${n}`" v-for="n in 3" :key="n"/>
       </span>
@@ -18,7 +18,11 @@ export default {
   },
   mixins: [ SdFocused ],
   props: {
-    active: [Boolean, String]
+    active: [Boolean, String],
+    animated: {
+      type: Boolean,
+      default: true
+    }
   },
   mounted () {
 
@@ -26,11 +30,10 @@ export default {
   methods: {
     toggleOpen: function () {
       this.isOpen = !this.isOpen
+      if (this.animated) {
+        this.animateHamburger(this.isOpen)
+      }
       this.$emit('toggle:menu', this.isOpen)
-    },
-    setAnimation: function () {
-      this.toggleOpen()
-      this.animateHamburger(this.isOpen)
     },
 
     animateHamburger: function (open) {
@@ -72,7 +75,6 @@ export default {
           backgroundColor: ['rgba(0,0,0,0)', 'rgba(0,0,0,.1)']
         }, 0)
       }
-      console.log(open)
     }
   },
   computed: {
