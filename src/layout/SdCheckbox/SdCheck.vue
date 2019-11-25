@@ -50,12 +50,12 @@ export default {
   %checkbox{
     &:before{
       content: '';
-      width: 16px;
-      height:16px;
+      width: 20px;
+      height: 20px;
       position: absolute;
       left:0;
       top: 50%;
-      margin-top: -8px;
+      margin-top: -10px;
       background-color: var(--background);
       box-shadow: inset 0 0 0 30px var(--background-accent);
       display:block;
@@ -73,7 +73,7 @@ export default {
     }
     &.is--rotated {
       &:before{
-        transform: rotateZ(90deg);
+        transform: rotateZ(-90deg);
       }
     }
   }

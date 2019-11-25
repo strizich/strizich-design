@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="footer">
     <div class="footer__wrapper" :style="alignmentStyle">
       <div class="footer--left">
         <slot name="start"/>
@@ -22,11 +22,11 @@ export default {
 <style lang="scss" scoped>
   @import '../layout/scss/mixins';
   .footer{
+    padding: 16px;
+    background: var(--background-variant);
     &__wrapper{
       display:flex;
       @include iosSafeArea;
-      background: var(--background-variant);
-      padding: 16px;
     }
   }
 </style>
