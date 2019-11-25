@@ -37,7 +37,7 @@ export default {
   $mast-height: calc(100vh - 50px);
 
   .mast{
-    margin: -16px -16px 32px -16px;
+    margin: -50px 0 32px 0;
     min-height: $mast-height;
     background: sd-gradient(v(--secondary-darker), v(--secondary-lighter));
     position: relative;
@@ -55,10 +55,10 @@ export default {
   .mouse-graphic {
     width: 32px;
     height: 42px;
-    padding:16px 0;
+    padding:0;
     display:block;
     position: absolute;
-    bottom:32px;
+    bottom:100px;
     left:50%;
     margin-left: -16px;
   }
