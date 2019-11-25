@@ -49,11 +49,11 @@ export default {
   methods: {
     getMenuState: function () {
       const state = window.localStorage.getItem('menuState')
-      this.menuState = !!state
+      this.menuState = (state === 'true')
     },
     menuToggle: function (event) {
-      this.menuState = event
-      window.localStorage.setItem('menuState', event)
+      this.menuState = !this.menuState
+      window.localStorage.setItem('menuState', this.menuState)
     }
   }
 }

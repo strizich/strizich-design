@@ -1,6 +1,6 @@
 <template>
    <button class="sd--button sd--button__flat" :class="isFocused" @click="setAnimation">
-      <span class="sd--hamburger">
+      <span class="sd--hamburger" :class="isActive">
         <i class="sd--hamburger__bar" :class="`bar--${n}`" v-for="n in 3" :key="n"/>
       </span>
     </button>
@@ -21,7 +21,7 @@ export default {
     active: [Boolean, String]
   },
   mounted () {
-    this.animateHamburger(this.isOpen || this.active)
+
   },
   methods: {
     toggleOpen: function () {
@@ -83,6 +83,11 @@ export default {
       return {
         'is--focused': this.sdHasFocus
       }
+    },
+    isActive: function () {
+      return {
+        'is--open': this.isOpen
+      }
     }
   }
 }
@@ -116,6 +121,19 @@ export default {
     display:block;
     text-align: center;
     font-size: 11px;
+  }
+  &.is--open{
+    .bar{
+      &--1{
+        transform: translateY(7px) rotateZ(-225deg);
+      }
+      &--2{
+        opacity: 0;
+      }
+      &--3{
+        transform: translateY(-7px) rotateZ(225deg);
+      }
+    }
   }
 }
 </style>
