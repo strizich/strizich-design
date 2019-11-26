@@ -2,7 +2,7 @@
   <main class="sd--layout">
     <portal-target name="body" multiple />
     <div class="sd--layout__wrapper">
-      <div class="sd--layout__content">
+      <div class="sd--layout__content" :class="sidebarClasses">
         <slot name="header"/>
         <slot name="content"/>
         <slot name="footer"/>
@@ -23,11 +23,19 @@ export default {
   name: 'TheLayout',
   props: {
     sidebar: Boolean
+  },
+  computed: {
+    sidebarClasses: function () {
+      return {
+        'is--open': this.sidebar
+      }
+    }
   }
 }
 </script>
 
 <style lang="scss">
+@import './scss/breakpoints';
 .sd--layout{
   &__wrapper{
     display:flex;
@@ -53,6 +61,14 @@ export default {
     box-shadow: inset 0 -1px 0 var(--background-variant);
     order: 0;
     transition: all .5s ease-in-out;
+    @include breakpoint-down('sm'){
+      position: fixed;
+      top: 48px;
+      left:0;
+      right:0;
+      bottom: 0;
+      z-index: 500;
+    }
   }
   &__block{
     position:sticky;
