@@ -28,6 +28,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import './scss/breakpoints';
 .sd--layout{
   &__wrapper{
     display:flex;
@@ -53,6 +54,14 @@ export default {
     box-shadow: inset 0 -1px 0 var(--background-variant);
     order: 0;
     transition: all .5s ease-in-out;
+    @include breakpoint-down('sm'){
+      position: fixed;
+      top: 48px;
+      left:0;
+      right:0;
+      bottom: 0;
+      z-index: 500;
+    }
   }
   &__block{
     position:sticky;
