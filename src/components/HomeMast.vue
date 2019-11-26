@@ -57,12 +57,14 @@ export default {
     width: 32px;
     height: 42px;
     padding: 0;
-    display: block;
+    display: flex;
     position: absolute;
     bottom:0;
     top:auto;
     left: 50%;
     margin-bottom: 50px;
     margin-left: -16px;
+    align-items: center;
+    justify-content: center;
   }
 </style>
