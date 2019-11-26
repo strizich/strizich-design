@@ -2,7 +2,7 @@
   <main class="sd--layout">
     <portal-target name="body" multiple />
     <div class="sd--layout__wrapper">
-      <div class="sd--layout__content" :class="sidebarClasses">
+      <div class="sd--layout__content">
         <slot name="header"/>
         <slot name="content"/>
         <slot name="footer"/>
@@ -23,13 +23,6 @@ export default {
   name: 'TheLayout',
   props: {
     sidebar: Boolean
-  },
-  computed: {
-    sidebarClasses: function () {
-      return {
-        'is--open': this.sidebar
-      }
-    }
   }
 }
 </script>
