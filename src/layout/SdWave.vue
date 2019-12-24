@@ -22,12 +22,10 @@ export default {
   },
   methods: {
     sdEnd () {
-      console.log('end:Event Ran')
       this.animating = false
       this.$emit('sd-end')
     },
     sdStart () {
-      console.log('start:Event Ran')
       this.animating = true
     }
   }

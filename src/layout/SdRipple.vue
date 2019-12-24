@@ -111,7 +111,6 @@ export default {
     },
     clearWave: function (uuid) {
       if (uuid) {
-        console.log('clear wave')
         this.ripples = this.ripples.filter(ripple => ripple.uuid !== uuid)
       } else {
         this.ripples = []

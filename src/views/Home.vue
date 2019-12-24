@@ -1,52 +1,61 @@
 <template>
   <div class="home">
     <home-mast/>
-    <h1 class="text__headline">Buttons</h1>
-    <div class="buttons">
-      <template v-for="(button, index) in colorThemes">
-        <sd-button :theme="button" :key="index">Something</sd-button>
-      </template>
-    </div>
-    <hr class="divider divider--lg"/>
-     <h1 class="text__headline">Chicklets</h1>
-    <div class="chicklets">
-      <template v-for="(chicklet, index) in colorThemes">
-        <sd-chicklet :theme="chicklet" :key="index">Something</sd-chicklet>
-      </template>
-    </div>
-    <hr class="divider divider--lg"/>
-    <h1 class="text__headline">Checkbox</h1>
-    <ul>
-      <li v-for="(b, index) in bools" :key="index">
-        <sd-check
-          v-model="checkResults[index]"
-          :value="true">
-            {{b.name}}
-        </sd-check>
-      </li>
-    </ul>
-    <hr class="divider divider--lg"/>
-    <h2 class="text__headline">Radio</h2>
-    <sd-radio name="blep" v-for="(b, index) in bools" :key="index" v-model="boolResults" :value="b.active">{{b.name}}</sd-radio>
+    <section class="home__content">
+      <h1 class="text__headline">Buttons</h1>
+      <div class="buttons">
+        <template v-for="(button, index) in colorThemes">
+          <sd-button :theme="button.color" :key="index">Something</sd-button>
+        </template>
+      </div>
+      <hr class="divider divider--lg"/>
+      <h1 class="text__headline">Chicklets</h1>
+      <div class="chicklets">
+        <template v-for="(chicklet, index) in colorThemes">
+          <sd-chicklet :theme="chicklet.color" :key="index">Something</sd-chicklet>
+        </template>
+      </div>
+      <hr class="divider divider--lg"/>
+      <h1 class="text__headline">Checkbox</h1>
+      <ul>
+        <li v-for="(b, index) in bools" :key="index">
+          <sd-check
+            v-model="checkResults[index]"
+            :value="true">
+              {{b.name}}
+          </sd-check>
+          <sd-switch
+            v-model="checkResults[index]"
+            :value="true">
+              {{b.name}}
+          </sd-switch>
+        </li>
+      </ul>
 
-    <div class="card__group">
-      <sd-card :elevation="24" spacing="inset">
-        <sd-card-header title="hello"/>
-        <sd-card-body>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mollis.</p>
-        </sd-card-body>
-        <sd-card-footer>
-          Yay
-        </sd-card-footer>
-      </sd-card>
-    </div>
+      <hr class="divider divider--lg"/>
 
-    <hr class="divider divider--lg"/>
-    <div class="card__group">
-      <article-card ratio="1:1" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
-      <article-card ratio="4:3" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7" />
-      <article-card ratio="16:9" title="Bleep" content="bloop" article-type="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
-    </div>
+      <h2 class="text__headline">Radio</h2>
+      <sd-radio name="blep" v-for="(b, index) in bools" :key="index" v-model="boolResults" :value="b.active">{{b.name}}</sd-radio>
+
+      <hr class="divider divider--lg"/>
+
+      <div class="section__header">
+        <h3>Custom Card</h3>
+      </div>
+      <div class="cards">
+        <article-card ratio="16:9" title="Bleep" content="bloop" category="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
+
+        <article-card ratio="16:9" title="Bleep" content="bloop" category="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7" />
+
+        <article-card ratio="16:9" title="Bleep" content="bloop" category="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
+      </div>
+    </section>
+    <sd-list>
+      <sd-list-item/>
+      <sd-list-item/>
+      <sd-list-item/>
+      <sd-list-item/>
+    </sd-list>
   </div>
 </template>
 
@@ -56,19 +65,24 @@ import SdChicklet from '@/layout/SdChicklet'
 import SdCheck from '@/layout/SdCheckbox/SdCheck'
 import SdRadio from '@/layout/SdRadio/SdRadio'
 import ArticleCard from '@/components/ArticleCard'
-import SdCard from '@/layout/SdCard/SdCard'
-import SdCardHeader from '@/layout/SdCard/SdCardHeader'
-import SdCardBody from '@/layout/SdCard/SdCardBody'
-import SdCardFooter from '@/layout/SdCard/SdCardFooter'
 import HomeMast from '@/components/HomeMast'
+import SdSwitch from '@/layout/SdCheckbox/SdSwitch'
+import SdListItem from '@/layout/SdList/SdListItem'
+import SdList from '@/layout/SdList/SdList'
 
 export default {
   name: 'home',
   data () {
     return {
-      colorThemes: ['primary', 'secondary', 'warning', 'danger', 'success'],
+      colorThemes: [
+        { color: 'primary', direction: 'top' },
+        { color: 'secondary', direction: 'bottom' },
+        { color: 'warning', direction: 'left' },
+        { color: 'danger', direction: 'right' },
+        { color: 'success', direction: 'top' }],
       rippleActive: false,
       sdRipple: true,
+      active: false,
       checkResults: [],
       boolResults: {},
       bools: [
@@ -90,31 +104,45 @@ export default {
     SdCheck,
     SdChicklet,
     SdRadio,
-    SdCard,
-    SdCardHeader,
-    SdCardBody,
-    SdCardFooter,
     ArticleCard,
-    HomeMast
+    HomeMast,
+    SdSwitch,
+    SdListItem,
+    SdList
   }
 }
 </script>
 
 <style lang="scss" scoped>
+ @import '../layout/scss/mixins';
+ .home{
+   &__content{
+    @include iosSafeArea;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 32px;
+   }
+ }
+
 .buttons{
   display: flex;
   justify-content: space-evenly;
 }
-.card__group{
+.cards{
   display:flex;
-  margin: 0 auto;
-  max-width: 800px;
+  max-width: 930px;
   align-items: flex-start;
   flex-wrap: wrap;
-  .sd--card{
-    margin: 16px 8px;
-    width: 50%;
+  margin: 0 auto;
+  & > .article-card{
+    max-width: 50%;
+    @include breakpoint-down('sm'){
+      max-width:100%;
+    }
 
   }
+}
+.buttons{
+  flex-wrap: wrap;
 }
 </style>

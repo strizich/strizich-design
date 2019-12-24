@@ -1,26 +1,31 @@
 <template>
   <section class="mast">
-    <p class="sd--text__lead sd--text__lead--light">Leading Sentence</p>
-    <h1 class="sd--text__headline sd--text__headline--light">Headline</h1>
-    <icon-mouse class="mouse-graphic"/>
-    <icon-mouse-alt/>
-    <icon-mouse-click left-click/>
-    <icon-mouse-click right-click/>
-    <icon-mouse-click left-shoulder/>
-    <icon-mouse-click right-shoulder/>
+    <div class="mast__content">
+      <p class="sd--text__caption">Leading Sentence</p>
+      <h1 class="sd--text__headline">Hello, This is a thing</h1>
+      <p class="text">Here is some more text and a thing with a
+        <span>
+          <u>Tooltip</u>
+          <sd-tooltip>Just the tip</sd-tooltip>
+        </span>
+      </p>
+    </div>
+    <div class="mouse-graphic">
+      <icon-mouse/>
+      <sd-tooltip direction="top" theme="secondary">Scroll Down</sd-tooltip>
+    </div>
   </section>
 </template>
 
 <script>
 import IconMouse from '@/components/IconMouse'
-import IconMouseAlt from '@/components/IconMouseAlt'
-import IconMouseClick from '@/components/IconMouseClick'
+import SdTooltip from '@/layout/SdTooltip'
+
 export default {
   name: 'HomeMast',
   components: {
     IconMouse,
-    IconMouseAlt,
-    IconMouseClick
+    SdTooltip
   }
 }
 </script>
@@ -33,20 +38,33 @@ export default {
   $mast-height: calc(100vh - 140px);
 
   .mast{
-    margin: -16px -16px 32px;
-    padding: 16px;
+    margin: -50px 0 32px 0;
     min-height: $mast-height;
     background: sd-gradient(v(--secondary-darker), v(--secondary-lighter));
     position: relative;
-    color: v(--text-light)
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    &__content{
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 16px 64px;
+    }
   }
+
   .mouse-graphic {
     width: 32px;
     height: 42px;
-    display:block;
+    padding: 0;
+    display: flex;
     position: absolute;
-    bottom:16px;
-    left:50%;
+    bottom:0;
+    top:auto;
+    left: 50%;
+    margin-bottom: 50px;
     margin-left: -16px;
+    align-items: center;
+    justify-content: center;
   }
 </style>

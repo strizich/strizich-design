@@ -10,15 +10,17 @@
   },
   "dependencies": {
     "animejs": "^3.1.0",
-    "core-js": "^3.3.2",
+    "core-js": "^3.4.1",
     "material-design-icons": "^3.0.1",
+    "popper.js": "^1.16.0",
     "portal-vue": "^2.1.6",
     "raf": "^3.4.1",
     "register-service-worker": "^1.6.2",
     "roboto-fontface": "^0.10.0",
     "vue": "^2.6.10",
+    "vue-observe-visibility": "^0.4.6",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.0.5",

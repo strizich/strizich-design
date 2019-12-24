@@ -1,3 +1,5 @@
+@import 'breakpoints';
+
 @mixin flatten($base, $lighter, $darker, $contrast) {
   // No background, No border, more problems
   background-color: none;
@@ -33,10 +35,10 @@
 
 @mixin iosSafeArea() {
   @supports (padding: max(32px, 32px)) {
-    margin:
-    16px
+    padding:
+    0
     m#{a}x(16px, env(safe-area-inset-left))
-    16px
+    0
     m#{a}x(16px, env(safe-area-inset-right));
   }
 }

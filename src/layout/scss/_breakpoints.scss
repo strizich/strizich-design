@@ -1,0 +1,49 @@
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1440px
+) !default;
+
+//!default Allows the map to be overriden buy a variable override.
+@mixin breakpoint-down($breakpoint-size) {
+  // Check to see if the value is in the map
+  @if map-has-key($breakpoints, $breakpoint-size) {
+    @media (max-width: map-get($breakpoints, $breakpoint-size)) {
+      @content;
+    }
+  }
+
+  // Throw error if the value is not mapped.
+  @else {
+    @warn "`#{$breakpoint-size}` has not been defined."
+    +"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin breakpoint-up($breakpoint-size) {
+  // Check to see if the value is in the map
+  @if map-has-key($breakpoints, $breakpoint-size) {
+    @media (min-width: map-get($breakpoints, $breakpoint-size)) {
+      @content;
+    }
+  }
+  // Throw error if the value is not mapped.
+  @else {
+    @warn "`#{$breakpoint-size}` has not been defined."
+    +"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin breakpoints($breakpoint-min, $breakpoint-max) {
+  @if map-has-key($breakpoints, $breakpoint-min) and map-has-key($breakpoints, $breakpoint-max) {
+    @media (min-width: map-get($breakpoints, $breakpoint-min)) and (max-width: map-get($breakpoints, $breakpoint-max)){
+      @content;
+    }
+  }
+  @else {
+    @warn "`#{$breakpoint-min}` or `#{$breakpoint-max}` has not been defined."
+    + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

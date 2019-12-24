@@ -1,15 +1,17 @@
 <template>
-  <sd-card :elevation="elevation">
-    <sd-card-header v-if="title" :title="title" align="space-between">
-      <sd-chicklet size="sm" :content="catagory" uppercase/>
-    </sd-card-header>
-    <sd-card-body v-if="!imgUrl">
-      {{content}}
-    </sd-card-body>
-    <sd-card-media :ratio="ratio">
-      <img :src="`https://media.graphcms.com/${imgUrl}`" :alt="title"/>
-    </sd-card-media>
-  </sd-card>
+  <article class="article-card">
+    <sd-card :elevation="elevation">
+      <sd-card-header v-if="title" :title="title" align="space-between">
+        <sd-chicklet size="sm" :content="category" uppercase/>
+      </sd-card-header>
+      <sd-card-body v-if="!imgUrl">
+        {{content}}
+      </sd-card-body>
+      <sd-card-media :ratio="ratio">
+        <img :src="`https://media.graphcms.com/${imgUrl}`" :alt="title"/>
+      </sd-card-media>
+    </sd-card>
+  </article>
 </template>
 
 <script>
@@ -17,7 +19,6 @@ import SdCard from '@/layout/SdCard/SdCard'
 import SdCardHeader from '@/layout/SdCard/SdCardHeader'
 import SdCardBody from '@/layout/SdCard/SdCardBody'
 import SdCardMedia from '@/layout/SdCard/SdCardMedia'
-// import SdCardFooter from '@/layout/SdCard/SdCardFooter'
 import SdChicklet from '@/layout/SdChicklet'
 export default {
   name: 'ArticleCard',
@@ -29,7 +30,7 @@ export default {
   props: {
     title: String,
     content: String,
-    catagory: String,
+    category: String,
     imgUrl: String,
     ratio: {
       type: String,
@@ -52,11 +53,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sd--card{
-  transition: all .23s;
-  margin-bottom:16px;
-  &__title{
-    margin-right: 8px;
-  }
+.article-card{
+  padding: 8px;
+  width:100%;
 }
 </style>

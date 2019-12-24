@@ -24,7 +24,7 @@ export default {
     tl.add({
       // 360
       targets: '.wheel',
-      translateY: 2,
+      translateY: 4,
       duration: 360,
       easing: 'easeInQuad'
     }).add({
