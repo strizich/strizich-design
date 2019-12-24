@@ -30,12 +30,16 @@ export default {
 <style lang="scss">
 @import './scss/breakpoints';
 .sd--layout{
+  min-height: 100%;
+  min-width: 100%;
+  position: relative;
   &__wrapper{
     display:flex;
     width:100%;
   }
   &__content{
     width: 100%;
+    height: 100%;
     flex-grow: 2;
     order:1;
   }
