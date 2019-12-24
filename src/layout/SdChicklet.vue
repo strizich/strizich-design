@@ -56,7 +56,7 @@ export default {
 .sd--chicklet {
   font-weight: 500;
   padding: 4px;
-  letter-spacing: .75px;
+  letter-spacing: .2px;
   line-height: rem(16);
   border-radius: 3px;
   vertical-align: middle;

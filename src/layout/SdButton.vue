@@ -94,7 +94,7 @@ export default {
     position: relative;
     z-index: 10;
     flex-grow: 2;
-    transition: padding .23s, font-size .23s, light-height .23s;
+    transition: padding .23s, font-size .23s;
     &.is{
       &--sm{
         font-size: rem(14);
@@ -134,14 +134,9 @@ export default {
       @include sd--elevation(2);
       color: sd-color($contrast, text);
       background-color: $base;
-      background-image: sd-gradient($base, transparent);
       transition: all .2s ease-out;
       &:hover {
         @include sd--elevation(4);
-        @supports(background-image: linear-gradient(0deg, #fff, #fff)) {
-          color: sd-color($contrast, text);
-          background-image: sd-gradient($base, transparent);
-        }
         color: sd-color($contrast-darker, text);
         background-color: $darker;
         transition: all .2s ease-out;
@@ -172,7 +167,7 @@ export default {
         @include flatten($base, $lighter, $darker, $contrast);
       }
       &.is--rounded{
-        border-radius: 50%;
+        border-radius: 30px;
       }
       &.is--pill{
         border-radius: 30px;

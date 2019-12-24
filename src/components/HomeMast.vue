@@ -1,6 +1,7 @@
 <template>
   <section class="mast">
-    I am mast.
+    <p class="sd--text__lead sd--text__lead--light">Leading Sentence</p>
+    <h1 class="sd--text__headline sd--text__headline--light">Headline</h1>
     <icon-mouse class="mouse-graphic"/>
     <icon-mouse-alt/>
     <icon-mouse-click left-click/>
@@ -29,13 +30,15 @@ export default {
   @import '../layout/scss/functions';
   @import '../layout/scss/mixins';
   $header-height: 50px;
-  $mast-height: calc(100vh - 50px);
+  $mast-height: calc(100vh - 140px);
 
   .mast{
-    margin: -16px -16px 32px -16px;
+    margin: -16px -16px 32px;
+    padding: 16px;
     min-height: $mast-height;
     background: sd-gradient(v(--secondary-darker), v(--secondary-lighter));
     position: relative;
+    color: v(--text-light)
   }
   .mouse-graphic {
     width: 32px;

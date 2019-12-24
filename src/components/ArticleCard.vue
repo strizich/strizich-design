@@ -1,7 +1,7 @@
 <template>
   <sd-card :elevation="elevation">
     <sd-card-header v-if="title" :title="title" align="space-between">
-      <sd-chicklet size="sm" :content="articleType" uppercase/>
+      <sd-chicklet size="sm" :content="catagory" uppercase/>
     </sd-card-header>
     <sd-card-body v-if="!imgUrl">
       {{content}}
@@ -29,7 +29,7 @@ export default {
   props: {
     title: String,
     content: String,
-    articleType: String,
+    catagory: String,
     imgUrl: String,
     ratio: {
       type: String,
