@@ -57,12 +57,12 @@ export default {
       top: 50%;
       margin-top: -10px;
       background-color: var(--background);
-      box-shadow: inset 0 0 0 30px var(--background-accent);
+      box-shadow: inset 0 0 0 30px var(--background);
       display:block;
       transition: box-shadow .4s ease-in,
                   transform .2s ease-in,
-                  background-color .4s 0s ease-in-out,
-                  border-color .2s ease-in-out;
+                  background-color .4s ease-out,
+                  border-color .2s ease-out;
       border: 2px solid var(--divider);
       border-radius: 2px;
     }
@@ -79,14 +79,14 @@ export default {
   }
   %checked{
     &:before{
-      box-shadow: inset 0 0 0 0 #fff;
+      box-shadow: inset 0 0 0 0 var(--background);
       border-color: var(--primary);
       background: url($checkmarkSvgUri) no-repeat center 2px;
       background-color: var(--primary);
       background-size: contain;
       transition: box-shadow .4s ease-out,
                   transform .2s ease-out,
-                  background-color .4s 0s ease-in-out;
+                  background-color .4s ease-in;
     }
     &.is--rotated {
       &:before{
@@ -96,9 +96,9 @@ export default {
   }
   %indeterminate{
     &:before{
-      border:2px solid var(--divider);
-      background: url(/img/icon-indeterminate.svg) var(--divider) no-repeat center center;
-      box-shadow: inset 0 0 0 0px var(--divider);
+      border:2px solid var(--background-accent);
+      background: url(/img/icon-indeterminate.svg) var(--background-accent) no-repeat center center;
+      box-shadow: inset 0 0 0 0px var(--background-accent);
       background-size: 8px;
     }
      &.is--rotated {
@@ -116,6 +116,9 @@ export default {
     position:relative;
     padding: 8px 0 8px 24px ;
     margin: 8px;
+    &:first-child{
+      margin-left:0;
+    }
     &:hover{
       cursor: pointer;
     }
@@ -135,7 +138,7 @@ export default {
 
       &.is{
         &--checked{
-         @extend %checked;
+          @extend %checked;
         }
         &--indeterminate{
           @extend %indeterminate;

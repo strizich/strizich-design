@@ -1,7 +1,9 @@
 <template>
   <header class="header">
     <div class="header__wrapper">
-      <icon-hamburger :active="menuOpen" @toggle:menu="onToggle($event)"/>
+      <div class="header__nav-toggle">
+        <icon-hamburger :active="menuOpen" @toggle:menu="onToggle($event)"/>
+      </div>
       <router-link to="/" class="header__branding">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
           <g fill="none">
@@ -10,11 +12,6 @@
           </g>
         </svg>
       </router-link>
-
-      <nav class="header__nav">
-        <!-- <router-link to="/" class="router-link">Home</router-link> |
-        <router-link to="/about" class="router-link">About</router-link> -->
-      </nav>
     </div>
     <transition name="scrolled">
     <div class="header__scrolled" v-if="scrolled">
@@ -52,16 +49,19 @@ export default {
   z-index: 100;
   &__wrapper{
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    position:relative;
     @include iosSafeArea;
   }
   &__branding{
     color: v(--text-primary);
     margin: 8px 16px;
   }
-  &__nav{
-    margin-right: 16px;
+  &__nav-toggle{
+    position: absolute;
+    left: 0;
+    top:0;
   }
 }
 .router-link{

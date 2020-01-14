@@ -65,7 +65,7 @@ export default {
 %radio {
   &:before{
     content:'';
-    box-shadow: inset 0 0 0 2px v(--divider);
+    box-shadow: inset 0 0 0 2px v(--background-accent);
     width: 18px;
     height: 18px;
     display: inline-block;

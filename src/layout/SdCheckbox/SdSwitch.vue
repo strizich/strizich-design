@@ -107,7 +107,9 @@ $checkmarkSvgUri: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
   display:flex;
   position:relative;
   align-items: center;
-  padding: 8px 0;
+  padding: 16px 0;
+  margin:0;
+
   @each $state, $color in $sd-color-global {
     $base: nth($color, 1);
     $lighter: nth($color, 2);
@@ -116,7 +118,8 @@ $checkmarkSvgUri: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
     $contrast-lighter: sd-pick-contrast($lighter);
     $contrast-darker: sd-pick-contrast($darker);
     &__#{$state} {
-      background-color: var(--background-variant);
+      background-color: var(--background-accent);
+      border-radius: 3px;
       &:after{
         background-color: $base;
       }
@@ -156,6 +159,7 @@ $checkmarkSvgUri: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
   }
   &__label{
     margin-right: 8px;
+    margin-bottom: 0;
     font-size: 16px;
   }
 }

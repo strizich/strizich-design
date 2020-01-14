@@ -16,23 +16,6 @@
         </template>
       </div>
       <hr class="divider divider--lg"/>
-      <h1 class="text__headline">Checkbox</h1>
-      <ul>
-        <li v-for="(b, index) in bools" :key="index">
-          <sd-check
-            v-model="checkResults[index]"
-            :value="true">
-              {{b.name}}
-          </sd-check>
-          <sd-switch
-            v-model="checkResults[index]"
-            :value="true">
-              {{b.name}}
-          </sd-switch>
-        </li>
-      </ul>
-
-      <hr class="divider divider--lg"/>
 
       <h2 class="text__headline">Radio</h2>
       <sd-radio name="blep" v-for="(b, index) in bools" :key="index" v-model="boolResults" :value="b.active">{{b.name}}</sd-radio>
@@ -51,10 +34,22 @@
       </div>
     </section>
     <sd-list>
-      <sd-list-item/>
-      <sd-list-item/>
-      <sd-list-item/>
-      <sd-list-item/>
+      <sd-list-item v-for="(b, index) in bools" :key="index">
+        <sd-check
+          v-model="checkResults[index]"
+          :value="true">
+            {{b.name}}
+        </sd-check>
+      </sd-list-item>
+
+      <sd-list-item  v-for="(b, index) in bools" :key="index">
+        <sd-switch
+          v-model="checkResults[index]"
+          :value="true">
+            {{b.name}}
+        </sd-switch>
+      </sd-list-item>
+      <sd-list-item title="Line One" content="Line 2"/>
     </sd-list>
   </div>
 </template>

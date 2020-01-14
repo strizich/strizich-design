@@ -10,7 +10,7 @@
 
       <!-- Should this be another component? Add Skele when loading?-->
       <div class="mast__description">
-        <p class="sd--text__lead">Leading description</p>
+        <p class="sd--text__caption">Leading description</p>
         <h1 class="sd--text__headline">{{title}}</h1>
         <p>Full Description</p>
       </div>
@@ -49,11 +49,12 @@ export default {
     }
     &__image{
       flex: 1;
-      padding: 8px;
+      padding: 16px;
+      max-width: 512px;
     }
     &__description{
       flex: 2;
-      padding: 8px;
+      padding: 16px;
     }
   }
 </style>

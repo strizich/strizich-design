@@ -33,7 +33,7 @@
   }
 }
 
-@mixin iosSafeArea() {
+@mixin iosSafeArea {
   @supports (padding: max(32px, 32px)) {
     padding:
     0

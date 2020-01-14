@@ -28,8 +28,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../scss/engine';
-
+@import '../scss/functions';
 .sd--card{
   background-color: v(--background-variant);
   border: 1px solid v(--highlight);

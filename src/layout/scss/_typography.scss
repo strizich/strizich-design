@@ -1,9 +1,16 @@
 .sd--text{
+  &--light{
+    color:v(--text-light);
+  }
+  &--dark{
+    color: v(--text-dark);
+  }
   &__lead{
     font-size: rem(18);
     text-transform: uppercase;
     margin-bottom:0;
-    padding-top:16px;
+    margin-top: 16px;
+    padding-top: 0;
     font-weight: 700;
     color: v(--text-accent);
     letter-spacing: .25px;
@@ -35,12 +42,25 @@
     line-height: rem(16);
     letter-spacing: 2px;
     margin-bottom:4px;
+    margin-top:0;
+    &--light{
+      color:v(--text-accent-light);
+    }
+    &--dark{
+      color: v(--text-accent-dark);
+    }
   }
   &__footnote{
     color: v(--text-accent);
     font-size: rem(14);
     line-height: rem(14);
     margin-bottom: 0;
+    &--light{
+      color:v(--text-accent-light);
+    }
+    &--dark{
+      color: v(--text-accent-dark);
+    }
   }
   &--underline{
     text-decoration: underline;

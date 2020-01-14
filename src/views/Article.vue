@@ -1,10 +1,8 @@
 <template>
   <div class="article">
-    <article-mast :title="title" imgSrc="Q9Mfd5PSn2bEULCnYRi7" ratio="4:3"/>
+    <article-mast :title="title" imgSrc="Q9Mfd5PSn2bEULCnYRi7" ratio="1:1"/>
     <div class="article__content">
-      <vue-markdown>
-        # hello nurse
-      </vue-markdown>
+      <vue-markdown :source="placeholder" />
     </div>
   </div>
 </template>
@@ -12,11 +10,27 @@
 <script>
 import VueMarkdown from 'vue-markdown'
 import ArticleMast from '@/components/ArticleMast'
+
+const mdPlaceholder = `
+# Placeholder content to test out markdown.
+## header 2
+### header 3
+
+- Unordered List 1
+- Unordered List 2
+- Unordered List 3
+
+1. OrderedList
+2. OrderedList
+3. OrderedList
+`
+
 export default {
   name: 'Article',
   data () {
     return {
-      title: 'Article Page'
+      title: 'Article Page',
+      placeholder: mdPlaceholder
     }
   },
   components: { ArticleMast, VueMarkdown }
