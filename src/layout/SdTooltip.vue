@@ -75,7 +75,7 @@ export default {
     enter: function (done) {
       const timeline = anime.timeline({
         delay: this.delay,
-        complete: function (anim) { done = anim }
+        complete: (anim) => { done = anim }
       })
       timeline.add({
         targets: '.sd--tooltip__content',
@@ -90,7 +90,7 @@ export default {
     leave: function (done) {
       const timeline = anime.timeline({
         delay: this.delay,
-        complete: function (anim) { done = anim }
+        complete: (anim) => { done = anim }
       })
       timeline.add({
         targets: '.sd--tooltip__content',
@@ -139,7 +139,7 @@ export default {
     line-height: 32px;
     text-transform: none;
     white-space: nowrap;
-    background-color: var(--background-variant);
+    background-color: var(--background-highlight);
     @include sd--elevation(6);
     &.v-enter{
       transform: scale(0);

@@ -33,37 +33,15 @@
         <article-card ratio="16:9" title="Bleep" content="bloop" category="Case Study" imgUrl="Q9Mfd5PSn2bEULCnYRi7"/>
       </div>
     </section>
-    <sd-list>
-      <sd-list-item v-for="(b, index) in bools" :key="index">
-        <sd-check
-          v-model="checkResults[index]"
-          :value="true">
-            {{b.name}}
-        </sd-check>
-      </sd-list-item>
-
-      <sd-list-item  v-for="(b, index) in bools" :key="index">
-        <sd-switch
-          v-model="checkResults[index]"
-          :value="true">
-            {{b.name}}
-        </sd-switch>
-      </sd-list-item>
-      <sd-list-item title="Line One" content="Line 2"/>
-    </sd-list>
   </div>
 </template>
 
 <script>
 import SdButton from '@/layout/SdButton'
 import SdChicklet from '@/layout/SdChicklet'
-import SdCheck from '@/layout/SdCheckbox/SdCheck'
 import SdRadio from '@/layout/SdRadio/SdRadio'
 import ArticleCard from '@/components/ArticleCard'
 import HomeMast from '@/components/HomeMast'
-import SdSwitch from '@/layout/SdCheckbox/SdSwitch'
-import SdListItem from '@/layout/SdList/SdListItem'
-import SdList from '@/layout/SdList/SdList'
 
 export default {
   name: 'home',
@@ -96,14 +74,10 @@ export default {
   },
   components: {
     SdButton,
-    SdCheck,
     SdChicklet,
     SdRadio,
     ArticleCard,
-    HomeMast,
-    SdSwitch,
-    SdListItem,
-    SdList
+    HomeMast
   }
 }
 </script>

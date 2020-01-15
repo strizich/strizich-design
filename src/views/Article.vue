@@ -1,6 +1,6 @@
 <template>
   <div class="article">
-    <article-mast :title="title" imgSrc="Q9Mfd5PSn2bEULCnYRi7" ratio="1:1"/>
+    <article-mast :title="title" imgSrc="Q9Mfd5PSn2bEULCnYRi7" ratio="4x3"/>
     <div class="article__content">
       <vue-markdown :source="placeholder" />
     </div>

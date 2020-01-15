@@ -19,16 +19,8 @@
     $darker: nth($color, 2);
     $lighter: nth($color, 3);
     --#{$key}: #{$base};
-    --#{$key}-lighter: #{$lighter};
-    --#{$key}-darker: #{$darker};
+    --#{$key}-highlight: #{$lighter};
+    --#{$key}-accent: #{$darker};
   };
-  // Generates CSS variables for spacing
-  // Useage: var(--space-{type}-{size})
-  @each $type in $space {
-    @each $size, $size-key in $type {
-      --space-#{$type}-#{$size-key}: #{$size};
-    }
-  }
-
 }
 

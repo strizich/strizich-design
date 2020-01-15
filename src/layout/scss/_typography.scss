@@ -5,7 +5,7 @@
   &--dark{
     color: v(--text-dark);
   }
-  &__lead{
+  &__lead {
     font-size: rem(18);
     text-transform: uppercase;
     margin-bottom:0;
@@ -25,7 +25,7 @@
     font-size: rem(40);
     line-height: rem(42);
     font-weight: 300;
-    letter-spacing: 1.2px;
+    letter-spacing: rem(1.2);
     color: v(--text);
     &--light{
       color:v(--text-light);
@@ -40,9 +40,9 @@
     font-weight: 500;
     text-transform: uppercase;
     line-height: rem(16);
-    letter-spacing: 2px;
-    margin-bottom:4px;
-    margin-top:0;
+    letter-spacing: rem(2);
+    padding-bottom: rem(4);
+    margin:0;
     &--light{
       color:v(--text-accent-light);
     }

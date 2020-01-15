@@ -128,8 +128,8 @@ export default {
     $lighter: nth($color, 2);
     $darker: nth($color, 3);
     $contrast: sd-pick-contrast($base);
-    $contrast-lighter: sd-pick-contrast($lighter);
-    $contrast-darker: sd-pick-contrast($darker);
+    $contrast-highlight: sd-pick-contrast($lighter);
+    $contrast-accent: sd-pick-contrast($darker);
     &__#{$state} {
       @include sd--elevation(2);
       color: sd-color($contrast, text);
@@ -137,16 +137,16 @@ export default {
       transition: all .2s ease-out;
       &:hover {
         @include sd--elevation(4);
-        color: sd-color($contrast-darker, text);
+        color: sd-color($contrast-accent, text);
         background-color: $darker;
         transition: all .2s ease-out;
       }
       &:active {
-        color: sd-color($contrast-lighter, text);
+        color: sd-color($contrast-highlight, text);
         background-color: $lighter;
         @supports(background-image: linear-gradient(0deg, #fff, #fff)) {
           background-image: sd-gradient($darker, transparent);
-          color: sd-color($contrast-darker, text);
+          color: sd-color($contrast-accent, text);
         }
         @include sd--elevation(6);
         transition: all .2s ease-out;

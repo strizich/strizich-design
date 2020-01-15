@@ -68,7 +68,7 @@ export default {
     }
     &:focus-within, &:hover{
       &:before{
-        border-color: var(--primary-darker);
+        border-color: var(--primary-accent);
       }
     }
     &.is--rotated {

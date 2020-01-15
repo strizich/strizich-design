@@ -49,7 +49,7 @@ export default {
       display:inline-block;
       position:relative;
       overflow: hidden;
-      background-color: var(--background-variant);
+      background-color: var(--background-highlight);
       &:after{
         position:absolute;
         top:0;

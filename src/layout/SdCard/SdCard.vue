@@ -30,7 +30,7 @@ export default {
 <style lang="scss">
 @import '../scss/functions';
 .sd--card{
-  background-color: v(--background-variant);
+  background-color: v(--background-highlight);
   border: 1px solid v(--highlight);
   border-radius: 3px;
   display:flex;

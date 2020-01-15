@@ -115,8 +115,8 @@ $checkmarkSvgUri: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
     $lighter: nth($color, 2);
     $darker: nth($color, 3);
     $contrast: sd-pick-contrast($base);
-    $contrast-lighter: sd-pick-contrast($lighter);
-    $contrast-darker: sd-pick-contrast($darker);
+    $contrast-highlight: sd-pick-contrast($lighter);
+    $contrast-accent: sd-pick-contrast($darker);
     &__#{$state} {
       background-color: var(--background-accent);
       border-radius: 3px;

@@ -43,7 +43,7 @@ export default {
 @import '../layout/scss/functions';
 @import '../layout/scss/mixins';
 .header{
-  background-color: v(--background-variant);
+  background-color: v(--background-highlight);
   position: sticky;
   top:0;
   z-index: 100;

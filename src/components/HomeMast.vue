@@ -40,7 +40,7 @@ export default {
   .mast{
     margin: -50px 0 32px 0;
     min-height: $mast-height;
-    background: sd-gradient(v(--secondary-darker), v(--secondary-lighter));
+    background: sd-gradient(v(--secondary-accent), v(--secondary-highlight));
     position: relative;
     display:flex;
     flex-direction: column;

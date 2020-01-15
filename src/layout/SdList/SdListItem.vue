@@ -41,6 +41,7 @@ export default {
   &__item{
     position: relative;
     padding: 0 16px;
+    list-style-type: none;
     &:after{
       content:'';
       height: 1px;

@@ -29,22 +29,22 @@ export default {
 
 <style lang="scss">
 @import './scss/breakpoints';
-.sd--layout{
+
+.sd--layout {
   min-height: 100%;
   min-width: 100%;
   position: relative;
-  &__wrapper{
+  &__wrapper {
     display:flex;
     width:100%;
   }
-  &__content{
+  &__content {
     width: 100%;
     height: 100%;
     flex-grow: 2;
     order:1;
   }
-  &__sidebar{
-    // Needs mobile support.
+  &__sidebar {
     width:100%;
     max-width:300px;
     max-height:100vh;
@@ -54,11 +54,11 @@ export default {
     top:0;
     left:0;
     flex-grow: 1;
-    background:var(--background);
-    box-shadow: inset 0 -1px 0 var(--background-variant);
+    background:var(--background-accent);
+    box-shadow: inset 0 -1px 0 var(--background-highlight);
     order: 0;
     transition: all .5s ease-in-out;
-    @include breakpoint-down('sm'){
+    @include breakpoint-down('sm') {
       position: fixed;
       top: 48px;
       left:0;
@@ -67,7 +67,7 @@ export default {
       z-index: 500;
     }
   }
-  &__block{
+  &__block {
     position:sticky;
     top:0;
     right:0;
@@ -78,9 +78,5 @@ export default {
   will-change: width;
   width:0;
   overflow-x: hidden;
-}
-
-.slide-leave-active {
-  transition-delay: .3s;
 }
 </style>
