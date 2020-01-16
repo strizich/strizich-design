@@ -45,13 +45,13 @@ export default {
       return 'v'
     },
     leaveClass: function () {
-      return this.transitionName + '__leave'
+      return this.transitionName + '-leave'
     },
     leaveActiveClass: function () {
-      return this.transitionName + '__leave-active'
+      return this.transitionName + '-leave-active'
     },
     leaveToClass: function () {
-      return this.transitionName + '__leave-to'
+      return this.transitionName + '-leave-to'
     }
   },
   watch: {

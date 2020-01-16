@@ -1,9 +1,9 @@
 <template>
   <section class="mast">
     <div class="mast__content">
-      <p class="sd--text__caption">Leading Sentence</p>
-      <h1 class="sd--text__headline">Hello, This is a thing</h1>
-      <p class="text">Here is some more text and a thing with a
+      <p class="sd--text__caption sd--text__caption--light">Leading Sentence</p>
+      <h1 class="sd--text__headline sd--text__headline--light">Hello, This is a thing</h1>
+      <p class="sd--text--light">Here is some more text and a thing with a
         <span>
           <u>Tooltip</u>
           <sd-tooltip>Just the tip</sd-tooltip>
@@ -40,7 +40,7 @@ export default {
   .mast{
     margin: -50px 0 32px 0;
     min-height: $mast-height;
-    background: sd-gradient(v(--secondary-darker), v(--secondary-lighter));
+    background: sd-gradient(v(--secondary-accent), v(--secondary-highlight));
     position: relative;
     display:flex;
     flex-direction: column;

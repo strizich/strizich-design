@@ -23,7 +23,11 @@ export default {
   @import '../layout/scss/mixins';
   .footer{
     padding: 16px;
-    background: var(--background-variant);
+    background: var(--background-highlight);
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     &__wrapper{
       display:flex;
       @include iosSafeArea;
