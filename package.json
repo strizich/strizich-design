@@ -17,7 +17,7 @@
     "raf": "^3.4.1",
     "register-service-worker": "^1.6.2",
     "roboto-fontface": "^0.10.0",
-    "vue": "^2.6.10",
+    "vue": "^2.6.11",
     "vue-markdown": "^2.2.4",
     "vue-observe-visibility": "^0.4.6",
     "vue-router": "^3.0.3",
@@ -39,6 +39,6 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "vue-svg-loader": "^0.12.0",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.11"
   }
 }
