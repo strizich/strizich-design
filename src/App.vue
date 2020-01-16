@@ -64,4 +64,8 @@ export default {
     background: v(--background);
     color: v(--text);
   }
+  .app__content{
+    min-height: calc(100vh - 50px);
+    padding-bottom: 50px;
+  }
 </style>

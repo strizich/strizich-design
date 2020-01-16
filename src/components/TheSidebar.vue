@@ -5,18 +5,9 @@
     </div>
     <nav>
       <sd-list>
-        <sd-list-item loading/>
-        <sd-list-item loading/>
-        <sd-list-item loading/>
-        <sd-list-item loading/>
-        <sd-list-item loading/>
-        <sd-list-item loading/>
-        <sd-list-item loading/>
-        <sd-list-item loading/>
-        <sd-list-item loading/>
-        <sd-list-item loading/>
-        <sd-list-item loading/>
-        <sd-list-item loading/>
+          <sd-list-item>
+            <router-link class="sd--link" to="article">Article</router-link>
+          </sd-list-item>
       </sd-list>
     </nav>
   </div>

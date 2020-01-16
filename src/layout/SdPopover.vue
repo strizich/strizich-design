@@ -25,7 +25,7 @@ export default {
   computed: {
     popoverClasses: function () {
       return {
-        'is--active': this.shouldRender,
+        'is--active': this.shouldActivate,
         'is--rendering': this.shouldRender
       }
     }

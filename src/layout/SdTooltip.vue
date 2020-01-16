@@ -1,6 +1,6 @@
 <template>
   <sd-popover :settings="popperSettings" :active="shouldRender">
-    <transition duration="260" v-if="shouldRender" @enter="enter" @leave="leave">
+    <transition name="pop" v-if="shouldRender">
       <div :class="['sd--tooltip', tooltipClasses, themeClasses]" :style="tooltipStyles">
         <span class="sd--tooltip__content">
           <slot />
@@ -13,7 +13,6 @@
 <script>
 import SdPopover from '@/layout/SdPopover'
 import SdPropValidator from '@/utilities/SdPropValidator.js'
-import anime from 'animejs'
 
 export default {
   name: 'SdTooltip',
@@ -28,7 +27,7 @@ export default {
     theme: String,
     delay: {
       type: [String, Number],
-      default: 0
+      default: 100
     },
     direction: {
       type: String,
@@ -71,36 +70,6 @@ export default {
     },
     hide: function () {
       this.shouldRender = false
-    },
-    enter: function (done) {
-      const timeline = anime.timeline({
-        delay: this.delay,
-        complete: function (anim) { done = anim }
-      })
-      timeline.add({
-        targets: '.sd--tooltip__content',
-        delay: this.delay,
-        opacity: [0, 1]
-      }).add({
-        targets: '.sd--tooltip',
-        opacity: [0, 1],
-        scale: [0, 1]
-      }, 100)
-    },
-    leave: function (done) {
-      const timeline = anime.timeline({
-        delay: this.delay,
-        complete: function (anim) { done = anim }
-      })
-      timeline.add({
-        targets: '.sd--tooltip__content',
-        delay: this.delay,
-        opacity: [1, 0]
-      }).add({
-        targets: '.sd--tooltip',
-        opacity: [1, 0],
-        scale: [1, 0]
-      }, 100)
     }
   },
   mounted () {
@@ -127,8 +96,24 @@ export default {
 <style lang="scss" scoped>
 @import './scss/colors';
 @import './SdElevation/elevation';
+.pop-enter{
+  transform: scale(0);
+  opacity: 0;
+  transform: translateY(4px);
+}
+.pop-enter-after, .pop-leave{
+  transform: scale(1);
+  opacity: 1;
+  transform: translateY(0px);
+}
+.pop-leave-to{
+  transform: scale(0);
+  opacity: 0;
+  transform: translateY(-8px);
+}
 
 .sd--tooltip {
+    transition: all .23s ease-in-out;
     height: 32px;
     padding: 0 8px;
     position: fixed;
@@ -139,12 +124,9 @@ export default {
     line-height: 32px;
     text-transform: none;
     white-space: nowrap;
-    background-color: var(--background-variant);
+    background-color: var(--background-highlight);
     @include sd--elevation(6);
-    &.v-enter{
-      transform: scale(0);
-      opacity: 0;
-    }
+
     @each $state, $color in $sd-color-global {
     $default: nth($color, 1);
     $variant: nth($color, 2);

@@ -38,7 +38,7 @@ export default {
 
     animateHamburger: function (open) {
       const tl = anime.timeline({
-        duration: 600,
+        duration: 230,
         easing: 'easeInOutQuart'
       })
 
@@ -101,7 +101,7 @@ export default {
     outline:none;
   }
   &.is--focused{
-    box-shadow: inset 0 0 0 4px var(--primary-darker);
+    box-shadow: inset 0 0 0 4px var(--primary-accent);
   }
   &__flat{
     background: none;

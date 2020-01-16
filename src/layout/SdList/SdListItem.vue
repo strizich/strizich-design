@@ -1,14 +1,18 @@
 <template>
   <li class="sd--list__item">
     <template v-if="!loading">
-      <span class="sd--list__title" v-if="title">{{title}}</span>
-      <span class="sd--list__content" v-if="content">{{content}}</span>
+      <div class="sd--list__wrapper" v-if="title || content">
+        <span class="sd--list__title" v-if="title">{{title}}</span>
+        <span class="sd--list__content" v-if="content">{{content}}</span>
+      </div>
       <slot/>
     </template>
 
     <template v-else>
-      <sd-text-skeleton/>
-      <sd-text-skeleton/>
+      <div class="sd--list__wrapper">
+        <sd-text-skeleton v-if="title"/>
+        <sd-text-skeleton v-if="content"/>
+      </div>
     </template>
   </li>
 </template>
@@ -19,12 +23,10 @@ export default {
   name: 'SdList',
   props: {
     title: {
-      type: String,
-      default: 'Title'
+      type: String
     },
     content: {
-      type: String,
-      default: 'Content'
+      type: String
     },
     loading: {
       type: Boolean
@@ -38,19 +40,21 @@ export default {
 .sd--list{
   &__item{
     position: relative;
-    padding: 16px;
+    padding: 0 16px;
+    list-style-type: none;
     &:after{
       content:'';
       height: 1px;
       position: absolute;
       display: block;
-      top:100%;
       left: 16px;
       right:0;
-      bottom:0;
-      background-color: var(--background-variant);
-      margin-bottom: 10px;
+      bottom: 1px;
+      background-color: var(--background-accent);
     }
+  }
+  &__wrapper{
+    padding: 16px 0 17px ;
   }
   &__title{
     font-weight: 700;
@@ -59,6 +63,17 @@ export default {
   }
   &__content{
     display:block;
+  }
+  .sd--link{
+    color: var(--text);
+    display:block;
+    padding: 16px 0 16px 16px;
+    margin-right: -16px;
+    margin-left: -16px;
+    transition: background-color .23s ease-in-out;
+    &:hover{
+      background-color: var(--background-accent);
+    }
   }
 }
 </style>
