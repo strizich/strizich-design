@@ -1,11 +1,9 @@
 <template>
   <sd-popover :settings="popperSettings" :active="shouldRender">
     <transition name="pop" v-if="shouldRender">
-
       <div :class="['sd--tooltip', tooltipClasses, themeClasses]" :style="tooltipStyles">
         <span class="sd--tooltip__content">
           <slot />
-          {{clickRender ? 'yes' : 'no'}}
         </span>
       </div>
     </transition>
