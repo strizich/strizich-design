@@ -11,7 +11,7 @@
       </p>
     </div>
     <div class="mouse-graphic">
-      <icon-mouse/>
+      <icon-mouse />
       <sd-tooltip direction="top" theme="secondary">Scroll Down</sd-tooltip>
     </div>
   </section>

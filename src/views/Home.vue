@@ -108,7 +108,6 @@ export default {
     @include breakpoint-down('sm'){
       max-width:100%;
     }
-
   }
 }
 .buttons{

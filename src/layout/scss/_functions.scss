@@ -37,6 +37,6 @@ $base-font: 16;
 }
 
 // Creates a map of colors ($base-color, $highlight, $accent);
-@function color-map ($color, $highlight, $accent) {
+@function color-map($color, $highlight, $accent) {
   @return ($color, mix(#fff, $color, $highlight), mix(#000, $color, $accent))
 }

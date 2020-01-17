@@ -55,7 +55,7 @@ $sd-color-schemes: (
     highlight: rgba(255,255,255,.12),
     icon: rgba(255,255,255,.54),
     icon-disabled: rgba(255,255,255,.38),
-    divider: #2E2F2F,
+    divider: lighten(#202020, 12%),
     scrollbar: #434444,
     tooltip: #000
   )
