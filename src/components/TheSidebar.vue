@@ -3,6 +3,9 @@
     <nav>
       <sd-list>
           <sd-list-item>
+            <router-link class="sd--link" to="/">Home</router-link>
+          </sd-list-item>
+          <sd-list-item>
             <router-link class="sd--link" to="article">Article</router-link>
           </sd-list-item>
       </sd-list>

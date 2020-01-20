@@ -23,7 +23,7 @@ export default {
       const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
       const scrollingDown = currentScrollPosition < this.lastScrollPosition
       if (currentScrollPosition < 50) {
-        return
+        this.showHeader = true
       }
       this.showHeader = scrollingDown
       this.lastScrollPosition = currentScrollPosition

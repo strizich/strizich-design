@@ -1,7 +1,7 @@
 <template>
   <sd-layout id="app" :sidebar="menuState">
     <template v-slot:header>
-      <the-header :menuOpen="menuState" @toggle:menu="onToggle()" :handleScroll="showHeader"/>
+      <the-header :menuOpen="menuState" @toggle:menu="onToggle" :handleScroll="showHeader"/>
     </template>
     <template v-slot:content>
       <div class="app__content">
@@ -14,7 +14,6 @@
     <template v-slot:footer>
       <the-footer align="space-between">
         <template v-slot:start>
-          {{isSmall}}
           <strong class="text__footnote">Made with love.</strong>
         </template>
         <template v-slot:end>
