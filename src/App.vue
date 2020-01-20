@@ -14,9 +14,9 @@
     <template v-slot:footer>
       <the-footer align="space-between">
         <template v-slot:start>
+          {{isSmall}}
           <strong class="text__footnote">Made with love.</strong>
         </template>
-
         <template v-slot:end>
           <small class="text__footnote">Powered by: <em>VueJS</em> and <em>GraphCMS</em></small>
         </template>
@@ -34,30 +34,73 @@ import TheSidebar from '@/components/TheSidebar'
 import SdScrollPosition from '@/core/mixins/SdScrollPosition'
 export default {
   // TODO: Rewrite when Vue3 drops.
-  mixins: [ SdScrollPosition ],
+
   data () {
     return {
-      menuState: false
+      menuState: false,
+      windowWidth: 0
     }
   },
-  components: {
-    TheHeader,
-    TheFooter,
-    TheSidebar,
-    SdLayout
+  watch: {
+    '$route' () {
+      if (this.isSmall) {
+        this.menuState = false
+      }
+    }
   },
-  created () {
+  mounted () {
     this.getMenuState()
+    this.setWindowWidth()
+    window.addEventListener('resize', () => {
+      this.throttled(10, this.setWindowWidth())
+    }, false)
+  },
+  destroyed () {
+    window.removeEventListener('resize', () => {}, false)
   },
   methods: {
+    setWindowWidth () {
+      const width = window.innerWidth
+      this.windowWidth = width
+    },
     getMenuState: function () {
       const state = window.localStorage.getItem('menuState')
       this.menuState = (state === 'true')
     },
     onToggle: function () {
       this.menuState = !this.menuState
-      window.localStorage.setItem('menuState', this.menuState)
+      if (!this.isSmall) {
+        window.localStorage.setItem('menuState', this.menuState)
+      } else {
+        window.localStorage.setItem('menuState', '')
+      }
+    },
+    throttled: function (delay, fn) {
+      let lastCall = 0
+      return function (...args) {
+        const now = (new Date()).getTime()
+        if (now - lastCall < delay) {
+          return
+        }
+        lastCall = now
+        return fn(...args)
+      }
     }
+  },
+  computed: {
+    isSmall: function () {
+      if (this.windowWidth < 768) {
+        return true
+      }
+      return false
+    }
+  },
+  mixins: [ SdScrollPosition ],
+  components: {
+    TheHeader,
+    TheFooter,
+    TheSidebar,
+    SdLayout
   }
 }
 </script>

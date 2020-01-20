@@ -13,7 +13,7 @@ export default {
   name: 'IconHamburger',
   data () {
     return {
-      isOpen: this.active
+      isOpen: false
     }
   },
   mixins: [ SdFocused ],
@@ -24,8 +24,10 @@ export default {
       default: true
     }
   },
-  mounted () {
-
+  watch: {
+    active: function (newState, oldState) {
+      this.animateHamburger(newState)
+    }
   },
   methods: {
     toggleOpen: function () {
@@ -148,7 +150,7 @@ export default {
         transform: translateY(7px) translateX(1px) rotateZ(45deg);
         width: 12px;
       }
-      &--3--alt{
+      &--2--alt{
         transform: translateX(3px);
         width: 21px;
       }
