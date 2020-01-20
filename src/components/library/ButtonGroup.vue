@@ -3,7 +3,7 @@
     <section class="button__group">
       <h1>Buttons</h1>
       <h3>Default Buttons</h3>
-      <label>Button Sizes</label>
+      <p>Button Sizes</p>
       <sd-radio
         name="sizes"
         v-for="(size, index) in sizes"
@@ -12,6 +12,8 @@
         :value="size.value">
         {{size.name}}
       </sd-radio>
+
+      <p>Button Options</p>
        <sd-check v-model="isFlat">
          Flat
        </sd-check>
@@ -20,8 +22,7 @@
        </sd-check>
       <sd-check v-model="isOutline">
          Outline
-       </sd-check>
-
+      </sd-check>
       <div>
         <template v-for="(color, index) in colors">
           <sd-button :flat="isFlat" :pill="isPill" :outline="isOutline" :size="selectedSize" :theme="color" :key="index">
@@ -46,7 +47,12 @@ export default {
       isPill: false,
       isOutline: false,
       colors: [
-        'primary', 'default', 'secondary', 'warning', 'danger', 'success'
+        'primary',
+        'default',
+        'secondary',
+        'warning',
+        'danger',
+        'success'
       ],
       sizes: [
         {
