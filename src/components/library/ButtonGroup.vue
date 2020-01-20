@@ -25,7 +25,7 @@
       <div>
         <template v-for="(color, index) in colors">
           <sd-button :flat="isFlat" :pill="isPill" :outline="isOutline" :size="selectedSize" :theme="color" :key="index">
-            blah
+            {{color}}
           </sd-button>
         </template>
       </div>
