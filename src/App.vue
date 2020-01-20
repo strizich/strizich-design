@@ -72,7 +72,7 @@ export default {
       if (!this.isSmall) {
         window.localStorage.setItem('menuState', this.menuState)
       } else {
-        window.localStorage.setItem('menuState', '')
+        window.localStorage.setItem('menuState', false)
       }
     },
     throttled: function (delay, fn) {
