@@ -43,7 +43,6 @@ export default {
         duration: 180,
         easing: 'easeInOutQuart'
       })
-
       if (!open) {
         tl.add({
           targets: '.bar--1--alt',
@@ -93,9 +92,6 @@ export default {
     }
   },
   computed: {
-    animDirection: function () {
-      return this.isOpen ? '' : 'reverse'
-    },
     isFocused: function () {
       return {
         'is--focused': this.sdHasFocus
