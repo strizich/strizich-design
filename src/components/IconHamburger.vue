@@ -38,7 +38,7 @@ export default {
 
     animateHamburger: function (open) {
       const tl = anime.timeline({
-        duration: 230,
+        duration: 500,
         easing: 'easeInOutQuart'
       })
 
@@ -97,6 +97,9 @@ export default {
 
 <style lang="scss" scoped>
 .sd--button{
+  display:flex;
+  align-items: center;
+  justify-content: center;
   &:focus{
     outline:none;
   }
@@ -105,8 +108,8 @@ export default {
   }
   &__flat{
     background: none;
-    padding: 16px;
-    border-radius: 3px;
+    height: 50px;
+    width: 50px;
   }
 }
 .sd--hamburger{
@@ -119,7 +122,7 @@ export default {
   &__bar{
     width: 24px;
     height: 2px;
-    background-color: #fff;
+    background-color: var(--background-inverse);
     display:block;
     text-align: center;
     font-size: 11px;

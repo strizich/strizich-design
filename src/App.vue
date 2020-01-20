@@ -1,7 +1,7 @@
 <template>
   <sd-layout id="app" :sidebar="menuState">
     <template v-slot:header>
-      <the-header :menuOpen="menuState" @toggle:menu="menuToggle()"/>
+      <the-header :menuOpen="menuState" @toggle:menu="onToggle()" :handleScroll="showHeader"/>
     </template>
     <template v-slot:content>
       <div class="app__content">
@@ -31,7 +31,10 @@ import SdLayout from '@/layout/SdLayout'
 import TheHeader from '@/components/TheHeader'
 import TheFooter from '@/components/TheFooter'
 import TheSidebar from '@/components/TheSidebar'
+import SdScrollPosition from '@/core/mixins/SdScrollPosition'
 export default {
+  // TODO: Rewrite when Vue3 drops.
+  mixins: [ SdScrollPosition ],
   data () {
     return {
       menuState: false
@@ -51,7 +54,7 @@ export default {
       const state = window.localStorage.getItem('menuState')
       this.menuState = (state === 'true')
     },
-    menuToggle: function () {
+    onToggle: function () {
       this.menuState = !this.menuState
       window.localStorage.setItem('menuState', this.menuState)
     }

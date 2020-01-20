@@ -23,7 +23,7 @@ export default {
   @import '../layout/scss/mixins';
   .footer{
     padding: 16px;
-    background: var(--background-highlight);
+    background: var(--background-accent);
     position:absolute;
     bottom: 0;
     left: 0;

@@ -50,7 +50,7 @@ export default {
       left: 16px;
       right:0;
       bottom: 1px;
-      background-color: var(--background-accent);
+      background-color: var(--divider);
     }
   }
   &__wrapper{

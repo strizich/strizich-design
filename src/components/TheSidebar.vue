@@ -1,8 +1,5 @@
 <template>
   <div class="sidebar">
-    <div class="sidebar__header">
-      Things go here
-    </div>
     <nav>
       <sd-list>
           <sd-list-item>
@@ -28,7 +25,7 @@ export default {
 .sidebar{
   width:300px;
   &__header{
-    background-color: var(--secondary);
+    background-color: var(--background-accent);
     padding:16px;
   }
 }
