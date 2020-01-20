@@ -26,11 +26,13 @@
 
 <script>
 import '@/layout/scss'
+import SdThrottle from '@/utilities/SdThrottle'
 import SdLayout from '@/layout/SdLayout'
 import TheHeader from '@/components/TheHeader'
 import TheFooter from '@/components/TheFooter'
 import TheSidebar from '@/components/TheSidebar'
 import SdScrollPosition from '@/core/mixins/SdScrollPosition'
+
 export default {
   // TODO: Rewrite when Vue3 drops.
 
@@ -51,11 +53,13 @@ export default {
     this.getMenuState()
     this.setWindowWidth()
     window.addEventListener('resize', () => {
-      this.throttled(10, this.setWindowWidth())
+      SdThrottle(10, this.setWindowWidth())
     }, false)
   },
   destroyed () {
-    window.removeEventListener('resize', () => {}, false)
+    window.removeEventListener('resize', () => {
+      this.setWindowWidth()
+    }, false)
   },
   methods: {
     setWindowWidth () {
@@ -72,17 +76,6 @@ export default {
         window.localStorage.setItem('menuState', this.menuState)
       } else {
         window.localStorage.setItem('menuState', false)
-      }
-    },
-    throttled: function (delay, fn) {
-      let lastCall = 0
-      return function (...args) {
-        const now = (new Date()).getTime()
-        if (now - lastCall < delay) {
-          return
-        }
-        lastCall = now
-        return fn(...args)
       }
     }
   },

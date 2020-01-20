@@ -68,10 +68,14 @@ export default {
     box-shadow: inset 0 0 0 2px v(--divider);
     width: 20px;
     height: 20px;
-    display: inline-block;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -10px;
     background-color: transparent;
     border-radius: 50%;
-    transition: box-shadow .23s ease-in-out, background .23s ease-in-out;
+    transition: box-shadow .23s ease-in-out, background-color .23s ease-in-out;
     background-color: v(--background);
   }
   &:checked{
@@ -110,19 +114,17 @@ export default {
 }
   .sd--radio{
     position: relative;
-    display:inline-flex;
-    margin-right: 8px;
-    padding: 8px 0;
+    margin: 8px;
+    padding: 8px 0 8px 24px;
     &__input{
       -webkit-appearance: none;
       appearance: none;
-      @extend %radio;
       border: none;
+      @extend %radio;
+
     }
     &__content{
-      padding-left: 8px;
       font-size: rem(16);
-      line-height: rem(20);
     }
   }
 </style>

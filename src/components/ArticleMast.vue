@@ -1,5 +1,5 @@
 <template>
-  <div class="mast sd--elevation--24">
+  <div class="mast sd--elevation--12">
     <div class="mast__wrapper">
       <div class="mast__image">
         <!-- Create loading image placeholder -->
@@ -16,9 +16,9 @@
         <div class="mast__details">
           <sd-list>
             <sd-list-header title="things"/>
-            <sd-list-item content="one"/>
-            <sd-list-item content="two"/>
-            <sd-list-item content="three"/>
+            <sd-list-item spacing="tight" content="one"/>
+            <sd-list-item spacing="tight" content="two"/>
+            <sd-list-item spacing="tight" content="three"/>
           </sd-list>
         </div>
       </div>
@@ -82,6 +82,9 @@ export default {
     &__content{
       flex: 2;
       padding: 16px;
+    }
+    &__details{
+      margin-left: -16px;
     }
   }
 </style>

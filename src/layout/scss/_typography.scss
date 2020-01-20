@@ -1,3 +1,19 @@
+h1, h2, h3, h4, h5{
+  line-height: 1;
+  margin-bottom:16px;
+}
+
+p {
+  line-height: 1;
+  margin-bottom:16px;
+}
+
+ul, li {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+
 .sd--text{
   &--light{
     color:v(--text-light);

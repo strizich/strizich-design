@@ -54,7 +54,7 @@ export default {
   background-color: v(--background);
   &.is--scrolled {
     &--up {
-      background-color: v(--background-highlight);
+      background-color: v(--background);
     }
     &--down {
       background-color: v(--background-accent);

@@ -1,6 +1,6 @@
 <template>
  <!-- Simplified version of the checkbox -->
-  <label class="" :class="['sd--checkbox', classes]" @click.prevent="toggleCheck">
+  <label :class="['sd--checkbox', classes]" @click.prevent="toggleCheck">
       <input
         type="checkbox"
         :id="id"

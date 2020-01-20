@@ -20,10 +20,9 @@ export default {
 .sd--list{
   &__header{
     & > h4 {
-      font-size: 18px;
+      font-size: 16px;
       margin-bottom:0;
-      padding:0;
-
+      padding:0 0 0 16px;;
     }
   }
 }
