@@ -88,7 +88,7 @@ export default {
   },
   computed: {
     isSmall: function () {
-      if (this.windowWidth < 768) {
+      if (this.windowWidth <= 812) {
         return true
       }
       return false

@@ -7,6 +7,7 @@ export default {
     }
   },
   mounted () {
+    this.onScroll()
     window.addEventListener('scroll', this.onScroll)
   },
   beforeDestroy () {
@@ -24,9 +25,10 @@ export default {
       const scrollingDown = currentScrollPosition < this.lastScrollPosition
       if (currentScrollPosition < 50) {
         this.showHeader = true
+      } else {
+        this.showHeader = scrollingDown
+        this.lastScrollPosition = currentScrollPosition
       }
-      this.showHeader = scrollingDown
-      this.lastScrollPosition = currentScrollPosition
     },
     scrollTo: function () {
       window.scroll({

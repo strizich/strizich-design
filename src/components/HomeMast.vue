@@ -38,7 +38,7 @@ export default {
   $mast-height: calc(100vh - 140px);
 
   .mast{
-    margin: -50px 0 32px 0;
+    margin: 0 0 32px 0;
     min-height: $mast-height;
     background: sd-gradient(v(--secondary-accent), v(--secondary-highlight));
     position: relative;
