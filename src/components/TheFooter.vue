@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="footer__wrapper" :style="alignmentStyle">
+    <div class="footer__wrapper">
       <div class="footer--left">
         <slot name="start"/>
       </div>
@@ -12,18 +12,17 @@
 </template>
 
 <script>
-import SdAlignmentMixin from '@/core/mixins/SdAlignmentMixin'
 export default {
-  name: 'TheFooter',
-  mixins: [SdAlignmentMixin]
+  name: 'TheFooter'
 }
 </script>
 
 <style lang="scss" scoped>
   @import '../layout/scss/mixins';
+  @import '../layout/scss/breakpoints';
   .footer{
     padding: 16px;
-    background: var(--background-highlight);
+    background: var(--background-accent);
     position:absolute;
     bottom: 0;
     left: 0;
@@ -31,6 +30,11 @@ export default {
     &__wrapper{
       display:flex;
       @include iosSafeArea;
+      justify-content: space-between;
+      @include breakpoint-down(sm){
+        flex-direction: column;
+        justify-content: flex-start;
+      }
     }
   }
 </style>

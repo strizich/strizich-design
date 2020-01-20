@@ -45,17 +45,19 @@ export default {
     theme: {
       type: String,
       default: 'primary'
-    }
+    },
+    iconOnly: Boolean
   },
   computed: {
     modifiers: function () {
       return {
+        'is--focused': this.sdHasFocus,
         'is--disabled': this.disabled,
         'is--rounded': this.rounded,
         'is--pill': this.pill,
         'is--flat': this.flat,
         'is--outline': this.outline,
-        'is--focused': this.sdHasFocus
+        'is--icon-only': this.iconOnly
       }
     },
     sizeClass: function () {
@@ -150,6 +152,9 @@ export default {
         }
         @include sd--elevation(6);
         transition: all .2s ease-out;
+      }
+      &.is--icon-only{
+        padding: 8px;
       }
       &.is--focused {
         box-shadow: 0 0 0 5px $lighter;

@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9b6a6413-b49a-454d-b76c-52b6e77e7a96/deploy-status)](https://app.netlify.com/sites/strizichdesignui/deploys)
+
 # strizich-design
 
 ## Project setup

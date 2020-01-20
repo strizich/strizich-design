@@ -1,11 +1,10 @@
 <template>
   <main class="sd--layout">
     <portal-target name="body" multiple />
+    <slot name="header"/>
     <div class="sd--layout__wrapper">
       <div class="sd--layout__content">
-        <slot name="header"/>
         <slot name="content"/>
-        <slot name="footer"/>
       </div>
       <transition name="slide">
         <div class="sd--layout__sidebar" v-if="sidebar">
@@ -15,6 +14,7 @@
         </div>
       </transition>
     </div>
+    <slot name="footer"/>
   </main>
 </template>
 
@@ -46,21 +46,20 @@ export default {
   }
   &__sidebar {
     width:100%;
-    max-width:300px;
-    max-height:100vh;
+    max-width:230px;
+    max-height:calc(100vh - 50px);
     overflow-y: auto;
     overflow-x: hidden;
     position:sticky;
-    top:0;
+    top:50px;
     left:0;
     flex-grow: 1;
     background:var(--background-accent);
-    box-shadow: inset 0 -1px 0 var(--background-highlight);
     order: 0;
-    transition: all .5s ease-in-out;
+    transition: all .3s 0s ease-in-out;
     @include breakpoint-down('sm') {
       position: fixed;
-      top: 48px;
+      top: 50px;
       left:0;
       right:0;
       bottom: 0;
@@ -74,7 +73,7 @@ export default {
   }
 }
 
-.slide-enter-active, .slide-leave-active {
+.slide-enter, .slide-leave-to {
   will-change: width;
   width:0;
   overflow-x: hidden;

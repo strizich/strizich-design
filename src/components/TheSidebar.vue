@@ -1,10 +1,10 @@
 <template>
   <div class="sidebar">
-    <div class="sidebar__header">
-      Things go here
-    </div>
     <nav>
       <sd-list>
+          <sd-list-item>
+            <router-link class="sd--link" to="/">Home</router-link>
+          </sd-list-item>
           <sd-list-item>
             <router-link class="sd--link" to="article">Article</router-link>
           </sd-list-item>
@@ -26,9 +26,9 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar{
-  width:300px;
+  width: 300px;
   &__header{
-    background-color: var(--secondary);
+    background-color: var(--background-accent);
     padding:16px;
   }
 }

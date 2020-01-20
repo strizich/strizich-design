@@ -65,9 +65,9 @@ export default {
 %radio {
   &:before{
     content:'';
-    box-shadow: inset 0 0 0 2px v(--background-accent);
-    width: 18px;
-    height: 18px;
+    box-shadow: inset 0 0 0 2px v(--divider);
+    width: 20px;
+    height: 20px;
     display: inline-block;
     background-color: transparent;
     border-radius: 50%;
@@ -122,7 +122,7 @@ export default {
     &__content{
       padding-left: 8px;
       font-size: rem(16);
-      line-height: rem(16);
+      line-height: rem(20);
     }
   }
 </style>

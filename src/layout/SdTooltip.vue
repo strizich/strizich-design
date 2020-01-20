@@ -50,7 +50,7 @@ export default {
         placement: this.direction,
         modifiers: {
           offsets: {
-            offset: '0, 16'
+            offset: '0, 32'
           }
         }
       }
@@ -97,17 +97,14 @@ export default {
 @import './scss/colors';
 @import './SdElevation/elevation';
 .pop-enter{
-  transform: scale(0);
   opacity: 0;
-  transform: translateY(4px);
+  transform: translateY(8px);
 }
 .pop-enter-after, .pop-leave{
-  transform: scale(1);
   opacity: 1;
-  transform: translateY(0px);
+  transform: translateY(-16px);
 }
 .pop-leave-to{
-  transform: scale(0);
   opacity: 0;
   transform: translateY(-8px);
 }
