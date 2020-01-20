@@ -23,7 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar{
-  width:300px;
+  width: 300px;
   &__header{
     background-color: var(--background-accent);
     padding:16px;

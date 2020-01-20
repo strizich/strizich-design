@@ -56,7 +56,7 @@ export default {
     flex-grow: 1;
     background:var(--background-accent);
     order: 0;
-    transition: all .5s 0s ease-in-out;
+    transition: all .3s 0s ease-in-out;
     @include breakpoint-down('sm') {
       position: fixed;
       top: 50px;

@@ -1,7 +1,7 @@
 <template>
   <header :class="['header', scrollClasses]">
     <div class="header__nav-toggle">
-      <icon-hamburger :active="menuOpen" @toggle:menu="onToggle($event)"/>
+      <icon-hamburger-alt :active="menuOpen" @toggle:menu="onToggle($event)"/>
     </div>
     <transition name="scrolled">
       <div class="header__wrapper" v-if="handleScroll" key="header">
@@ -18,7 +18,7 @@
 
 <script>
 import IconLogo from '@/components/IconLogo'
-import IconHamburger from '@/components/IconHamburger'
+import IconHamburgerAlt from '@/components/IconHamburgerAlt'
 export default {
   name: 'TheHeader',
   props: {
@@ -38,7 +38,7 @@ export default {
       }
     }
   },
-  components: { IconHamburger, IconLogo }
+  components: { IconHamburgerAlt, IconLogo }
 }
 </script>
 
