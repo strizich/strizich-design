@@ -69,19 +69,18 @@ export default {
           targets: '.bar--1--alt',
           keyframes: [
             { width: 12, easing: 'easeInQuad' },
-            { rotateZ: -45, translateY: 7, translateX: -3, easing: 'easeOutQuad' }
+            { rotateZ: -45, translateY: 7, translateX: -4, easing: 'easeInQuad' }
           ]
         }, 0).add({
           targets: '.bar--3--alt',
           keyframes: [
             { width: 12, easing: 'easeInQuad' },
-            { rotateZ: 45, translateY: -7, translateX: -3, easing: 'easeOutQuad' }
-            // { translateY: -5, translateX: -4, easing: 'easeInQuad' }
+            { rotateZ: 45, translateY: -7, translateX: -4, easing: 'easeInQuad' }
           ]
         }, 0).add({
           targets: '.bar--2--alt',
           keyframes: [
-            { width: 18, easing: 'easeOutQuad' },
+            { width: 21, translateX: 3, easing: 'easeOutQuad' },
             { translateX: 3 }
           ]
         }, 0).add({
@@ -146,10 +145,16 @@ export default {
     transform-origin: 0% 100%;
     .bar{
       &--1--alt{
-        transform: translateY(7px) rotateZ(225deg);
+        transform: translateY(7px) translateX(1px) rotateZ(45deg);
+        width: 12px;
       }
       &--3--alt{
-        transform: translateY(-7px) rotateZ(-225deg);
+        transform: translateX(3px);
+        width: 21px;
+      }
+      &--3--alt{
+        transform: translateY(-7px) translateX(1px) rotateZ(-45deg);
+        width: 12px;
       }
     }
   }
