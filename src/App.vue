@@ -12,7 +12,7 @@
       <the-sidebar/>
     </template>
     <template v-slot:footer>
-      <the-footer align="space-between">
+      <the-footer>
         <template v-slot:start>
           <strong class="text__footnote">Made with love.</strong>
         </template>
