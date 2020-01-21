@@ -114,9 +114,9 @@ export default {
 
   .sd--checkbox {
     position:relative;
-    padding: 8px 0 8px 24px ;
-    margin: 8px;
-    &:first-child{
+    padding: 0 0 0 20px ;
+    margin: 0 8px;
+    &:first-of-type{
       margin-left:0;
     }
     &:hover{
@@ -128,6 +128,7 @@ export default {
     &__label{
       font-size: 16px;
       line-height: 1;
+      padding: 8px;
     }
     &__field {
        appearance: none;

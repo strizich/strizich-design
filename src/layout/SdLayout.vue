@@ -1,6 +1,7 @@
 <template>
   <main class="sd--layout">
     <portal-target name="body" multiple />
+
     <slot name="header"/>
     <div class="sd--layout__wrapper">
       <div class="sd--layout__content">
@@ -8,12 +9,11 @@
       </div>
       <transition name="slide">
         <div class="sd--layout__sidebar" v-if="sidebar">
-          <div class="sd--layout__block">
-            <slot name="sidebar"/>
-          </div>
+          <slot name="sidebar"/>
         </div>
       </transition>
     </div>
+
     <slot name="footer"/>
   </main>
 </template>
@@ -31,18 +31,19 @@ export default {
 @import './scss/breakpoints';
 
 .sd--layout {
-  min-height: 100%;
+  min-height: 100vh;
   min-width: 100%;
   position: relative;
   &__wrapper {
     display:flex;
     width:100%;
+    min-height: calc(100vh - 100px);
   }
   &__content {
     width: 100%;
-    height: 100%;
     flex-grow: 2;
     order:1;
+    padding-bottom: 64px;
   }
   &__sidebar {
     width:100%;
@@ -56,7 +57,7 @@ export default {
     flex-grow: 1;
     background:var(--background-accent);
     order: 0;
-    transition: all .3s 0s ease-in-out;
+    transition: width .3s 0s ease-in-out;
     @include breakpoint-down('sm') {
       position: fixed;
       top: 50px;

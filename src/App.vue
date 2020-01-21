@@ -38,7 +38,7 @@ export default {
 
   data () {
     return {
-      menuState: undefined,
+      menuState: true,
       windowWidth: 0
     }
   },
@@ -49,8 +49,10 @@ export default {
       }
     }
   },
-  mounted () {
+  created () {
     this.getMenuState()
+  },
+  mounted () {
     this.setWindowWidth()
     window.addEventListener('resize', () => {
       SdThrottle(10, this.setWindowWidth())
@@ -101,9 +103,5 @@ export default {
   body, html{
     background: v(--background);
     color: v(--text);
-  }
-  .app__content{
-    min-height: calc(100vh - 50px);
-    padding-bottom: 50px;
   }
 </style>

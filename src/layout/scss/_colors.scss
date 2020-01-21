@@ -2,7 +2,7 @@
 
 $primary: #8F00F8;
 $default: #414141;
-$secondary: #9013FE;
+$secondary: rgb(109, 10, 196);
 $danger: #AE1A2C;
 $success: #83CF2A;
 $warning: #F5A623;
@@ -10,7 +10,7 @@ $warning: #F5A623;
 $sd-color-global: (
   primary: color-map($primary, 25%, 25%),
   default: color-map($default, 25%, 25%),
-  secondary: color-map($secondary, 25%, 25%),
+  secondary: color-map($secondary, 25%, 50%),
   success: color-map($success, 25%, 15%),
   danger: color-map($danger, 25%, 25%),
   warning: color-map($warning, 25%, 15%)

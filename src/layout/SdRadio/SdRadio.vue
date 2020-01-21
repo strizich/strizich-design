@@ -5,7 +5,7 @@
       v-bind="{ name, disabled, required, value, checked: isSelected }"
       type="radio"/>
     <span class="sd--radio__content">
-      <slot/>
+      <span><slot/></span>
     </span>
   </label>
 </template>
@@ -62,6 +62,8 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/functions';
 
+// TODO: this needs to be reworked again. It has become confusing and hard to follow.
+
 %radio {
   &:before{
     content:'';
@@ -77,6 +79,7 @@ export default {
     border-radius: 50%;
     transition: box-shadow .23s ease-in-out, background-color .23s ease-in-out;
     background-color: v(--background);
+    z-index: 15;
   }
   &:checked{
     &:before{
@@ -114,17 +117,36 @@ export default {
 }
   .sd--radio{
     position: relative;
-    margin: 8px;
-    padding: 8px 0 8px 24px;
+    z-index: 10;
+    margin: 0 8px 0 0;
     &__input{
       -webkit-appearance: none;
       appearance: none;
       border: none;
       @extend %radio;
-
     }
     &__content{
       font-size: rem(16);
+      position: relative;
+      z-index: 10;
+      padding: 8px 0 8px 24px;
+    }
+    &:hover{
+      cursor: pointer;
+      .sd--radio__content{
+        &:after{
+          background-color: var(--background-highlight);
+          content: '';
+          position:absolute;
+          top: 0;
+          bottom:0;
+          left: -4px;
+          right: -8px;
+          z-index: -1;
+          border-radius: 3px;
+        }
+      }
     }
   }
+
 </style>

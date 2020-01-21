@@ -148,9 +148,9 @@ export default {
         transition: all .2s ease-out;
       }
       &:active {
+        @include sd--elevation(6);
         color: sd-color($contrast-highlight, text);
         background-color: $lighter;
-        @include sd--elevation(6);
         transition: all .2s ease-out;
       }
       &.is{
@@ -181,11 +181,9 @@ export default {
         }
         &--pill{
           border-radius: 30px;
-          padding-left: 20px;
-          padding-right: 20px;
           .sd--button__content {
-            padding-left: 0;
-            padding-right: 0;
+            padding-left: 20px;
+            padding-right: 20px;
           }
         }
       }
