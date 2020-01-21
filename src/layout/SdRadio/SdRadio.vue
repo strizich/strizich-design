@@ -118,7 +118,7 @@ export default {
   .sd--radio{
     position: relative;
     z-index: 10;
-    margin: 0 8px 0 0;
+    padding: 8px 16px 8px 24px;
     &__input{
       -webkit-appearance: none;
       appearance: none;
@@ -129,7 +129,6 @@ export default {
       font-size: rem(16);
       position: relative;
       z-index: 10;
-      padding: 8px 0 8px 24px;
     }
     &:hover{
       cursor: pointer;
@@ -138,9 +137,9 @@ export default {
           background-color: var(--background-highlight);
           content: '';
           position:absolute;
-          top: 0;
-          bottom:0;
-          left: -4px;
+          top: -8px;
+          bottom: -8px;
+          left: -28px;
           right: -8px;
           z-index: -1;
           border-radius: 3px;

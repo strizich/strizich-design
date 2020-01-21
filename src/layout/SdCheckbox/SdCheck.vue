@@ -114,8 +114,10 @@ export default {
 
   .sd--checkbox {
     position:relative;
-    padding: 0 0 0 20px ;
+    padding: 8px 16px 8px 28px ;
     margin: 0 8px;
+    display: inline-flex;
+    align-items: center;
     &:first-of-type{
       margin-left:0;
     }
@@ -128,7 +130,7 @@ export default {
     &__label{
       font-size: 16px;
       line-height: 1;
-      padding: 8px;
+      display:block;
     }
     &__field {
        appearance: none;

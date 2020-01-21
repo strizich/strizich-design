@@ -1,10 +1,26 @@
 <template>
   <div class="buttons">
     <div class="buttons__header">
-      <p class="sd--text__caption">Lead Text</p>
-      <h1 class="sd--text__header">Buttons</h1>
+      <p class="sd--text__lead">Lead Text</p>
+      <h1 class="sd--text__headline">Buttons</h1>
     </div>
     <div class="buttons__content">
+      <div class="buttons__results">
+        <template v-for="(color, index) in colors">
+          <sd-button
+            :aria-label="`${color} button`"
+            :theme="color"
+            :pill="selectedPill === 'Pill'"
+            :rounded="selectedPill === 'Rounded'"
+            :flat="selectedStyle === 'Flat'"
+            :outline="selectedStyle === 'Outline'"
+            :size="selectedSize"
+            :block="isBlock"
+            :key="index">
+            {{color}}
+          </sd-button>
+        </template>
+      </div>
       <div class="buttons__options">
         <div class="buttons__group">
           <p>Sizes</p>
@@ -45,22 +61,6 @@
             Block Level
           </sd-check>
         </div>
-      </div>
-      <div class="buttons__results">
-        <template v-for="(color, index) in colors">
-          <sd-button
-            :aria-label="`${color} button`"
-            :theme="color"
-            :pill="selectedPill === 'Pill'"
-            :rounded="selectedPill === 'Rounded'"
-            :flat="selectedStyle === 'Flat'"
-            :outline="selectedStyle === 'Outline'"
-            :size="selectedSize"
-            :block="isBlock"
-            :key="index">
-            {{color}}
-          </sd-button>
-        </template>
       </div>
     </div>
   </div>
@@ -107,37 +107,53 @@ export default {
 
 <style lang="scss" scoped>
   @import '../../layout/SdElevation/mixins';
+  @import '../../layout/scss/breakpoints';
   .buttons{
+    background-color: var(--background-accent);
+    padding: 64px;
+    @include breakpoint-down('md'){
+      padding: 32px;
+    }
     &__group{
-      padding: 8px 16px;
-      flex-grow: 1;
+      padding: 8px 0;
     }
     &__content{
       display:flex;
-      flex-wrap: wrap;
+      justify-content: space-between;
+       @include breakpoint-down('md'){
+         flex-direction: column;
+       }
       & > h3{
         display:block;
         width:100%;
       }
     }
     &__options{
-      min-width: 50%;
-      margin: 0 -16px;
       display: flex;
-      align-self: flex-start;
+      width: 100%;
+      padding: 0 32px;
       flex-direction: column;
-      justify-content: space-between
+      justify-content: space-between;
+      margin-bottom: 16px;
+      @include breakpoint-down('md'){
+        width: 100%;
+        min-width: 100%;
+        padding: 0px;
+      }
     }
     &__results{
       display:flex;
-      width: 50%;
       align-content: center;
       justify-content: center;
-      padding: 32px 16px;
+      min-width: 66%;
+      padding: 16px;
       background-color: var(--background-accent);
       border: 1px solid var(--background-highlight);
       @include sd--elevation(6, inset);
       flex-wrap: wrap;
+      @include breakpoint-down('md'){
+        width: 100%;
+      }
       .sd--button{
         margin: 8px;
       }
