@@ -64,6 +64,7 @@ export default {
       right:0;
       bottom: 0;
       z-index: 500;
+      max-width: 100%;
     }
   }
   &__block {

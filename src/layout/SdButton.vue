@@ -46,6 +46,8 @@ export default {
       type: String,
       default: 'primary'
     },
+    full: Boolean,
+    block: Boolean,
     iconOnly: Boolean
   },
   computed: {
@@ -57,7 +59,9 @@ export default {
         'is--pill': this.pill,
         'is--flat': this.flat,
         'is--outline': this.outline,
-        'is--icon-only': this.iconOnly
+        'is--icon-only': this.iconOnly,
+        'is--full': this.full,
+        'is--block': this.block
       }
     },
     sizeClass: function () {
@@ -91,7 +95,7 @@ export default {
   letter-spacing: 1px;
   display:inline-flex;
   align-items: center;
-  padding:0;
+  padding: 0;
   &__content{
     position: relative;
     z-index: 10;
@@ -146,41 +150,43 @@ export default {
       &:active {
         color: sd-color($contrast-highlight, text);
         background-color: $lighter;
-        @supports(background-image: linear-gradient(0deg, #fff, #fff)) {
-          background-image: sd-gradient($darker, transparent);
-          color: sd-color($contrast-accent, text);
-        }
         @include sd--elevation(6);
         transition: all .2s ease-out;
       }
-      &.is--icon-only{
-        padding: 8px;
-      }
-      &.is--focused {
-        box-shadow: 0 0 0 5px $lighter;
-        transition: all .2s ease-out;
-      }
-      &.is--outline {
-        border: 1px solid $base;
-        background:none;
-        @include flatten($base, $lighter, $darker, $contrast);
-      }
-      &.is--flat {
-        background: none;
-        border: none;
-        outline: none;
-        @include flatten($base, $lighter, $darker, $contrast);
-      }
-      &.is--rounded{
-        border-radius: 30px;
-      }
-      &.is--pill{
-        border-radius: 30px;
-        padding-left: 20px;
-        padding-right: 20px;
-        .sd--button__content {
-          padding-left: 0;
-          padding-right: 0;
+      &.is{
+        &--block{
+          display:block;
+          width:100%;
+        }
+        &--icon-only{
+          padding: 8px;
+        }
+        &--focused {
+          box-shadow: 0 0 0 5px $lighter;
+          transition: all .2s ease-out;
+        }
+        &--outline {
+          border: 1px solid $base;
+          background:none;
+          @include flatten($base, $lighter, $darker, $contrast);
+        }
+        &--flat {
+          background: none;
+          border: none;
+          outline: none;
+          @include flatten($base, $lighter, $darker, $contrast);
+        }
+        &--rounded{
+          border-radius: 30px;
+        }
+        &--pill{
+          border-radius: 30px;
+          padding-left: 20px;
+          padding-right: 20px;
+          .sd--button__content {
+            padding-left: 0;
+            padding-right: 0;
+          }
         }
       }
     }

@@ -61,7 +61,7 @@ export default {
     position: absolute;
     bottom:0;
     right:0;
-    left: 300px;
+    left: 100%;
     border-bottom: 2px solid var(--primary)
   }
   &:hover{

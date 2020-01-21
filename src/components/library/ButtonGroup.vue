@@ -23,9 +23,23 @@
       <sd-check v-model="isOutline">
          Outline
       </sd-check>
-      <div>
+      <sd-check v-model="isFull">
+         Full Width
+       </sd-check>
+      <sd-check v-model="isBlock">
+         Block Level
+      </sd-check>
+      <div class="sd--row">
         <template v-for="(color, index) in colors">
-          <sd-button :flat="isFlat" :pill="isPill" :outline="isOutline" :size="selectedSize" :theme="color" :key="index">
+          <sd-button
+            :theme="color"
+            :flat="isFlat"
+            :pill="isPill"
+            :outline="isOutline"
+            :size="selectedSize"
+            :full="isFull"
+            :block="isBlock"
+            :key="index">
             {{color}}
           </sd-button>
         </template>
@@ -46,6 +60,8 @@ export default {
       isFlat: false,
       isPill: false,
       isOutline: false,
+      isFull: false,
+      isBlock: false,
       colors: [
         'primary',
         'default',
@@ -84,5 +100,8 @@ export default {
   }
   .sd--button{
     margin-right: 8px;
+  }
+  .sd--row{
+    padding: 0 16px;
   }
 </style>

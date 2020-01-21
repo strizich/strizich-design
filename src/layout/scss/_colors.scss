@@ -1,19 +1,19 @@
 @import 'functions';
 
 $primary: #8F00F8;
-$default: #E4E4E4;
-$secondary: #48007E;
+$default: #414141;
+$secondary: #9013FE;
 $danger: #AE1A2C;
 $success: #83CF2A;
 $warning: #F5A623;
 
 $sd-color-global: (
-  primary: color-map($primary, 50%, 35%),
-  default: color-map($default, 50%, 35%),
-  secondary: color-map($secondary, 25%, 35%),
-  success: color-map($success, 25%, 35%),
-  danger: color-map($danger, 25%, 35%),
-  warning: color-map($warning, 25%, 35%)
+  primary: color-map($primary, 25%, 25%),
+  default: color-map($default, 25%, 25%),
+  secondary: color-map($secondary, 25%, 25%),
+  success: color-map($success, 25%, 15%),
+  danger: color-map($danger, 25%, 25%),
+  warning: color-map($warning, 25%, 15%)
 );
 
 $sd-color-schemes: (
