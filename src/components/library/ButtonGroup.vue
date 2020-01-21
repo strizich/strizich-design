@@ -126,6 +126,7 @@ export default {
       display: flex;
       align-self: flex-start;
       flex-direction: column;
+      justify-content: space-between
     }
     &__results{
       display:flex;

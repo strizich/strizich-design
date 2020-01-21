@@ -1,6 +1,10 @@
 <template>
   <div class="container">
     <button-group/>
+    <hr class="sd--divider sd--divider--lg" />
+    <div class="demo__description">
+      <p>Stuff like API and useage goes here.</p>
+    </div>
   </div>
 </template>
 

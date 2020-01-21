@@ -117,7 +117,7 @@ export default {
       &--lg{
         font-size: rem(18);
         line-height: rem(18);
-        padding: spacing(offset, lg);
+        padding: 16px 24px
       }
     }
   }
