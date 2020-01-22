@@ -147,7 +147,7 @@ export default {
     }
     &__results{
       display:flex;
-      height: 350px;
+      height: 400px;
       align-content: center;
       justify-content: center;
       min-width: 66%;
@@ -157,6 +157,7 @@ export default {
       flex-wrap: wrap;
       @include breakpoint-down('md'){
         width: 100%;
+        margin-bottom: 32px;
       }
       @include breakpoint-down('sm'){
         margin: 0 -16px 32px;
