@@ -123,6 +123,17 @@ export default {
     }
     &:hover{
       cursor: pointer;
+      &:after{
+        background-color: var(--background-highlight);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -8px;
+        right: 0;
+        bottom: 0;
+        display:block;
+        z-index: 0;
+      }
     }
     &.is--disabled{
       @extend %disabled;
@@ -131,6 +142,7 @@ export default {
       font-size: 16px;
       line-height: 1;
       display:block;
+      z-index: 10;
     }
     &__field {
        appearance: none;
@@ -138,7 +150,7 @@ export default {
        height: 0;
        border: none;
        @extend %checkbox;
-
+      z-index: 10;
       &.is{
         &--checked{
           @extend %checked;
