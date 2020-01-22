@@ -114,13 +114,26 @@ export default {
 
   .sd--checkbox {
     position:relative;
-    padding: 8px 0 8px 24px ;
-    margin: 8px;
-    &:first-child{
+    padding: 8px 16px 8px 28px ;
+    margin: 0 8px;
+    display: inline-flex;
+    align-items: center;
+    &:first-of-type{
       margin-left:0;
     }
     &:hover{
       cursor: pointer;
+      &:after{
+        background-color: var(--background-highlight);
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -8px;
+        right: 0;
+        bottom: 0;
+        display:block;
+        z-index: 0;
+      }
     }
     &.is--disabled{
       @extend %disabled;
@@ -128,6 +141,8 @@ export default {
     &__label{
       font-size: 16px;
       line-height: 1;
+      display:block;
+      z-index: 10;
     }
     &__field {
        appearance: none;
@@ -135,7 +150,7 @@ export default {
        height: 0;
        border: none;
        @extend %checkbox;
-
+      z-index: 10;
       &.is{
         &--checked{
           @extend %checked;

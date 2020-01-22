@@ -3,9 +3,14 @@ h1, h2, h3, h4, h5{
   margin-bottom:16px;
 }
 
-p {
-  line-height: 1;
-  margin-bottom:16px;
+article > p {
+  line-height: 1.5;
+  letter-spacing: -.0004px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-family: -apple-system-serif;
+  font-weight: 100;
+  font-size: 20px;
 }
 
 ul, li {

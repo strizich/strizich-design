@@ -24,6 +24,10 @@ export default {
       type: Boolean,
       default: false
     },
+    shadow: {
+      type: Boolean,
+      default: false
+    },
     uppercase: Boolean,
     content: String
   },
@@ -35,10 +39,11 @@ export default {
       }
     },
     componentClasses: function () {
+      const baseClass = this.baseClass
       const sizeClass = `is--${this.size}`
       const themeClass = `${this.baseClass}__${this.theme}`
       return [
-        this.baseClass,
+        baseClass,
         sizeClass,
         themeClass
       ]
@@ -51,25 +56,23 @@ export default {
 @import './scss/functions';
 @import './scss/colors';
 @import './scss/get-contrast';
-@import 'SdElevation/elevation';
+@import './SdElevation/elevation';
 
 .sd--chicklet {
-  font-weight: 500;
   padding: 4px;
   letter-spacing: .2px;
-  line-height: rem(16);
   border-radius: 3px;
   vertical-align: middle;
   display:inline-block;
   margin-right: 4px;
   align-self: center;
-  text-shadow: 0 2px 2px -1px #202020;
   @each $state, $color in $sd-color-global {
     $default: nth($color, 1);
-    $variant: nth($color, 2);
-    $contrast: sd-pick-contrast($default);
+    $highlight: nth($color, 2);
+    $accent: nth($color, 3);
+    $contrast: sd-pick-contrast($highlight);
     &__#{$state} {
-      background-color: $default;
+      background-color: $accent;
       color: sd-color($contrast, text);
     }
     &:only-child, &:last-child{
@@ -77,6 +80,9 @@ export default {
     }
   }
   &.is {
+    &--shadow{
+      @include sd--elevation(6);
+    }
     &--pill {
       border-radius: 30px;
       padding: 4px 8px;
@@ -85,15 +91,18 @@ export default {
       text-transform: uppercase;
     }
     &--sm {
-      font-size: 11px;
+      font-size: rem(11);
+      line-height: rem(11);
       padding: 2px 4px;
     }
     &--md {
-      font-size: 14px;
+      font-size: rem(14);
+      line-height: rem(14);
       padding:4px;
     }
     &--lg {
-      font-size: 16px;
+      font-size: rem(16);
+      line-height: rem(16);
       padding: 4px 8px;
     }
   }

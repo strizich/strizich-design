@@ -25,6 +25,15 @@
               About
           </router-link>
         </sd-list-item>
+        <sd-list-header title="Components"/>
+        <sd-list-item>
+      <router-link
+          class="link"
+          exact-active-class="link--active"
+          to="buttons">
+            Buttons
+        </router-link>
+        </sd-list-item>
     </sd-list>
   </nav>
 </template>
@@ -32,10 +41,12 @@
 <script>
 import SdList from '@/layout/SdList/SdList'
 import SdListItem from '@/layout/SdList/SdListItem'
+import SdListHeader from '@/layout/SdList/SdListHeader'
 export default {
   components: {
     SdList,
-    SdListItem
+    SdListItem,
+    SdListHeader
   }
 }
 </script>
@@ -61,7 +72,7 @@ export default {
     position: absolute;
     bottom:0;
     right:0;
-    left: 300px;
+    left: 100%;
     border-bottom: 2px solid var(--primary)
   }
   &:hover{

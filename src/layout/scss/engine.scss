@@ -8,3 +8,10 @@
 @import 'typography';
 @import 'spacing';
 // Move these into own file.
+.sd--divider{
+  border-color: var(--divider);
+  background-color: var(--divider);
+  &--lg{
+    margin: 32px 0;
+  }
+}
