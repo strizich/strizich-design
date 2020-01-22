@@ -25,7 +25,7 @@ export default {
 .sd--card{
   &__header{
     display: flex;
-    padding: spacing(offset);
+    padding: 16px;
     justify-content: space-between;
     align-items: center;
     position:relative;

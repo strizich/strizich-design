@@ -85,6 +85,9 @@ $checkmarkSvgUri: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
   left: 100%;
   transform: rotateZ(0);
   margin-left: -$knob-size;
+  background-image: url($checkmarkSvgUri);
+  background-repeat: no-repeat;
+  background-position: center;
   background-size: 16px;
 }
 
@@ -109,7 +112,9 @@ $checkmarkSvgUri: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
   align-items: center;
   padding: 16px 0;
   margin:0;
-
+  &:hover{
+    background-color: var(--background-highlight);
+  }
   @each $state, $color in $sd-color-global {
     $base: nth($color, 1);
     $lighter: nth($color, 2);
@@ -118,7 +123,7 @@ $checkmarkSvgUri: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
     $contrast-highlight: sd-pick-contrast($lighter);
     $contrast-accent: sd-pick-contrast($darker);
     &__#{$state} {
-      background-color: var(--background-accent);
+      background-color: var(--background-highlight);
       border-radius: 3px;
       &:after{
         background-color: $base;

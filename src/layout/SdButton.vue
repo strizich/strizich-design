@@ -88,6 +88,8 @@ export default {
 @import 'SdElevation/mixins';
 
 .sd--button {
+  touch-action: manipulation;
+  -webkit-user-select: none;
   border: none;
   border-radius: 3px;
   text-transform: uppercase;

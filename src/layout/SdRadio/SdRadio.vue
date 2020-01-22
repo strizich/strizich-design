@@ -61,10 +61,11 @@ export default {
 
 <style lang="scss" scoped>
 @import '../scss/functions';
-
 // TODO: this needs to be reworked again. It has become confusing and hard to follow.
 
 %radio {
+  width: 0;
+  height:0;
   &:before{
     content:'';
     box-shadow: inset 0 0 0 2px v(--divider);
@@ -72,7 +73,7 @@ export default {
     height: 20px;
     display: block;
     position: absolute;
-    left: 0;
+    left: 4px;
     top: 50%;
     margin-top: -10px;
     background-color: transparent;
@@ -118,7 +119,13 @@ export default {
   .sd--radio{
     position: relative;
     z-index: 10;
-    padding: 8px 16px 8px 24px;
+    padding: 8px 16px 8px 28px;
+    -webkit-user-select: none;
+    &:hover{
+      transition: background-color .15s ease-in-out;
+      background-color: var(--background-highlight);
+      cursor:pointer;
+    }
     &__input{
       -webkit-appearance: none;
       appearance: none;
@@ -129,22 +136,7 @@ export default {
       font-size: rem(16);
       position: relative;
       z-index: 10;
-    }
-    &:hover{
-      cursor: pointer;
-      .sd--radio__content{
-        &:after{
-          background-color: var(--background-highlight);
-          content: '';
-          position:absolute;
-          top: -8px;
-          bottom: -8px;
-          left: -28px;
-          right: -8px;
-          z-index: -1;
-          border-radius: 3px;
-        }
-      }
+      width: 100%;
     }
   }
 

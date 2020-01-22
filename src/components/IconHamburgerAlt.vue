@@ -105,6 +105,7 @@ export default {
   display:flex;
   align-items: center;
   justify-content: center;
+  border: none;
   &:focus{
     outline:none;
   }

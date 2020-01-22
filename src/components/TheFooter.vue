@@ -22,11 +22,12 @@ export default {
   @import '../layout/scss/breakpoints';
   .footer{
     padding: 16px;
-    background: var(--background-accent);
+    background: var(--background);
     position:absolute;
     bottom: 0;
     left: 0;
     right: 0;
+    box-shadow: 0 -1px 0 0 var(--background-accent);
     &__wrapper{
       display:flex;
       @include iosSafeArea;

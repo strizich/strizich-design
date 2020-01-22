@@ -17,7 +17,7 @@
           <strong class="text__footnote">Made with love.</strong>
         </template>
         <template v-slot:end>
-          <small class="text__footnote">Powered by: <em>VueJS</em> and <em>GraphCMS</em></small>
+          <small class="text__footnote">Powered by: <em>VueJS</em></small>
         </template>
       </the-footer>
     </template>
