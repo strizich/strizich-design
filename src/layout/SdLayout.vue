@@ -58,6 +58,7 @@ export default {
     background:var(--background-accent);
     order: 0;
     transition: width .3s 0s ease-in-out;
+    box-shadow: inset -1px 0 0 0 var(--background-highlight);
     @include breakpoint-down('sm') {
       position: fixed;
       top: 50px;

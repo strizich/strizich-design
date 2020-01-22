@@ -52,12 +52,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.sidebar{
-  &__header{
-    background-color: var(--background-accent);
-    padding:16px;
-  }
-}
+
 .link {
   color: var(--text);
   display:block;
