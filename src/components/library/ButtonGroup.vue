@@ -112,6 +112,9 @@ export default {
     @include breakpoint-down('md'){
       padding: 32px;
     }
+    &__header{
+      width: 100%;
+    }
     &__group{
       padding: 8px 0;
     }
