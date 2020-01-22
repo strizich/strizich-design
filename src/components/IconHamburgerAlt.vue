@@ -11,11 +11,6 @@ import anime from 'animejs'
 import SdFocused from '@/core/mixins/SdFocused'
 export default {
   name: 'IconHamburger',
-  data () {
-    return {
-      isOpen: false
-    }
-  },
   mixins: [ SdFocused ],
   props: {
     active: [Boolean, String],
@@ -31,11 +26,10 @@ export default {
   },
   methods: {
     toggleOpen: function () {
-      this.isOpen = !this.isOpen
       if (this.animated) {
-        this.animateHamburger(this.isOpen)
+        this.animateHamburger(this.active)
       }
-      this.$emit('toggle:menu', this.isOpen)
+      this.$emit('toggle:menu', this.active)
     },
 
     animateHamburger: function (open) {
@@ -99,7 +93,7 @@ export default {
     },
     isActive: function () {
       return {
-        'is--open': this.isOpen
+        'is--open': this.active
       }
     }
   }

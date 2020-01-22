@@ -87,9 +87,7 @@ export default {
         'success'
       ],
       boxStyle: [ 'Default', 'Flat', 'Outline' ],
-      pills: [
-        'Default', 'Pill', 'Rounded'
-      ],
+      pills: [ 'Default', 'Pill', 'Rounded' ],
       sizes: [
         { name: 'Default', value: 'md' },
         { name: 'Small', value: 'sm' },
