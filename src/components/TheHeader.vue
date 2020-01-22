@@ -1,11 +1,11 @@
 <template>
   <header :class="['header', scrollClasses]">
     <div class="header__nav-toggle">
-      <icon-hamburger-alt :active="menuOpen" @toggle:menu="onToggle($event)"/>
+      <icon-hamburger-alt :aria-label="srLabel" :active="menuOpen" @toggle:menu="onToggle($event)"/>
     </div>
     <transition name="scrolled">
       <div class="header__wrapper" v-if="handleScroll" key="header">
-        <router-link to="/" class="header__branding">
+        <router-link to="/" class="header__branding" aria-label="Strizich Design">
           <IconLogo />
         </router-link>
       </div>
@@ -31,6 +31,10 @@ export default {
     }
   },
   computed: {
+    srLabel: function () {
+      const menuState = this.menuOpen ? 'Open' : 'Closed'
+      return `Menu ${menuState}`
+    },
     scrollClasses: function () {
       return {
         'is--scrolled--up': this.handleScroll,
@@ -54,7 +58,7 @@ export default {
   background-color: v(--background);
   &.is--scrolled {
     &--up {
-      background-color: v(--background-highlight);
+      background-color: v(--background);
     }
     &--down {
       background-color: v(--background-accent);

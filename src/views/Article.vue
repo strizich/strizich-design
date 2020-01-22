@@ -40,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 .article{
   &__content{
-    padding: 0 16px;
+    padding: 0 16px 32px;
   }
 }
 </style>

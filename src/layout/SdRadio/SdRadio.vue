@@ -5,7 +5,7 @@
       v-bind="{ name, disabled, required, value, checked: isSelected }"
       type="radio"/>
     <span class="sd--radio__content">
-      <slot/>
+      <span><slot/></span>
     </span>
   </label>
 </template>
@@ -62,17 +62,24 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/functions';
 
+// TODO: this needs to be reworked again. It has become confusing and hard to follow.
+
 %radio {
   &:before{
     content:'';
     box-shadow: inset 0 0 0 2px v(--divider);
     width: 20px;
     height: 20px;
-    display: inline-block;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -10px;
     background-color: transparent;
     border-radius: 50%;
-    transition: box-shadow .23s ease-in-out, background .23s ease-in-out;
+    transition: box-shadow .23s ease-in-out, background-color .23s ease-in-out;
     background-color: v(--background);
+    z-index: 15;
   }
   &:checked{
     &:before{
@@ -110,19 +117,35 @@ export default {
 }
   .sd--radio{
     position: relative;
-    display:inline-flex;
-    margin-right: 8px;
-    padding: 8px 0;
+    z-index: 10;
+    padding: 8px 16px 8px 24px;
     &__input{
       -webkit-appearance: none;
       appearance: none;
-      @extend %radio;
       border: none;
+      @extend %radio;
     }
     &__content{
-      padding-left: 8px;
       font-size: rem(16);
-      line-height: rem(20);
+      position: relative;
+      z-index: 10;
+    }
+    &:hover{
+      cursor: pointer;
+      .sd--radio__content{
+        &:after{
+          background-color: var(--background-highlight);
+          content: '';
+          position:absolute;
+          top: -8px;
+          bottom: -8px;
+          left: -28px;
+          right: -8px;
+          z-index: -1;
+          border-radius: 3px;
+        }
+      }
     }
   }
+
 </style>

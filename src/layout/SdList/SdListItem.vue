@@ -1,7 +1,7 @@
 <template>
   <li class="sd--list__item">
     <template v-if="!loading">
-      <div class="sd--list__wrapper" v-if="title || content">
+      <div :class="['sd--list__wrapper', spacingClass]" v-if="title || content">
         <span class="sd--list__title" v-if="title">{{title}}</span>
         <span class="sd--list__content" v-if="content">{{content}}</span>
       </div>
@@ -30,6 +30,15 @@ export default {
     },
     loading: {
       type: Boolean
+    },
+    spacing: {
+      type: String,
+      default: 'normal'
+    }
+  },
+  computed: {
+    spacingClass: function () {
+      return `is--${this.spacing}`
     }
   },
   components: { SdTextSkeleton }
@@ -37,12 +46,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .sd--list{
   &__item{
     position: relative;
     padding: 0 16px;
     list-style-type: none;
-    &:after{
+  }
+  &__wrapper{
+    padding: 16px 0 17px;
+     &:after{
       content:'';
       height: 1px;
       position: absolute;
@@ -52,9 +65,16 @@ export default {
       bottom: 1px;
       background-color: var(--divider);
     }
-  }
-  &__wrapper{
-    padding: 16px 0 17px ;
+     .is{
+      &--tight{
+        padding-top: 8px;
+        padding-bottom: 9px;
+      }
+      &--normal{
+        padding-top: 16px;
+        padding-bottom: 17px;
+      }
+    }
   }
   &__title{
     font-weight: 700;
@@ -63,17 +83,6 @@ export default {
   }
   &__content{
     display:block;
-  }
-  .sd--link{
-    color: var(--text);
-    display:block;
-    padding: 16px 0 16px 16px;
-    margin-right: -16px;
-    margin-left: -16px;
-    transition: background-color .23s ease-in-out;
-    &:hover{
-      background-color: var(--background-accent);
-    }
   }
 }
 </style>

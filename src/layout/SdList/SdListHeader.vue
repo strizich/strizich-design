@@ -1,6 +1,6 @@
 <template>
   <li class="sd--list__header">
-    <h4 class="sd--text__caption">{{title}}</h4>
+    <h5 class="sd--text__caption">{{title}}</h5>
     <template v-if="!title">
       <slot/>
     </template>
@@ -19,11 +19,12 @@ export default {
 <style lang="scss" scoped>
 .sd--list{
   &__header{
-    & > h4 {
-      font-size: 18px;
+    padding: 0 16px 8px;
+    & > h5 {
+      font-size: 14px;
+      line-height: 14px;
       margin-bottom:0;
-      padding:0;
-
+      padding: 16px 0 0;
     }
   }
 }

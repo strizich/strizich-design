@@ -16,11 +16,11 @@
 :root {
   @each $key, $color in $sd-color-global {
     $base: nth($color, 1);
-    $darker: nth($color, 2);
-    $lighter: nth($color, 3);
+    $highlight: nth($color, 2);
+    $accent: nth($color, 3);
     --#{$key}: #{$base};
-    --#{$key}-highlight: #{$lighter};
-    --#{$key}-accent: #{$darker};
+    --#{$key}-highlight: #{$highlight};
+    --#{$key}-accent: #{$accent};
   };
 }
 

@@ -2,12 +2,9 @@
   <div class="home">
     <home-mast/>
     <section class="home__content">
-      <h1 class="text__headline">Buttons</h1>
-      <div class="buttons">
-        <template v-for="(button, index) in colorThemes">
-          <sd-button :theme="button.color" :key="index">Something</sd-button>
-        </template>
-      </div>
+
+      <button-group/>
+
       <hr class="divider divider--lg"/>
       <h1 class="text__headline">Chicklets</h1>
       <div class="chicklets">
@@ -37,7 +34,7 @@
 </template>
 
 <script>
-import SdButton from '@/layout/SdButton'
+import ButtonGroup from '@/components/library/ButtonGroup'
 import SdChicklet from '@/layout/SdChicklet'
 import SdRadio from '@/layout/SdRadio/SdRadio'
 import ArticleCard from '@/components/ArticleCard'
@@ -73,7 +70,7 @@ export default {
     }
   },
   components: {
-    SdButton,
+    ButtonGroup,
     SdChicklet,
     SdRadio,
     ArticleCard,

@@ -26,17 +26,19 @@
 
 <script>
 import '@/layout/scss'
+import SdThrottle from '@/utilities/SdThrottle'
 import SdLayout from '@/layout/SdLayout'
 import TheHeader from '@/components/TheHeader'
 import TheFooter from '@/components/TheFooter'
 import TheSidebar from '@/components/TheSidebar'
 import SdScrollPosition from '@/core/mixins/SdScrollPosition'
+
 export default {
   // TODO: Rewrite when Vue3 drops.
 
   data () {
     return {
-      menuState: false,
+      menuState: true,
       windowWidth: 0
     }
   },
@@ -47,15 +49,19 @@ export default {
       }
     }
   },
-  mounted () {
+  created () {
     this.getMenuState()
+  },
+  mounted () {
     this.setWindowWidth()
     window.addEventListener('resize', () => {
-      this.throttled(10, this.setWindowWidth())
+      SdThrottle(10, this.setWindowWidth())
     }, false)
   },
   destroyed () {
-    window.removeEventListener('resize', () => {}, false)
+    window.removeEventListener('resize', () => {
+      this.setWindowWidth()
+    }, false)
   },
   methods: {
     setWindowWidth () {
@@ -72,17 +78,6 @@ export default {
         window.localStorage.setItem('menuState', this.menuState)
       } else {
         window.localStorage.setItem('menuState', false)
-      }
-    },
-    throttled: function (delay, fn) {
-      let lastCall = 0
-      return function (...args) {
-        const now = (new Date()).getTime()
-        if (now - lastCall < delay) {
-          return
-        }
-        lastCall = now
-        return fn(...args)
       }
     }
   },
@@ -108,9 +103,5 @@ export default {
   body, html{
     background: v(--background);
     color: v(--text);
-  }
-  .app__content{
-    min-height: calc(100vh - 50px);
-    padding-bottom: 50px;
   }
 </style>
