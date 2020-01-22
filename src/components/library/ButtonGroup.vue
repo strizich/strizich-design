@@ -17,7 +17,7 @@
             :size="selectedSize"
             :block="isBlock"
             :key="index">
-            {{color}}
+              {{color}}
           </sd-button>
         </template>
       </div>
