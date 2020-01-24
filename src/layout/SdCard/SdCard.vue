@@ -16,7 +16,7 @@ export default {
     },
     elevation: {
       type: [Number, String],
-      default: 4
+      default: 6
     }
   },
   computed: {
@@ -31,7 +31,6 @@ export default {
 @import '../scss/functions';
 .sd--card{
   background-color: v(--background-highlight);
-  border: 1px solid v(--highlight);
   border-radius: 3px;
   display:flex;
   flex-direction: column;

@@ -22,8 +22,7 @@
         </template>
       </div>
       <div class="buttons__options">
-        <div class="buttons__group">
-          <p>Sizes</p>
+        <sd-radio-group title="Button Size">
           <sd-radio
             name="sizes"
             v-model="selectedSize"
@@ -32,9 +31,8 @@
             :value="size.value">
             {{size.name}}
           </sd-radio>
-        </div>
-        <div class="buttons__group">
-          <p>Pill / Rounded Types</p>
+        </sd-radio-group>
+        <sd-radio-group title="Types">
           <sd-radio
             name="pills"
             v-for="(pill, index) in pills"
@@ -43,9 +41,8 @@
             v-model="selectedPill">
             {{pill}}
           </sd-radio>
-        </div>
-        <div class="buttons__group">
-          <p>Style Types</p>
+        </sd-radio-group>
+        <sd-radio-group title="Style">
           <sd-radio
             name="Styles"
             v-for="(style, index) in boxStyle"
@@ -54,7 +51,8 @@
             v-model="selectedStyle">
             {{style}}
           </sd-radio>
-        </div>
+        </sd-radio-group>
+
         <div class="buttons__group">
           <p>Layout Options</p>
           <sd-check v-model="isBlock">
@@ -70,6 +68,7 @@
 import SdButton from '@/layout/SdButton'
 import SdRadio from '@/layout/SdRadio/SdRadio'
 import SdCheck from '@/layout/SdCheckbox/SdCheck'
+import SdRadioGroup from '@/layout/SdRadio/SdRadioGroup'
 export default {
   name: 'ButtonGroup',
   data () {
@@ -98,7 +97,8 @@ export default {
   components: {
     SdButton,
     SdRadio,
-    SdCheck
+    SdCheck,
+    SdRadioGroup
   }
 }
 </script>
@@ -111,6 +111,9 @@ export default {
     padding: 64px;
     @include breakpoint-down('md'){
       padding: 32px;
+    }
+     @include breakpoint-down('sm'){
+      padding: 32px 16px;
     }
     &__header{
       width: 100%;
@@ -144,16 +147,21 @@ export default {
     }
     &__results{
       display:flex;
+      height: 400px;
       align-content: center;
       justify-content: center;
       min-width: 66%;
-      padding: 16px;
       background-color: var(--background-accent);
       border: 1px solid var(--background-highlight);
       @include sd--elevation(6, inset);
       flex-wrap: wrap;
       @include breakpoint-down('md'){
         width: 100%;
+        margin-bottom: 32px;
+      }
+      @include breakpoint-down('sm'){
+        margin: 0 -16px 32px;
+        min-width: 100vw;
       }
       .sd--button{
         margin: 8px;

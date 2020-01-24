@@ -12,11 +12,6 @@
 <script>
 export default {
   name: 'SdField',
-  data () {
-    return {
-
-    }
-  },
   props: {
     type: String,
     disabled: {

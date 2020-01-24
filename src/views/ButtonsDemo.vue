@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="page-content">
     <button-group/>
     <article class="demo__description">
       <h1>Header</h1>

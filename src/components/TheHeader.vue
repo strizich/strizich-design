@@ -91,7 +91,8 @@ export default {
   }
   &__nav-toggle{
     position: fixed;
-    left: 0;
+    left: 0px;
+    left: env(safe-area-inset-left);
     top:0;
     z-index: 102;
   }

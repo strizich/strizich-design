@@ -46,6 +46,7 @@ export default {
     display:flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0 env(safe-area-inset-left) 0 env(safe-area-inset-right);
     &__content{
       width: 100%;
       max-width: 920px;

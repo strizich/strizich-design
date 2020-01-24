@@ -118,6 +118,7 @@ export default {
     margin: 0 8px;
     display: inline-flex;
     align-items: center;
+    -webkit-user-select: none;
     &:first-of-type{
       margin-left:0;
     }
