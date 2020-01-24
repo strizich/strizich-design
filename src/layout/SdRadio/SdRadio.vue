@@ -119,7 +119,7 @@ export default {
   .sd--radio{
     position: relative;
     z-index: 10;
-    padding: 8px 16px 8px 28px;
+    padding: 8px 16px 8px 32px;
     -webkit-user-select: none;
     &:hover{
       transition: background-color .15s ease-in-out;
@@ -131,6 +131,9 @@ export default {
       appearance: none;
       border: none;
       @extend %radio;
+      position: absolute;
+      top: 50%;
+      left: 0;
     }
     &__content{
       font-size: rem(16);

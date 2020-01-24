@@ -18,8 +18,7 @@ export default {
   computed: {
     classes: function () {
       return {
-        'is--stacked': this.stack,
-        'is--inline': this.inline
+        'is--stacked': this.stack
       }
     }
   }
@@ -42,13 +41,12 @@ export default {
   &__block{
     display:flex;
     width: 100%;
+    flex-direction: row;
+    align-content: flex-start;
+    flex-wrap: wrap;
     &.is{
       &--stacked{
         flex-direction: column;
-        align-content: flex-start;
-      }
-      &--inline{
-        flex-direction: row;
         align-content: flex-start;
       }
     }
