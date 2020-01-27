@@ -74,7 +74,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../scss/mixins';
 $ratioSizes: (
   (16, 9),
   (4, 3),

@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import '@/layout/scss'
+
 import SdThrottle from '@/utilities/SdThrottle'
 import SdLayout from '@/layout/SdLayout'
 import TheHeader from '@/components/TheHeader'
@@ -99,7 +99,6 @@ export default {
 }
 </script>
 <style lang="scss">
-  @import './layout/scss/functions';
   body, html{
     background: v(--background);
     color: v(--text);

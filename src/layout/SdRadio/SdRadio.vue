@@ -60,9 +60,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/functions';
-// TODO: this needs to be reworked again. It has become confusing and hard to follow.
-
 %radio {
   width: 0;
   height:0;

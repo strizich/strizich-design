@@ -38,7 +38,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
- @import '../layout/scss/mixins';
  .home{
    &__content{
     @include iosSafeArea;

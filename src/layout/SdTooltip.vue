@@ -94,8 +94,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './scss/colors';
-@import './SdElevation/elevation';
 .pop-enter{
   opacity: 0;
   transform: translateY(8px);

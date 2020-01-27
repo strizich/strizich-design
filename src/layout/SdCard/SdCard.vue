@@ -28,7 +28,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../scss/functions';
 .sd--card{
   background-color: v(--background-highlight);
   border-radius: 3px;

@@ -14,8 +14,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/spacing';
-@import '../scss/functions';
 .sd--card__footer{
   padding: spacing(offset);
   display:flex;

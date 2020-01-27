@@ -18,8 +18,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '../layout/scss/mixins';
-  @import '../layout/scss/breakpoints';
   .footer{
     padding: 16px;
     background: var(--background);

@@ -1,5 +1,5 @@
 <template>
-  <li class="sd--list__item">
+  <li :class="['sd--list__item', classes]">
     <template v-if="!loading">
       <div :class="['sd--list__wrapper', spacingClass]" v-if="title || content">
         <span class="sd--list__title" v-if="title">{{title}}</span>
@@ -34,11 +34,17 @@ export default {
     spacing: {
       type: String,
       default: 'normal'
-    }
+    },
+    link: Boolean
   },
   computed: {
     spacingClass: function () {
       return `is--${this.spacing}`
+    },
+    classes: function () {
+      return {
+        'is--link': this.link
+      }
     }
   },
   components: { SdTextSkeleton }
@@ -46,12 +52,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .sd--list{
   &__item{
     position: relative;
     padding: 0 16px;
     list-style-type: none;
+    &.is--link{
+      padding:0;
+    }
   }
   &__wrapper{
     padding: 16px 0 17px;

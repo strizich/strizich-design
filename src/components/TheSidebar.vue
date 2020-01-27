@@ -1,7 +1,7 @@
 <template>
   <nav class="sidebar">
     <sd-list>
-        <sd-list-item>
+        <sd-list-item link>
           <router-link
             class="link"
             exact-active-class="link--active"
@@ -9,7 +9,7 @@
             Home
           </router-link>
         </sd-list-item>
-        <sd-list-item>
+        <sd-list-item link>
           <router-link
             class="link"
             exact-active-class="link--active"
@@ -17,7 +17,7 @@
               Article
           </router-link>
         </sd-list-item>
-        <sd-list-item>
+        <sd-list-item link>
           <router-link
             class="link"
             exact-active-class="link--active"
@@ -26,13 +26,13 @@
           </router-link>
         </sd-list-item>
         <sd-list-header title="Components"/>
-        <sd-list-item>
-      <router-link
-          class="link"
-          exact-active-class="link--active"
-          to="buttons">
-            Buttons
-        </router-link>
+        <sd-list-item link>
+          <router-link
+            class="link"
+            exact-active-class="link--active"
+            to="buttons">
+              Buttons
+          </router-link>
         </sd-list-item>
     </sd-list>
   </nav>
@@ -56,8 +56,6 @@ export default {
   color: var(--text);
   display:block;
   padding: 16px 0 16px 16px;
-  margin-right: -16px;
-  margin-left: -16px;
   transition: background-color .23s ease-in-out;
   &:after{
     transition: left .23s ease-in-out;

@@ -52,8 +52,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '../layout/scss/breakpoints';
-
   .mast{
     background-color: var(--background-highlight);
     margin-bottom: 40px;

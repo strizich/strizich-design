@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "./scss/animations";
+
   .sd-ripple-enter-active {
     transition: .8s $sd-transition-stand-timing;
     transition-property: opacity, transform;

@@ -3,7 +3,6 @@
 
 * {
   box-sizing: border-box;
-  font-smooth: subpixel-antialiased;
   -webkit-font-smoothing: subpixel-antialiased;
   &:before, &:after{
     @extend *;
@@ -140,8 +139,6 @@ a {
 //   text-decoration: none;
 // }
 
-
-
 pre,
 code,
 kbd,
@@ -223,7 +220,6 @@ label {
 }
 
 button {
-  border-radius: 0;
   &:focus {
     outline:none;
   }
