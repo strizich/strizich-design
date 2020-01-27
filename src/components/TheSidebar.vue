@@ -56,6 +56,7 @@ export default {
   color: var(--text);
   display:block;
   padding: 16px 0 16px 16px;
+
   transition: background-color .23s ease-in-out;
   &:after{
     transition: left .23s ease-in-out;

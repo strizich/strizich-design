@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .sd--field{
   &__group{
     padding: 0 0 16px 0;

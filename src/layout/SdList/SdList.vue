@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .sd--list{
   &__wrapper{
     list-style-type: none;

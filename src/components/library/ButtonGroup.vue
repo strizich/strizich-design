@@ -133,7 +133,6 @@ export default {
       width: 100%;
       padding: 0 32px;
       flex-direction: column;
-      justify-content: space-between;
       margin-bottom: 16px;
       @include breakpoint-down('md'){
         width: 100%;

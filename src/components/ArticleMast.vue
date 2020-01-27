@@ -16,9 +16,9 @@
         <div class="mast__details">
           <sd-list>
             <sd-list-header title="things"/>
-            <sd-list-item spacing="tight" content="one"/>
-            <sd-list-item spacing="tight" content="two"/>
-            <sd-list-item spacing="tight" content="three"/>
+            <sd-list-item tight content="one"/>
+            <sd-list-item tight content="two"/>
+            <sd-list-item tight content="three"/>
           </sd-list>
         </div>
       </div>

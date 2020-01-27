@@ -25,7 +25,7 @@
 </template>
 
 <script>
-
+import '@/layout/global.scss'
 import SdThrottle from '@/utilities/SdThrottle'
 import SdLayout from '@/layout/SdLayout'
 import TheHeader from '@/components/TheHeader'
