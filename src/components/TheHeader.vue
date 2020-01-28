@@ -10,7 +10,7 @@
         </router-link>
       </div>
       <div class="header__scrolled" v-else key="subHeader">
-        <p><span>Bread</span> / <strong>Crumb.... or something similar.</strong></p>
+        <p>{{pageTitle}} <span v-if="sectionTitle">/</span> <strong>{{sectionTitle}}</strong></p>
       </div>
     </transition>
   </header>
@@ -31,6 +31,12 @@ export default {
     }
   },
   computed: {
+    pageTitle: function () {
+      return this.$store.state.pageTitle
+    },
+    sectionTitle: function () {
+      return this.$store.state.sectionTitle
+    },
     srLabel: function () {
       const menuState = this.menuOpen ? 'Open' : 'Closed'
       return `Menu ${menuState}`

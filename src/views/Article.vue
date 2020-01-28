@@ -33,7 +33,10 @@ export default {
       placeholder: mdPlaceholder
     }
   },
-  components: { ArticleMast, VueMarkdown }
+  components: { ArticleMast, VueMarkdown },
+  metaInfo: {
+    title: 'Article'
+  }
 }
 </script>
 

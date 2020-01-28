@@ -33,6 +33,9 @@ export default {
   components: {
     ArticleCard,
     HomeMast
+  },
+  metaInfo: {
+    title: 'Personal UI framework'
   }
 }
 </script>

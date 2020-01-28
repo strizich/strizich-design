@@ -42,6 +42,7 @@
 import SdList from '@/layout/SdList/SdList'
 import SdListItem from '@/layout/SdList/SdListItem'
 import SdListHeader from '@/layout/SdList/SdListHeader'
+
 export default {
   components: {
     SdList,
@@ -56,7 +57,6 @@ export default {
   color: var(--text);
   display:block;
   padding: 16px 0 16px 16px;
-
   transition: background-color .23s ease-in-out;
   &:after{
     transition: left .23s ease-in-out;
@@ -66,7 +66,7 @@ export default {
     bottom:0;
     right:0;
     left: 100%;
-    border-bottom: 2px solid var(--primary)
+    border-bottom: 2px solid var(--primary);
   }
   &:hover{
     background-color: var(--background);

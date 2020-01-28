@@ -1,7 +1,11 @@
 <template>
   <sd-layout id="app" :sidebar="menuState">
     <template v-slot:header>
-      <the-header :menuOpen="menuState" @toggle:menu="onToggle" :handleScroll="showHeader"/>
+      <the-header
+      @toggle:menu="onToggle"
+      :menuOpen="menuState"
+      :handleScroll="showHeader"
+    />
     </template>
     <template v-slot:content>
       <div class="app__content">
@@ -35,7 +39,6 @@ import SdScrollPosition from '@/core/mixins/SdScrollPosition'
 
 export default {
   // TODO: Rewrite when Vue3 drops.
-
   data () {
     return {
       menuState: true,
@@ -95,6 +98,10 @@ export default {
     TheFooter,
     TheSidebar,
     SdLayout
+  },
+  metaInfo: {
+    title: 'Default Title',
+    titleTemplate: '%s | Strizich Design'
   }
 }
 </script>

@@ -1,7 +1,6 @@
 <template>
   <main class="sd--layout">
     <portal-target name="body" multiple />
-
     <slot name="header"/>
     <div class="sd--layout__wrapper">
       <div class="sd--layout__content">

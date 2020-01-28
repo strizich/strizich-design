@@ -1,5 +1,8 @@
 <template>
-   <button class="sd--button sd--button__flat" :class="isFocused" @click="toggleOpen">
+   <button
+   class=""
+   :class="['sd--button', 'sd--button__flat', isFocused]"
+   @click="toggleOpen">
       <span class="sd--hamburger" :class="isActive">
         <i class="sd--hamburger__bar" :class="`bar--${n}--alt`" v-for="n in 3" :key="n"/>
       </span>
@@ -31,7 +34,6 @@ export default {
       }
       this.$emit('toggle:menu', this.active)
     },
-
     animateHamburger: function (open) {
       const tl = anime.timeline({
         duration: 180,
@@ -55,9 +57,6 @@ export default {
           keyframes: [
             { width: 24, translateX: 0, easing: 'easeInQuad' }
           ]
-        }, 0).add({
-          targets: '.sd--button__flat',
-          backgroundColor: ['rgba(0,0,0,0)', 'rgba(0,0,0,.1)']
         }, 0)
       } else if (open) {
         tl.add({
@@ -78,9 +77,6 @@ export default {
             { width: 21, translateX: 3, easing: 'easeOutQuad' },
             { translateX: 3 }
           ]
-        }, 0).add({
-          targets: '.sd--button__flat',
-          backgroundColor: ['rgba(0,0,0,0)', 'rgba(0,0,0,.1)']
         }, 0)
       }
     }
@@ -88,7 +84,8 @@ export default {
   computed: {
     isFocused: function () {
       return {
-        'is--focused': this.sdHasFocus
+        'is--focused': this.sdHasFocus,
+        'is--hover': this.isHovering
       }
     },
     isActive: function () {
