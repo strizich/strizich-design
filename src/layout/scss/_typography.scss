@@ -88,9 +88,10 @@ ul, li {
   }
 }
 
-.sd--list{
-  &__item{
-    padding: spacing(inset, sm);
-    list-style-type: disc;
+.sd--field{
+  &__legend{
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--text-accent);
   }
 }

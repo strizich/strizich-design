@@ -47,8 +47,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../layout/scss/functions';
-@import '../layout/scss/mixins';
 .header{
   position: sticky;
   top:0;

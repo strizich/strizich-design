@@ -80,12 +80,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'scss/colors';
-@import 'scss/spacing';
-@import 'scss/functions';
-@import 'scss/get-contrast';
-@import 'scss/mixins';
-@import 'SdElevation/mixins';
 
 .sd--button {
   touch-action: manipulation;
@@ -103,6 +97,7 @@ export default {
     z-index: 10;
     flex-grow: 2;
     transition: padding .23s, font-size .23s;
+    text-transform: uppercase;
     &.is{
       &--sm{
         font-size: rem(14);
@@ -143,6 +138,7 @@ export default {
       color: sd-color($contrast, text);
       background-color: $base;
       transition: all .2s ease-out;
+      border-radius: 3px;
       &:hover {
         @include sd--elevation(4);
         color: sd-color($contrast-accent, text);

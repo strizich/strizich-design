@@ -16,7 +16,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .sd--list{
   &__header{
     padding: 0 16px 8px;

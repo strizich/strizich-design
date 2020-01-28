@@ -22,7 +22,7 @@
         </template>
       </div>
       <div class="buttons__options">
-        <sd-radio-group title="Button Size">
+        <sd-fieldset title="Button Size">
           <sd-radio
             name="sizes"
             v-model="selectedSize"
@@ -31,8 +31,8 @@
             :value="size.value">
             {{size.name}}
           </sd-radio>
-        </sd-radio-group>
-        <sd-radio-group title="Types">
+        </sd-fieldset>
+        <sd-fieldset title="Types">
           <sd-radio
             name="pills"
             v-for="(pill, index) in pills"
@@ -41,8 +41,8 @@
             v-model="selectedPill">
             {{pill}}
           </sd-radio>
-        </sd-radio-group>
-        <sd-radio-group title="Style">
+        </sd-fieldset>
+        <sd-fieldset title="Style">
           <sd-radio
             name="Styles"
             v-for="(style, index) in boxStyle"
@@ -51,14 +51,12 @@
             v-model="selectedStyle">
             {{style}}
           </sd-radio>
-        </sd-radio-group>
-
-        <div class="buttons__group">
-          <p>Layout Options</p>
-          <sd-check v-model="isBlock">
+        </sd-fieldset>
+        <sd-fieldset title="Layout Options">
+          <sd-checkbox v-model="isBlock">
             Block Level
-          </sd-check>
-        </div>
+          </sd-checkbox>
+        </sd-fieldset>
       </div>
     </div>
   </div>
@@ -67,8 +65,8 @@
 <script>
 import SdButton from '@/layout/SdButton'
 import SdRadio from '@/layout/SdRadio/SdRadio'
-import SdCheck from '@/layout/SdCheckbox/SdCheck'
-import SdRadioGroup from '@/layout/SdRadio/SdRadioGroup'
+import SdCheckbox from '@/layout/SdCheckbox'
+import SdFieldset from '@/layout/SdField/SdFieldset'
 export default {
   name: 'ButtonGroup',
   data () {
@@ -97,15 +95,13 @@ export default {
   components: {
     SdButton,
     SdRadio,
-    SdCheck,
-    SdRadioGroup
+    SdCheckbox,
+    SdFieldset
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  @import '../../layout/SdElevation/mixins';
-  @import '../../layout/scss/breakpoints';
   .buttons{
     background-color: var(--background-accent);
     padding: 64px;
@@ -137,7 +133,6 @@ export default {
       width: 100%;
       padding: 0 32px;
       flex-direction: column;
-      justify-content: space-between;
       margin-bottom: 16px;
       @include breakpoint-down('md'){
         width: 100%;

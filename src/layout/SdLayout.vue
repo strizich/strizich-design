@@ -28,8 +28,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import './scss/breakpoints';
-
 .sd--layout {
   min-height: 100vh;
   min-width: 100%;

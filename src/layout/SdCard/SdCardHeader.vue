@@ -20,8 +20,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../scss/spacing';
-@import '../scss/functions';
 .sd--card{
   &__header{
     display: flex;

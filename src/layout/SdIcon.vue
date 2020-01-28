@@ -28,8 +28,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import './scss/colors';
-
 $icon-sizes: (
   sm: 16px,
   md: 24px,

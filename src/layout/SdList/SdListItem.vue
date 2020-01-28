@@ -1,7 +1,7 @@
 <template>
   <li class="sd--list__item">
     <template v-if="!loading">
-      <div :class="['sd--list__wrapper', spacingClass]" v-if="title || content">
+      <div :class="['sd--list__block', classes]" v-if="title || content">
         <span class="sd--list__title" v-if="title">{{title}}</span>
         <span class="sd--list__content" v-if="content">{{content}}</span>
       </div>
@@ -31,31 +31,39 @@ export default {
     loading: {
       type: Boolean
     },
-    spacing: {
-      type: String,
-      default: 'normal'
-    }
+    link: Boolean,
+    tight: Boolean
   },
   computed: {
-    spacingClass: function () {
-      return `is--${this.spacing}`
+    classes: function () {
+      return {
+        'is--link': this.link,
+        'is--tight': this.tight
+      }
     }
   },
   components: { SdTextSkeleton }
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
 .sd--list{
   &__item{
     position: relative;
-    padding: 0 16px;
-    list-style-type: none;
+    padding:0;
   }
-  &__wrapper{
+  &__block{
     padding: 16px 0 17px;
-     &:after{
+    &.is{
+      &--link{
+        padding:0;
+      }
+      &--tight{
+        padding-top: 8px;
+        padding-bottom: 9px;
+      }
+    }
+    &:after{
       content:'';
       height: 1px;
       position: absolute;
@@ -64,16 +72,6 @@ export default {
       right:0;
       bottom: 1px;
       background-color: var(--divider);
-    }
-     .is{
-      &--tight{
-        padding-top: 8px;
-        padding-bottom: 9px;
-      }
-      &--normal{
-        padding-top: 16px;
-        padding-bottom: 17px;
-      }
     }
   }
   &__title{

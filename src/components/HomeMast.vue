@@ -31,10 +31,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '../layout/scss/colors';
-  @import '../layout/scss/functions';
-  @import '../layout/scss/mixins';
-
   $header-height: 50px;
   $mast-height: calc(100vh - 140px);
 

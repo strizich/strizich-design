@@ -53,10 +53,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './scss/functions';
-@import './scss/colors';
-@import './scss/get-contrast';
-@import './SdElevation/elevation';
 
 .sd--chicklet {
   padding: 4px;

@@ -3,7 +3,6 @@
 
 * {
   box-sizing: border-box;
-  font-smooth: subpixel-antialiased;
   -webkit-font-smoothing: subpixel-antialiased;
   &:before, &:after{
     @extend *;
@@ -68,12 +67,8 @@ address {
   line-height: inherit;
 }
 
-ol, ul {
-  padding-left: rem(16)
-}
-
 ol, ul, dl {
-  padding-left: rem(16);
+  padding-left: rem(16)
 }
 
 ol, ul, dt {
@@ -139,8 +134,6 @@ a {
 //   color: inherit;
 //   text-decoration: none;
 // }
-
-
 
 pre,
 code,
@@ -223,7 +216,6 @@ label {
 }
 
 button {
-  border-radius: 0;
   &:focus {
     outline:none;
   }
