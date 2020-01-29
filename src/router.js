@@ -4,9 +4,24 @@ import Home from './views/Home'
 
 Vue.use(Router)
 
+let scrollBehavior = (to, from, savedPosition) => {
+  console.log(to)
+  if (savedPosition) {
+    return savedPosition
+  } else {
+    if (to.hash) {
+      return {
+        selector: to.hash
+      }
+    }
+    return { x: 0, y: 0 }
+  }
+}
+
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
+  scrollBehavior,
   routes: [
     {
       path: '/',
@@ -28,12 +43,5 @@ export default new Router({
       name: 'buttons',
       component: () => import(/* webpackChunkName: "buttons" */ './views/ButtonsDemo.vue')
     }
-  ],
-  scrollBehavior (to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { x: 0, y: 0 }
-    }
-  }
+  ]
 })

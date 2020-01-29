@@ -2,6 +2,7 @@
   <div class="home">
     <home-mast/>
     <section class="home__content">
+      <section-header>Cards</section-header>
       <div class="cards">
         <article-card
           ratio="16:9"
@@ -27,15 +28,25 @@
 <script>
 import ArticleCard from '@/components/ArticleCard'
 import HomeMast from '@/components/HomeMast'
-
+import SectionHeader from '@/components/SectionHeader'
+import { mapMutations } from 'vuex'
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
     ArticleCard,
-    HomeMast
+    HomeMast,
+    SectionHeader
   },
   metaInfo: {
     title: 'Personal UI framework'
+  },
+  methods: {
+    ...mapMutations([
+      'setTitle'
+    ])
+  },
+  mounted () {
+    this.setTitle('UI Design Library Built with Vue')
   }
 }
 </script>
@@ -44,6 +55,7 @@ export default {
  .home{
    &__content{
     @include iosSafeArea;
+    margin-top: 64px;
     margin-left: 16px;
     margin-right: 16px;
     margin-bottom: 32px;
@@ -61,7 +73,10 @@ export default {
   flex-wrap: wrap;
   margin: 0 auto;
   & > .article-card{
-    max-width: 50%;
+     max-width: 50%;
+    @include breakpoint-down('md'){
+       max-width:100%;
+    }
     @include breakpoint-down('sm'){
       max-width:100%;
     }

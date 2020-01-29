@@ -1,28 +1,94 @@
 <template>
   <main class="sd--layout">
     <portal-target name="body" multiple />
-    <slot name="header"/>
+    <the-header
+        @toggle:menu="onToggle($event)"
+        :menuOpen="sidebarState"
+        :handleScroll="showHeader"
+      />
     <div class="sd--layout__wrapper">
       <div class="sd--layout__content">
         <slot name="content"/>
       </div>
       <transition name="slide">
-        <div class="sd--layout__sidebar" v-if="sidebar">
+        <div class="sd--layout__sidebar" v-if="sidebarState">
           <slot name="sidebar"/>
         </div>
       </transition>
     </div>
-
     <slot name="footer"/>
   </main>
 </template>
 
 <script>
+import SdThrottle from '@/utilities/SdThrottle'
+import TheHeader from '@/components/TheHeader'
+import SdScrollPosition from '@/core/mixins/SdScrollPosition'
 export default {
-  name: 'TheLayout',
-  props: {
-    sidebar: Boolean
-  }
+  name: 'SdLayout',
+  mixins: [ SdScrollPosition ],
+  data () {
+    return {
+      sidebarState: false,
+      window: {
+        width: 0
+      }
+    }
+  },
+  watch: {
+    '$route' () {
+      if (this.isSmall) {
+        this.sidebarState = false
+      }
+    }
+  },
+  created () {
+    this.getStoredMenuState()
+  },
+  mounted () {
+    this.updateWindowWidth()
+    this.addResizeListener()
+  },
+  destroyed () {
+    this.removeResizeListener()
+  },
+  methods: {
+    onToggle: function () {
+      this.sidebarState = !this.sidebarState
+      if (!this.isSmall) {
+        window.localStorage.setItem('SDUI:navState', this.sidebarState)
+      } else {
+        window.localStorage.setItem('SDUI:navState', false)
+      }
+    },
+    getStoredMenuState: function () {
+      const state = window.localStorage.getItem('SDUI:navState')
+      this.sidebarState = (state === 'true')
+    },
+    updateWindowWidth: function () {
+      const width = window.innerWidth
+      this.window.width = width
+    },
+    addResizeListener: function () {
+      window.addEventListener('resize', () => {
+        SdThrottle(10, this.updateWindowWidth())
+      }, false)
+    },
+    removeResizeListener: function () {
+      window.removeEventListener('resize', () => {
+        this.updateWindowWidth()
+      }, false)
+    }
+  },
+  computed: {
+    isSmall: function () {
+      if (this.window.width <= 812) {
+        return true
+      }
+      return false
+    }
+  },
+  components: { TheHeader }
 }
 </script>
 

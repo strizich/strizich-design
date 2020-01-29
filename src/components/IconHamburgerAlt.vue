@@ -1,6 +1,5 @@
 <template>
    <button
-   class=""
    :class="['sd--button', 'sd--button__flat', isFocused]"
    @click="toggleOpen">
       <span class="sd--hamburger" :class="isActive">
