@@ -22,7 +22,7 @@ export default {
   },
   render () {
     try {
-      const defaultSlot = this.$slots.defaultSlot
+      const defaultSlot = this.$slots.default
       if (!defaultSlot) {
         return null
       }
@@ -30,6 +30,7 @@ export default {
       if (defaultSlot.length > 1) {
         throw new Error()
       }
+      return defaultSlot[0]
     } catch (e) {
       Vue.util.warn('SdFocusTrap can only render once, and with only exactly one child component', this)
     }

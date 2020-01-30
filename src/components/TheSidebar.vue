@@ -34,6 +34,14 @@
               Buttons
           </router-link>
         </sd-list-item>
+        <sd-list-item link>
+          <router-link
+            class="link"
+            exact-active-class="link--active"
+            to="buttons">
+              Modals
+          </router-link>
+        </sd-list-item>
     </sd-list>
   </nav>
 </template>

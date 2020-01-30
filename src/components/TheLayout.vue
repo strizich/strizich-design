@@ -25,7 +25,7 @@ import SdThrottle from '@/utilities/SdThrottle'
 import TheHeader from '@/components/TheHeader'
 import SdScrollPosition from '@/core/mixins/SdScrollPosition'
 export default {
-  name: 'SdLayout',
+  name: 'TheLayout',
   mixins: [ SdScrollPosition ],
   data () {
     return {

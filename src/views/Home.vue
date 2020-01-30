@@ -1,41 +1,51 @@
 <template>
   <div class="home">
     <home-mast/>
-    <section class="home__content">
-      <section-header>Cards</section-header>
-      <div class="cards">
-        <article-card
-          ratio="16:9"
-          title="Bleep"
-          category="Case Study"
-          imgUrl="Q9Mfd5PSn2bEULCnYRi7"
-        />
-        <article-card ratio="16:9"
-          title="Bleep"
-          category="Case Study"
-          imgUrl="Q9Mfd5PSn2bEULCnYRi7"
-        />
-        <article-card ratio="16:9"
-          title="Bleep"
-          category="Case Study"
-          imgUrl="Q9Mfd5PSn2bEULCnYRi7"
-        />
-      </div>
-    </section>
+    <sd-modal :active.sync="modalActive">
+      <sd-modal-title>
+        <h3>Blah</h3>
+        <sd-button size="sm" flat rounded @click="modalActive = false" >
+          <sd-icon name="close"/>
+        </sd-button>
+      </sd-modal-title>
+      <sd-modal-content>
+        <p>Vestibulum id ante eu tellus mattis ullamcorper. Morbi luctus consectetur nulla. Fusce eu lacus convallis, elementum augue ut, accumsan enim. Praesent interdum nisl eros, at rhoncus sapien feugiat nec. Maecenas quis tincidunt augue, ut pellentesque diam. Nulla rutrum commodo sem nec viverra. Curabitur consectetur augue a eros egestas finibus. Nunc tincidunt diam pellentesque auctor pharetra.</p>
+      </sd-modal-content>
+      <sd-modal-footer>
+        <sd-button theme="danger" @click="modalActive = false">Dangerous</sd-button>
+      </sd-modal-footer>
+    </sd-modal>
+    <sd-button @click="modalActive = !modalActive">
+      Show me the modal!
+    </sd-button>
+
   </div>
 </template>
 
 <script>
-import ArticleCard from '@/components/ArticleCard'
 import HomeMast from '@/components/HomeMast'
-import SectionHeader from '@/components/SectionHeader'
+import SdModal from '@/layout/SdModal/SdModal'
+import SdModalTitle from '@/layout/SdModal/SdModalTitle'
+import SdModalContent from '@/layout/SdModal/SdModalContent'
+import SdModalFooter from '@/layout/SdModal/SdModalFooter'
+import SdButton from '@/layout/SdButton'
+import SdIcon from '@/layout/SdIcon'
 import { mapMutations } from 'vuex'
 export default {
   name: 'Home',
+  data () {
+    return {
+      modalActive: false
+    }
+  },
   components: {
-    ArticleCard,
     HomeMast,
-    SectionHeader
+    SdModal,
+    SdModalTitle,
+    SdModalContent,
+    SdModalFooter,
+    SdButton,
+    SdIcon
   },
   metaInfo: {
     title: 'Personal UI framework'

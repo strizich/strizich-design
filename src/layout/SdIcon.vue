@@ -13,10 +13,6 @@ export default {
     size: {
       type: String,
       default: 'md'
-    },
-    customColor: {
-      type: String,
-      required: false
     }
   },
   computed: {

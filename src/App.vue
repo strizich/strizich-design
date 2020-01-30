@@ -1,5 +1,5 @@
 <template>
-  <sd-layout id="app">
+  <the-layout id="app">
     <template v-slot:content>
       <div class="app__content">
         <router-view/>
@@ -18,12 +18,12 @@
         </template>
       </the-footer>
     </template>
-  </sd-layout>
+  </the-layout>
 </template>
 
 <script>
 import '@/layout/global.scss'
-import SdLayout from '@/layout/SdLayout'
+import TheLayout from '@/components/TheLayout'
 import TheFooter from '@/components/TheFooter'
 import TheSidebar from '@/components/TheSidebar'
 
@@ -46,7 +46,7 @@ export default {
   components: {
     TheFooter,
     TheSidebar,
-    SdLayout
+    TheLayout
   },
 
   metaInfo: {

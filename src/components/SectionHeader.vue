@@ -1,11 +1,16 @@
 <template>
-  <h2 :id="id" :class="['sd--text__header', classes]">
-    <span><slot/></span>
-    <sd-button size="sm" flat @click="copyLink">Copy</sd-button>
+  <h2 :id="id" :class="['section-header', classes]">
+    <span class="section-header__content">
+      <slot/>
+    </span>
+    <sd-button size="sm" flat @click="copyLink" rounded>
+      <sd-icon name="link"/>
+    </sd-button>
   </h2>
 </template>
 <script>
 import SdButton from '@/layout/SdButton'
+import SdIcon from '@/layout/SdIcon'
 import getChildrenTextContent from '@/utilities/SdSlotContent'
 export default {
   name: 'SectionHeader',
@@ -40,9 +45,8 @@ export default {
       const link = this.computedLink
       try {
         navigator.clipboard.writeText(link)
-        console.log('Copied')
       } catch (err) {
-        console.log('uhoh', err)
+        console.error(err)
       }
     }
   },
@@ -50,19 +54,21 @@ export default {
     this.slotContent = getChildrenTextContent(this.$slots.default)
   },
   components: {
-    SdButton
+    SdButton,
+    SdIcon
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .sd--text__header{
+  .section-header{
     margin-top: 64px;
     font-size: 24px;
     font-weight: 500;
     position: relative;
     justify-content: space-between;
     display: flex;
+    width: 100%;
      &:after{
         content: '';
         display:block;
