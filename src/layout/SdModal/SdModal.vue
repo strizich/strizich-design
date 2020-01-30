@@ -19,7 +19,6 @@
                 v-if="backdrop"
                 fixed />
             </keep-alive>
-
           </div>
         </sd-focus-trap>
       </div>

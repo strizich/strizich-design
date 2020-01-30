@@ -157,7 +157,36 @@ export default {
           width:100%;
         }
         &--icon-only{
-          padding: 8px;
+          display:flex;
+          align-items:center;
+          justify-content: center;
+          .is{
+            &--sm, &--md, &--lg{
+              padding:0;
+              margin:0;
+              display:flex;
+              text-emphasis: center;
+              align-items: center;
+              justify-content: center;
+              min-width: 0;
+              .sd--icon{
+                padding:0;
+                margin:0;
+              }
+            }
+            &--sm {
+              width: 24px;
+              height: 24px;
+            }
+            &--md {
+              width: 32px;
+              height: 32px;
+            }
+            &--lg {
+              width: 52px;
+              height: 52px;
+            }
+          }
         }
         &--focused {
           box-shadow: 0 0 0 5px $lighter;

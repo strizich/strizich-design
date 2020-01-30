@@ -13,7 +13,6 @@ export default {
 <style lang="scss" scoped>
 .sd--modal{
   &__footer{
-    padding: 8px 16px;
     display: flex;
     align-content: center;
     width: 100%;
@@ -22,6 +21,10 @@ export default {
     border-top: 1px solid var(--background-highlight);
     border-radius: 0 0 3px 3px;
     backdrop-filter: blur(20px);
+    padding: 8px 16px 8px;
+    @include breakpoint-down('sm') {
+      padding-bottom: ios-safe-area(bottom);
+    }
   }
 }
 </style>

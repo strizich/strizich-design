@@ -1,5 +1,3 @@
-@import 'breakpoints';
-
 @mixin flatten($base, $lighter, $darker, $contrast) {
   // No background, No border, more problems
   background-color: none;

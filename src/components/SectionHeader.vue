@@ -3,7 +3,7 @@
     <span class="section-header__content">
       <slot/>
     </span>
-    <sd-button size="sm" flat @click="copyLink" rounded>
+    <sd-button icon-only size="lg" flat @click="copyLink" rounded>
       <sd-icon name="link"/>
     </sd-button>
   </h2>

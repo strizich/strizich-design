@@ -4,7 +4,7 @@
     <sd-modal :active.sync="modalActive">
       <sd-modal-title>
         <h3>Blah</h3>
-        <sd-button size="sm" flat rounded @click="modalActive = false" >
+        <sd-button theme="default" flat rounded @click="modalActive = false" icon-only >
           <sd-icon name="close"/>
         </sd-button>
       </sd-modal-title>
@@ -12,7 +12,7 @@
         <p>Vestibulum id ante eu tellus mattis ullamcorper. Morbi luctus consectetur nulla. Fusce eu lacus convallis, elementum augue ut, accumsan enim. Praesent interdum nisl eros, at rhoncus sapien feugiat nec. Maecenas quis tincidunt augue, ut pellentesque diam. Nulla rutrum commodo sem nec viverra. Curabitur consectetur augue a eros egestas finibus. Nunc tincidunt diam pellentesque auctor pharetra.</p>
       </sd-modal-content>
       <sd-modal-footer>
-        <sd-button theme="danger" @click="modalActive = false">Dangerous</sd-button>
+        <sd-button theme="primary" @click="modalActive = false">Dangerous</sd-button>
       </sd-modal-footer>
     </sd-modal>
     <sd-button @click="modalActive = !modalActive">

@@ -1,8 +1,7 @@
-@import './reset';
-@import './colors';
-@import './css-vars';
 @import './functions';
 @import './mixins';
-@import './get-contrast';
 @import './spacing';
+@import './colors';
+@import './get-contrast';
 @import '../SdElevation/mixins';
+@import './breakpoints';

@@ -26,6 +26,11 @@ export default {
     background-color: var(--background);
     padding: 16px;
     flex-grow: 2;
+    @include breakpoint-up('md'){
+      max-height: 600px;
+    }
+    overflow-y: auto;
+    overflow-x:hidden;
     &.is{
       &--md{
         @include breakpoint-up('md'){
