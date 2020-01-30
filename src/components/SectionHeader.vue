@@ -39,14 +39,13 @@ export default {
   methods: {
     copyLink: function () {
       if (!navigator.clipboard) {
-        console.error('Clipboard API unavailable')
         return
       }
       const link = this.computedLink
       try {
         navigator.clipboard.writeText(link)
       } catch (err) {
-        console.error(err)
+
       }
     }
   },
