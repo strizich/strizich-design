@@ -5,7 +5,6 @@ import Home from './views/Home'
 Vue.use(Router)
 
 let scrollBehavior = (to, from, savedPosition) => {
-  console.log(to)
   if (savedPosition) {
     return savedPosition
   } else {

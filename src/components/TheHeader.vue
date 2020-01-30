@@ -25,11 +25,6 @@ export default {
     handleScroll: Boolean,
     menuOpen: Boolean
   },
-  watch: {
-    menuOpen (newValue, oldValue) {
-      console.log(newValue)
-    }
-  },
   methods: {
     onToggle: function (event) {
       this.$emit('toggle:menu', event)
