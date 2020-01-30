@@ -16,8 +16,10 @@
             :outline="selectedStyle === 'Outline'"
             :size="selectedSize"
             :block="isBlock"
+            :icon-only="isIconOnly"
             :key="index">
-              {{color}}
+              <sd-icon size="md" name="link" v-if="isIconOnly"/>
+              <span v-else>{{color}}</span>
           </sd-button>
         </template>
       </div>
@@ -52,9 +54,15 @@
             {{style}}
           </sd-radio>
         </sd-fieldset>
-        <sd-fieldset title="Layout Options">
+        <sd-fieldset title="Layout Options" stack>
           <sd-checkbox v-model="isBlock">
             Block Level
+          </sd-checkbox>
+          <sd-checkbox v-model="showIcon">
+            Show Icon
+          </sd-checkbox>
+          <sd-checkbox v-model="isIconOnly" :disabled="!showIcon">
+            Icon Only
           </sd-checkbox>
         </sd-fieldset>
       </div>
@@ -67,6 +75,7 @@ import SdButton from '@/layout/SdButton'
 import SdRadio from '@/layout/SdRadio/SdRadio'
 import SdCheckbox from '@/layout/SdCheckbox'
 import SdFieldset from '@/layout/SdField/SdFieldset'
+import SdIcon from '@/layout/SdIcon'
 export default {
   name: 'ButtonGroup',
   data () {
@@ -75,6 +84,8 @@ export default {
       selectedPill: 'Default',
       selectedStyle: 'Default',
       isBlock: false,
+      isIconOnly: false,
+      showIcon: false,
       colors: [
         'primary',
         'secondary',
@@ -96,7 +107,8 @@ export default {
     SdButton,
     SdRadio,
     SdCheckbox,
-    SdFieldset
+    SdFieldset,
+    SdIcon
   }
 }
 </script>

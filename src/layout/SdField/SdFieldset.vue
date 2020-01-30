@@ -3,7 +3,7 @@
     <legend class="sd--field__legend">
       {{title}}
     </legend>
-    <div class="sd--field__block">
+    <div :class="['sd--field__block', classes]">
       <slot />
     </div>
   </fieldset>
@@ -18,7 +18,7 @@ export default {
   computed: {
     classes: function () {
       return {
-        'is--stacked': this.stacked
+        'is--stacked': this.stack
       }
     }
   }
@@ -39,7 +39,16 @@ export default {
     &.is{
       &--stacked{
         flex-direction: column;
+        width:100%;
         align-content: flex-start;
+        .sd--checkbox{
+          margin-left:0;
+          margin-right: 0;
+        }
+        .sd--radio{
+          margin-left:0;
+          margin-right: 0;
+        }
       }
     }
   }

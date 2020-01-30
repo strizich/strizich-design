@@ -88,7 +88,7 @@ export default {
     },
     onEsc: function () {
       if (this.closeOnEsc) {
-        this.closeDialog()
+        this.closeModal()
       }
     }
   },
