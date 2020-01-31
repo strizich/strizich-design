@@ -70,6 +70,9 @@ export default {
     },
     hide: function () {
       this.shouldRender = false
+    },
+    touchEvent: function (ev) {
+      this.shouldRender = !this.shouldRender
     }
   },
   mounted () {

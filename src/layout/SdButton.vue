@@ -1,5 +1,5 @@
 <template>
-  <button :class="['sd--button', themeClass, modifiers]" @click="onClick">
+  <button :id="id" :class="['sd--button', themeClass, modifiers]" @click="onClick">
     <div :class="['sd--button__content', sizeClass]" :style="alignmentStyle">
       <slot/>
     </div>
@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import SdFocused from '@/core/mixins/SdFocused.js'
-import sdUuid from '@/utilities/SdUuid.js'
+import SdFocused from '@/core/mixins/SdFocused'
+import sdUuid from '@/utilities/SdUuid'
 // import SdPropValidator from '@/utilities/SdPropValidator'
 export default {
   name: 'SdButton',
@@ -71,7 +71,7 @@ export default {
     },
     alignmentStyle: function () {
       return {
-        'text-align': this.align
+        'justify-content': this.align
       }
     },
     sizeClass: function () {

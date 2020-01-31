@@ -103,6 +103,8 @@ export default {
     min-height: calc(100vh - 100px);
   }
   &__content {
+    position: relative;
+    z-index: 1;
     width: 100%;
     flex-grow: 2;
     order:1;
@@ -119,7 +121,7 @@ export default {
     top:50px;
     left:0;
     flex-grow: 1;
-    background:var(--background-accent);
+    background:var(--background);
     order: 0;
     transition: width .23s 0s ease-in-out;
     box-shadow: inset -1px 0 0 0 var(--background-highlight);

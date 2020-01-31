@@ -71,6 +71,8 @@ export default {
         if (isActive) {
           document.body.style.top = `-${window.scrollY}px`
           document.body.style.position = 'fixed'
+          document.body.style.left = '0'
+          document.body.style.right = '0'
           this.$emit('sd-opened')
         } else {
           const scrollY = document.body.style.top

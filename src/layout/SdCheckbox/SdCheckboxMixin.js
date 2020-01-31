@@ -1,4 +1,9 @@
 export default {
+  data () {
+    return {
+      hasFocus: false
+    }
+  },
   props: {
     model: [String, Boolean, Object, Number, Array],
     value: [String, Boolean, Object, Number],
@@ -85,6 +90,7 @@ export default {
       this.$emit('change', this.isSelected ? this.falseValue : this.trueValue)
     },
     toggleCheck () {
+      this.hasFocus = false
       if (!this.disabled) {
         if (this.isModelArray) {
           this.handleArrayCheckbox()
@@ -94,6 +100,12 @@ export default {
           this.handleSimpleCheckbox()
         }
       }
+    },
+    onFocus () {
+      this.hasFocus = true
+    },
+    onBlur () {
+      this.hasFocus = false
     }
   }
 }

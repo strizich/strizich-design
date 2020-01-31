@@ -65,7 +65,7 @@ export default {
       background-color: v(--background);
     }
     &--down {
-      background-color: v(--background-accent);
+      background-color: v(--background-highlight);
     }
   }
   &__wrapper, &__scrolled{

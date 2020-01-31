@@ -23,7 +23,7 @@ export default {
     border-radius: 0 0 3px 3px;
     backdrop-filter: blur(20px);
     padding: 8px 16px 8px;
-    @include breakpoint-down('sm') {
+    @include breakpoint-down(sm) {
       padding: 16px;
       padding-bottom: calc(16px + ios-safe-area(bottom))
     }
