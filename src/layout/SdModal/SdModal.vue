@@ -69,8 +69,14 @@ export default {
     active (isActive) {
       this.$nextTick().then(() => {
         if (isActive) {
+          document.body.style.top = `-${window.scrollY}px`
+          document.body.style.position = 'fixed'
           this.$emit('sd-opened')
         } else {
+          const scrollY = document.body.style.top
+          document.body.style.position = ''
+          document.body.style.top = ''
+          window.scrollTo(0, parseInt(scrollY || '0') * -1)
           this.$emit('sd-closed')
         }
       })

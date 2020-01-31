@@ -1,6 +1,6 @@
 <template>
   <button :class="['sd--button', themeClass, modifiers]" @click="onClick">
-    <div :class="['sd--button__content', sizeClass]">
+    <div :class="['sd--button__content', sizeClass]" :style="alignmentStyle">
       <slot/>
     </div>
     </button>
@@ -9,7 +9,7 @@
 <script>
 import SdFocused from '@/core/mixins/SdFocused.js'
 import sdUuid from '@/utilities/SdUuid.js'
-
+// import SdPropValidator from '@/utilities/SdPropValidator'
 export default {
   name: 'SdButton',
   mixins: [SdFocused],
@@ -46,6 +46,11 @@ export default {
       type: String,
       default: 'primary'
     },
+    align: {
+      type: String,
+      default: 'center'
+      // ...SdPropValidator('start', 'end', 'center')
+    },
     full: Boolean,
     block: Boolean,
     iconOnly: Boolean
@@ -62,6 +67,11 @@ export default {
         'is--icon-only': this.iconOnly,
         'is--full': this.full,
         'is--block': this.block
+      }
+    },
+    alignmentStyle: function () {
+      return {
+        'text-align': this.align
       }
     },
     sizeClass: function () {
@@ -98,6 +108,13 @@ export default {
     flex-grow: 2;
     transition: padding .23s, font-size .23s;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    .sd--icon{
+      margin-top: -8px;
+      margin-bottom: -8px;
+      margin-right: 8px;
+    }
     &.is{
       &--sm{
         font-size: rem(14);

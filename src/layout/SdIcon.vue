@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss">
 $icon-sizes: (
-  sm: 16px,
+  sm: 18px,
   md: 24px,
   lg: 32px,
   xxl: 64px

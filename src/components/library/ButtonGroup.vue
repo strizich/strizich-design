@@ -17,9 +17,10 @@
             :size="selectedSize"
             :block="isBlock"
             :icon-only="isIconOnly"
+            align="center"
             :key="index">
-              <sd-icon size="md" name="link" v-if="isIconOnly"/>
-              <span v-else>{{color}}</span>
+              <sd-icon :size="selectedSize" name="link" v-if="showIcon"/>
+              <span v-if="!isIconOnly">{{color}}</span>
           </sd-button>
         </template>
       </div>
@@ -103,6 +104,13 @@ export default {
       ]
     }
   },
+  watch: {
+    showIcon (value) {
+      if (!value) {
+        this.isIconOnly = false
+      }
+    }
+  },
   components: {
     SdButton,
     SdRadio,
@@ -155,6 +163,7 @@ export default {
     &__results{
       display:flex;
       height: 400px;
+      align-items: center;
       align-content: center;
       justify-content: center;
       min-width: 66%;
@@ -167,8 +176,7 @@ export default {
         margin-bottom: 32px;
       }
       @include breakpoint-down('sm'){
-        margin: 0 -16px 32px;
-        min-width: 100vw;
+        margin: 0 0 32px;
       }
       .sd--button{
         margin: 8px;

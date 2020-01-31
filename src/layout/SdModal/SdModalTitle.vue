@@ -21,6 +21,7 @@ export default {
       -webkit-backdrop-filter: blur(20px);
       backdrop-filter: blur(20px);
       background-color: var(--background-opaque);
+      flex-shrink: 0;
       & > h3 {
         font-size: 24px;
         margin: 0;

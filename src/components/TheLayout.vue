@@ -106,7 +106,8 @@ export default {
     width: 100%;
     flex-grow: 2;
     order:1;
-    padding-bottom: 64px;
+    padding-bottom: 72px;
+    padding-bottom: calc(64px + ios-safe-area(bottom));
   }
   &__sidebar {
     width:100%;
