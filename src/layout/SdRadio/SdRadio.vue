@@ -14,9 +14,10 @@
 
 <script>
 import SdUuid from '@/utilities/SdUuid'
-
+import SdFocused from '@/core/mixins/SdFocused'
 export default {
   name: 'SdRadio',
+  mixins: [SdFocused],
   model: {
     prop: 'model',
     event: 'change'
@@ -64,10 +65,14 @@ export default {
       }
     },
     onFocus: function () {
-      this.hasFocus = true
+      if (this.isSelected) {
+        this.hasFocus = true
+      }
     },
     onBlur: function () {
-      this.hasFocus = false
+      if (this.isSelected) {
+        this.hasFocus = false
+      }
     }
   }
 }

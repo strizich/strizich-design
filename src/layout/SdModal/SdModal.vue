@@ -137,7 +137,7 @@ export default {
     pointer-events: auto;
     transform: translate(-50%, -50%);
     transform-origin: center center;
-    transition: opacity .15s .1s ease-in-out,
+    transition: opacity .2s .1s ease-in-out,
                 transform .2s .1s  ease-in-out;
     will-change: opacity, transform, left, top;
     &__container{
@@ -147,11 +147,11 @@ export default {
     }
     &.sd-modal-enter {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(.75);
+      transform: translate(-50%, -50%) scale(.95);
     }
     &.sd-enter-active, &.sd-modal-leave-active {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(.9);
+      transform: translate(-50%, -50%) scale(.95);
     }
     &.is{
       &--fullscreen{

@@ -60,6 +60,7 @@ export default {
   min-height:50px;
   transition: background-color .23s ease-in-out;
   background-color: v(--background);
+  box-shadow: inset 0 -1px 0 0 v(--background-highlight);
   &.is--scrolled {
     &--up {
       background-color: v(--background);

@@ -1,9 +1,11 @@
+import SdFocused from '@/core/mixins/SdFocused'
 export default {
   data () {
     return {
       hasFocus: false
     }
   },
+  mixins: [SdFocused],
   props: {
     model: [String, Boolean, Object, Number, Array],
     value: [String, Boolean, Object, Number],
@@ -90,8 +92,8 @@ export default {
       this.$emit('change', this.isSelected ? this.falseValue : this.trueValue)
     },
     toggleCheck () {
-      this.hasFocus = false
       if (!this.disabled) {
+        this.hasFocus = false
         if (this.isModelArray) {
           this.handleArrayCheckbox()
         } else if (this.hasValue) {
