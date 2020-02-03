@@ -8,6 +8,8 @@
         :checked="isSelected"
         :indeterminate="indeterminate"
         v-bind="attributes"
+        @focus="onFocus"
+        @blur="onBlur"
       />
       <span class="sd--checkbox__label"><slot/></span>
   </label>
@@ -33,7 +35,8 @@ export default {
   computed: {
     classes: function () {
       return {
-        'is--disabled': this.disabled
+        'is--disabled': this.disabled,
+        'is--focused': this.hasFocus
       }
     },
     animClasses: function () {
@@ -139,6 +142,9 @@ export default {
     }
     &.is--disabled{
       @extend %disabled;
+    }
+    &.is--focused{
+      color: var(--primary-highlight);
     }
     &__label{
       font-size: 16px;

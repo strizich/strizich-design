@@ -24,6 +24,7 @@ import SdCardBody from '@/layout/SdCard/SdCardBody'
 import SdCardFooter from '@/layout/SdCard/SdCardFooter'
 import SdCardMedia from '@/layout/SdCard/SdCardMedia'
 import SdChicklet from '@/layout/SdChicklet'
+
 export default {
   name: 'ArticleCard',
   data () {

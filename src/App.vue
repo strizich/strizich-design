@@ -1,8 +1,5 @@
 <template>
-  <sd-layout id="app" :sidebar="menuState">
-    <template v-slot:header>
-      <the-header :menuOpen="menuState" @toggle:menu="onToggle" :handleScroll="showHeader"/>
-    </template>
+  <the-layout id="app">
     <template v-slot:content>
       <div class="app__content">
         <router-view/>
@@ -21,80 +18,40 @@
         </template>
       </the-footer>
     </template>
-  </sd-layout>
+  </the-layout>
 </template>
 
 <script>
 import '@/layout/global.scss'
-import SdThrottle from '@/utilities/SdThrottle'
-import SdLayout from '@/layout/SdLayout'
-import TheHeader from '@/components/TheHeader'
+import TheLayout from '@/components/TheLayout'
 import TheFooter from '@/components/TheFooter'
 import TheSidebar from '@/components/TheSidebar'
-import SdScrollPosition from '@/core/mixins/SdScrollPosition'
+
+const TIMEOUT = 1
 
 export default {
   // TODO: Rewrite when Vue3 drops.
-
-  data () {
-    return {
-      menuState: true,
-      windowWidth: 0
-    }
-  },
-  watch: {
-    '$route' () {
-      if (this.isSmall) {
-        this.menuState = false
-      }
-    }
-  },
-  created () {
-    this.getMenuState()
-  },
+  name: 'App',
   mounted () {
-    this.setWindowWidth()
-    window.addEventListener('resize', () => {
-      SdThrottle(10, this.setWindowWidth())
-    }, false)
+    setTimeout(() => this.scrollTo(this.$route.hash), 1)
   },
-  destroyed () {
-    window.removeEventListener('resize', () => {
-      this.setWindowWidth()
-    }, false)
-  },
+
   methods: {
-    setWindowWidth () {
-      const width = window.innerWidth
-      this.windowWidth = width
-    },
-    getMenuState: function () {
-      const state = window.localStorage.getItem('menuState')
-      this.menuState = (state === 'true')
-    },
-    onToggle: function () {
-      this.menuState = !this.menuState
-      if (!this.isSmall) {
-        window.localStorage.setItem('menuState', this.menuState)
-      } else {
-        window.localStorage.setItem('menuState', false)
+    scrollTo: function (hashtag) {
+      if (hashtag) {
+        setTimeout(() => { location.href = hashtag }, TIMEOUT)
       }
     }
   },
-  computed: {
-    isSmall: function () {
-      if (this.windowWidth <= 812) {
-        return true
-      }
-      return false
-    }
-  },
-  mixins: [ SdScrollPosition ],
   components: {
-    TheHeader,
     TheFooter,
     TheSidebar,
-    SdLayout
+    TheLayout
+  },
+
+  metaInfo: {
+    title: 'Default Title',
+    titleTemplate: '%s | Strizich Design'
   }
 }
 </script>

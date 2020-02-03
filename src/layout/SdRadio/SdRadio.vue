@@ -3,6 +3,8 @@
     <input
       class="sd--radio__input"
       v-bind="{ name, disabled, required, value, checked: isSelected }"
+      @focus="onFocus"
+      @blur="onBlur"
       type="radio"/>
     <span class="sd--radio__content">
       <span><slot/></span>
@@ -11,13 +13,19 @@
 </template>
 
 <script>
-import SdUuid from '@/utilities/SdUuid.js'
-
+import SdUuid from '@/utilities/SdUuid'
+import SdFocused from '@/core/mixins/SdFocused'
 export default {
   name: 'SdRadio',
+  mixins: [SdFocused],
   model: {
     prop: 'model',
     event: 'change'
+  },
+  data () {
+    return {
+      hasFocus: false
+    }
   },
   props: {
     model: [String, Number, Boolean, Object],
@@ -41,18 +49,29 @@ export default {
     isSelected: function () {
       return this.model === this.value
     },
-
     radioClasses: function () {
       return {
         'is--required': this.required,
-        'is--disabled': this.disabled
+        'is--disabled': this.disabled,
+        'is--focused': this.hasFocus
       }
     }
   },
   methods: {
     toggleCheck: function () {
+      this.hasFocus = false
       if (!this.disabled) {
         this.$emit('change', this.value)
+      }
+    },
+    onFocus: function () {
+      if (this.isSelected) {
+        this.hasFocus = true
+      }
+    },
+    onBlur: function () {
+      if (this.isSelected) {
+        this.hasFocus = false
       }
     }
   }
@@ -118,6 +137,9 @@ export default {
     z-index: 10;
     padding: 8px 16px 8px 32px;
     -webkit-user-select: none;
+    &.is--focused{
+      color: var(--primary-highlight);
+    }
     &:hover{
       transition: background-color .15s ease-in-out;
       background-color: var(--background-highlight);

@@ -10,7 +10,7 @@
         </router-link>
       </div>
       <div class="header__scrolled" v-else key="subHeader">
-        <p><span>Bread</span> / <strong>Crumb.... or something similar.</strong></p>
+        <p>{{pageTitle}} <span v-if="sectionTitle">/</span> <strong>{{sectionTitle}}</strong></p>
       </div>
     </transition>
   </header>
@@ -31,6 +31,12 @@ export default {
     }
   },
   computed: {
+    pageTitle: function () {
+      return this.$store.state.pageTitle
+    },
+    sectionTitle: function () {
+      return this.$store.state.sectionTitle
+    },
     srLabel: function () {
       const menuState = this.menuOpen ? 'Open' : 'Closed'
       return `Menu ${menuState}`
@@ -54,12 +60,13 @@ export default {
   min-height:50px;
   transition: background-color .23s ease-in-out;
   background-color: v(--background);
+  box-shadow: inset 0 -1px 0 0 v(--background-highlight);
   &.is--scrolled {
     &--up {
       background-color: v(--background);
     }
     &--down {
-      background-color: v(--background-accent);
+      background-color: v(--background-highlight);
     }
   }
   &__wrapper, &__scrolled{

@@ -53,7 +53,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .sd--chicklet {
   padding: 4px;
   letter-spacing: .2px;

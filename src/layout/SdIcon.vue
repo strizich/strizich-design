@@ -13,10 +13,6 @@ export default {
     size: {
       type: String,
       default: 'md'
-    },
-    customColor: {
-      type: String,
-      required: false
     }
   },
   computed: {
@@ -29,7 +25,7 @@ export default {
 
 <style lang="scss">
 $icon-sizes: (
-  sm: 16px,
+  sm: 18px,
   md: 24px,
   lg: 32px,
   xxl: 64px

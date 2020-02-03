@@ -1,15 +1,15 @@
 <template>
-  <button :class="['sd--button', themeClass, modifiers]" @click="onClick">
-    <div :class="['sd--button__content', sizeClass]">
+  <button :id="id" :class="['sd--button', themeClass, modifiers]" @click="onClick">
+    <div :class="['sd--button__content', sizeClass]" :style="alignmentStyle">
       <slot/>
     </div>
     </button>
 </template>
 
 <script>
-import SdFocused from '@/core/mixins/SdFocused.js'
-import sdUuid from '@/utilities/SdUuid.js'
-
+import SdFocused from '@/core/mixins/SdFocused'
+import sdUuid from '@/utilities/SdUuid'
+// import SdPropValidator from '@/utilities/SdPropValidator'
 export default {
   name: 'SdButton',
   mixins: [SdFocused],
@@ -46,6 +46,11 @@ export default {
       type: String,
       default: 'primary'
     },
+    align: {
+      type: String,
+      default: 'center'
+      // ...SdPropValidator('start', 'end', 'center')
+    },
     full: Boolean,
     block: Boolean,
     iconOnly: Boolean
@@ -62,6 +67,11 @@ export default {
         'is--icon-only': this.iconOnly,
         'is--full': this.full,
         'is--block': this.block
+      }
+    },
+    alignmentStyle: function () {
+      return {
+        'justify-content': this.align
       }
     },
     sizeClass: function () {
@@ -98,6 +108,13 @@ export default {
     flex-grow: 2;
     transition: padding .23s, font-size .23s;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    .sd--icon{
+      margin-top: -8px;
+      margin-bottom: -8px;
+      margin-right: 8px;
+    }
     &.is{
       &--sm{
         font-size: rem(14);
@@ -157,7 +174,36 @@ export default {
           width:100%;
         }
         &--icon-only{
-          padding: 8px;
+          display:flex;
+          align-items:center;
+          justify-content: center;
+          .is{
+            &--sm, &--md, &--lg{
+              padding:0;
+              margin:0;
+              display:flex;
+              text-emphasis: center;
+              align-items: center;
+              justify-content: center;
+              min-width: 0;
+              .sd--icon{
+                padding:0;
+                margin:0;
+              }
+            }
+            &--sm {
+              width: 24px;
+              height: 24px;
+            }
+            &--md {
+              width: 32px;
+              height: 32px;
+            }
+            &--lg {
+              width: 52px;
+              height: 52px;
+            }
+          }
         }
         &--focused {
           box-shadow: 0 0 0 5px $lighter;

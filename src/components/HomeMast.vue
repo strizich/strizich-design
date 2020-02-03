@@ -4,9 +4,11 @@
       <p class="sd--text__caption sd--text__caption--light">Leading Sentence</p>
       <h1 class="sd--text__headline sd--text__headline--light">Hello, This is a thing</h1>
       <p class="sd--text--light">Here is some more text and a thing with a
-        <span>
+        <span @click="tTipTwo = !tTipTwo">
           <u>Tooltip</u>
-          <sd-tooltip>Just the tip</sd-tooltip>
+          <sd-tooltip :active="tTipTwo">
+            "@click" needed for mobile
+          </sd-tooltip>
         </span>
       </p>
     </div>
@@ -23,6 +25,12 @@ import SdTooltip from '@/layout/SdTooltip'
 
 export default {
   name: 'HomeMast',
+  data () {
+    return {
+      thingy: false,
+      tTipTwo: false
+    }
+  },
   components: {
     IconMouse,
     SdTooltip
@@ -37,7 +45,7 @@ export default {
   .mast{
     margin: 0 0 32px 0;
     min-height: $mast-height;
-    background: sd-gradient(v(--secondary-accent), v(--secondary-highlight));
+    background: sd-gradient(v(--background), v(--background-accent));
     position: relative;
     display:flex;
     flex-direction: column;

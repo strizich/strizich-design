@@ -16,8 +16,11 @@
             :outline="selectedStyle === 'Outline'"
             :size="selectedSize"
             :block="isBlock"
+            :icon-only="isIconOnly"
+            align="center"
             :key="index">
-              {{color}}
+              <sd-icon :size="selectedSize" name="link" v-if="showIcon"/>
+              <span v-if="!isIconOnly">{{color}}</span>
           </sd-button>
         </template>
       </div>
@@ -52,9 +55,15 @@
             {{style}}
           </sd-radio>
         </sd-fieldset>
-        <sd-fieldset title="Layout Options">
+        <sd-fieldset title="Layout Options" stack>
           <sd-checkbox v-model="isBlock">
             Block Level
+          </sd-checkbox>
+          <sd-checkbox v-model="showIcon">
+            Show Icon
+          </sd-checkbox>
+          <sd-checkbox v-model="isIconOnly" :disabled="!showIcon">
+            Icon Only
           </sd-checkbox>
         </sd-fieldset>
       </div>
@@ -67,6 +76,7 @@ import SdButton from '@/layout/SdButton'
 import SdRadio from '@/layout/SdRadio/SdRadio'
 import SdCheckbox from '@/layout/SdCheckbox'
 import SdFieldset from '@/layout/SdField/SdFieldset'
+import SdIcon from '@/layout/SdIcon'
 export default {
   name: 'ButtonGroup',
   data () {
@@ -75,6 +85,8 @@ export default {
       selectedPill: 'Default',
       selectedStyle: 'Default',
       isBlock: false,
+      isIconOnly: false,
+      showIcon: false,
       colors: [
         'primary',
         'secondary',
@@ -92,11 +104,19 @@ export default {
       ]
     }
   },
+  watch: {
+    showIcon (value) {
+      if (!value) {
+        this.isIconOnly = false
+      }
+    }
+  },
   components: {
     SdButton,
     SdRadio,
     SdCheckbox,
-    SdFieldset
+    SdFieldset,
+    SdIcon
   }
 }
 </script>
@@ -143,6 +163,7 @@ export default {
     &__results{
       display:flex;
       height: 400px;
+      align-items: center;
       align-content: center;
       justify-content: center;
       min-width: 66%;
@@ -155,8 +176,7 @@ export default {
         margin-bottom: 32px;
       }
       @include breakpoint-down('sm'){
-        margin: 0 -16px 32px;
-        min-width: 100vw;
+        margin: 0 0 32px;
       }
       .sd--button{
         margin: 8px;

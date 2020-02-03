@@ -13,7 +13,7 @@ export default {
   name: 'IconHamburger',
   data () {
     return {
-      isOpen: this.active
+      isOpen: false
     }
   },
   mixins: [ SdFocused ],
@@ -25,7 +25,7 @@ export default {
     }
   },
   mounted () {
-
+    this.isOpen = this.active
   },
   methods: {
     toggleOpen: function () {

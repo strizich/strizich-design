@@ -1,7 +1,7 @@
 <script>
 import Popper from 'popper.js'
 import deepmerge from 'deepmerge'
-import SdPortal from '@/layout/SdPortal.js'
+import SdPortal from '@/layout/SdPortal'
 
 export default {
   name: 'SdPopover',
