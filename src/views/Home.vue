@@ -24,7 +24,22 @@
       Show me the modal!
     </sd-button>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus orci ante, vel pulvinar diam convallis eget. Sed egestas erat ut velit egestas tincidunt. Duis vel magna enim. Ut lacinia tincidunt malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis id nunc et velit ultrices semper non eget augue. Vestibulum venenatis varius ante vitae volutpat. Aenean pulvinar convallis malesuada. Donec quis sapien augue. Nam eleifend id sem ac rutrum. Etiam bibendum nulla vitae ante lobortis dapibus a semper nibh. Aenean eu quam ut magna gravida molestie.</p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-1">
+          1
+        </div>
+        <div class="col-3">
+          3
+        </div>
+         <div class="col-6">
+          6
+        </div>
+      </div>
+    </div>
   </div>
+
 </template>
 
 <script>
