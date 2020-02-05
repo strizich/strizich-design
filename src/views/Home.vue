@@ -24,11 +24,27 @@
       Show me the modal!
     </sd-button>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus orci ante, vel pulvinar diam convallis eget. Sed egestas erat ut velit egestas tincidunt. Duis vel magna enim. Ut lacinia tincidunt malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis id nunc et velit ultrices semper non eget augue. Vestibulum venenatis varius ante vitae volutpat. Aenean pulvinar convallis malesuada. Donec quis sapien augue. Nam eleifend id sem ac rutrum. Etiam bibendum nulla vitae ante lobortis dapibus a semper nibh. Aenean eu quam ut magna gravida molestie.</p>
+
+    <sd-container>
+      <sd-row gutterless>
+        <sd-col :width="2" style="background-color: green" break="md">
+          Col 2
+        </sd-col>
+        <sd-col :width="4" style="background-color: red" break="lg">
+          Col 4
+        </sd-col>
+      </sd-row>
+    </sd-container>
   </div>
+
 </template>
 
 <script>
 import HomeMast from '@/components/HomeMast'
+
+import SdRow from '@/layout/SdGrid/SdRow'
+import SdContainer from '@/layout/SdGrid/SdContainer'
+import SdCol from '@/layout/SdGrid/SdCol'
 import SdModal from '@/layout/SdModal/SdModal'
 import SdModalTitle from '@/layout/SdModal/SdModalTitle'
 import SdModalContent from '@/layout/SdModal/SdModalContent'
@@ -36,6 +52,7 @@ import SdModalFooter from '@/layout/SdModal/SdModalFooter'
 import SdButton from '@/layout/SdButton'
 import SdIcon from '@/layout/SdIcon'
 import { mapMutations } from 'vuex'
+
 export default {
   name: 'Home',
   data () {
@@ -50,7 +67,10 @@ export default {
     SdModalContent,
     SdModalFooter,
     SdButton,
-    SdIcon
+    SdIcon,
+    SdContainer,
+    SdRow,
+    SdCol
   },
   metaInfo: {
     title: 'Personal UI framework'
