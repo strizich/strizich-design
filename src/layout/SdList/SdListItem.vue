@@ -53,7 +53,7 @@ export default {
     padding:0;
   }
   &__block{
-    padding: 16px 0 17px;
+    padding: 8px 0 9px;
     &.is{
       &--link{
         padding:0;
@@ -81,6 +81,7 @@ export default {
   }
   &__content{
     display:block;
+    padding-left: 16px;
   }
 }
 </style>
