@@ -8,6 +8,11 @@
         <router-link to="/" class="header__branding" aria-label="Strizich Design">
           <IconLogo />
         </router-link>
+        <div class="header__wrapper--right">
+          <sd-button theme="default" href="https://github.com/strizich/strizich-design" target="_blank" flat icon-only>
+            <sd-icon/>
+          </sd-button>
+        </div>
       </div>
       <div class="header__scrolled" v-else key="subHeader">
         <p>{{pageTitle}} <span v-if="sectionTitle">/</span> <strong>{{sectionTitle}}</strong></p>
@@ -17,8 +22,10 @@
 </template>
 
 <script>
+import SdIcon from '@/layout/SdIcon'
 import IconLogo from '@/components/IconLogo'
 import IconHamburgerAlt from '@/components/IconHamburgerAlt'
+import SdButton from '@/layout/SdButton'
 export default {
   name: 'TheHeader',
   props: {
@@ -48,7 +55,7 @@ export default {
       }
     }
   },
-  components: { IconHamburgerAlt, IconLogo }
+  components: { IconHamburgerAlt, IconLogo, SdIcon, SdButton }
 }
 </script>
 
@@ -82,7 +89,9 @@ export default {
     z-index: 101;
   }
   &__wrapper{
-    justify-content: center;
+    padding-left: 56px;
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
   }
   &__scrolled{
@@ -92,7 +101,7 @@ export default {
   }
   &__branding{
     color: v(--text-primary);
-    margin: 8px 16px;
+    margin: 8px 0;
   }
   &__nav-toggle{
     position: fixed;

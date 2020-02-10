@@ -21,6 +21,7 @@
       </sd-modal-footer>
     </sd-modal>
     <sd-container>
+      <sd-toast active/>
       <sd-button @click="modalActive = !modalActive">
         Show me the modal!
       </sd-button>
@@ -31,6 +32,7 @@
 </template>
 
 <script>
+import SdToast from '@/layout/SdToast/SdToast'
 import SdContainer from '@/layout/SdGrid/SdContainer'
 import HomeMast from '@/components/HomeMast'
 import SdModal from '@/layout/SdModal/SdModal'
@@ -56,7 +58,8 @@ export default {
     SdModalFooter,
     SdButton,
     SdIcon,
-    SdContainer
+    SdContainer,
+    SdToast
   },
   metaInfo: {
     title: 'Personal UI framework'

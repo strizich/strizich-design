@@ -10,6 +10,7 @@
           <sd-button
             :aria-label="`${color} button`"
             :theme="color"
+            to="/"
             :pill="selectedPill === 'Pill'"
             :rounded="selectedPill === 'Rounded'"
             :flat="selectedStyle === 'Flat'"
@@ -65,7 +66,11 @@
           <sd-checkbox v-model="isIconOnly" :disabled="!showIcon">
             Icon Only
           </sd-checkbox>
+          <sd-checkbox v-model="isRoute">
+            Is Link (Router Link)
+          </sd-checkbox>
         </sd-fieldset>
+        <sd-button to="/">Link</sd-button>
       </div>
     </div>
   </div>
@@ -84,6 +89,8 @@ export default {
       selectedSize: 'md',
       selectedPill: 'Default',
       selectedStyle: 'Default',
+      isRoute: false,
+      route: '/',
       isBlock: false,
       isIconOnly: false,
       showIcon: false,

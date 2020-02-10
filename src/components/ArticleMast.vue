@@ -7,7 +7,7 @@
             <img :src="`https://media.graphcms.com/${imgSrc}`" :alt="title"/>
           </sd-card-media>
         </sd-col>
-        <sd-col :sm="8" :md="6" :xl="9">
+        <sd-col :sm="8" :md="6" :xl="9" :order="-1">
           <div class="mast__details">
             <div class="mast__header">
               <p class="sd--text__caption">Leading description</p>

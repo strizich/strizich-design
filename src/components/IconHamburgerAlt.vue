@@ -35,45 +35,45 @@ export default {
     },
     animateHamburger: function (open) {
       const tl = anime.timeline({
-        duration: 180,
+        duration: 250,
         easing: 'easeInOutQuart'
       })
       if (!open) {
         tl.add({
           targets: '.bar--1--alt',
           keyframes: [
-            { rotateZ: 0, translateY: 0, translateX: 0, easing: 'easeOutQuad' },
-            { width: 24, easing: 'easeOutQuad' }
+            { rotateZ: 0, translateY: 0, translateX: 0, easing: 'easeInOutQuad' },
+            { width: 24, easing: 'easeInOutQuad' }
           ]
         }, 0).add({
           targets: '.bar--3--alt',
           keyframes: [
-            { rotateZ: 0, translateY: 0, translateX: 0, easing: 'easeOutQuad' },
-            { width: 24, easing: 'easeOutQuad' }
+            { rotateZ: 0, translateY: 0, translateX: 0, easing: 'easeInOutQuad' },
+            { width: 24, easing: 'easeInOutQuad' }
           ]
         }, 0).add({
           targets: '.bar--2--alt',
           keyframes: [
-            { width: 24, translateX: 0, easing: 'easeInQuad' }
+            { width: 24, translateX: 0, easing: 'easeInOutQuad' }
           ]
         }, 0)
       } else if (open) {
         tl.add({
           targets: '.bar--1--alt',
           keyframes: [
-            { width: 12, easing: 'easeInQuad' },
-            { rotateZ: -45, translateY: 7, translateX: -4, easing: 'easeInQuad' }
+            { width: 12, easing: 'easeInOutQuad' },
+            { rotateZ: -45, translateY: 7, translateX: -4, easing: 'easeInOutQuad' }
           ]
         }, 0).add({
           targets: '.bar--3--alt',
           keyframes: [
-            { width: 12, easing: 'easeInQuad' },
-            { rotateZ: 45, translateY: -7, translateX: -4, easing: 'easeInQuad' }
+            { width: 12, easing: 'easeInOutQuad' },
+            { rotateZ: 45, translateY: -7, translateX: -4, easing: 'easeInOutQuad' }
           ]
         }, 0).add({
           targets: '.bar--2--alt',
           keyframes: [
-            { width: 21, translateX: 3, easing: 'easeOutQuad' },
+            { width: 21, translateX: 3, easing: 'easeInOutQuad' },
             { translateX: 3 }
           ]
         }, 0)
