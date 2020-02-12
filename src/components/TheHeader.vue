@@ -11,6 +11,7 @@
         <div class="header__wrapper--right">
           <sd-button theme="default" href="https://github.com/strizich/strizich-design" target="_blank" flat icon-only>
             <sd-icon/>
+            <sd-tooltip direction="left">To Github! (icon WIP)</sd-tooltip>
           </sd-button>
         </div>
       </div>
@@ -26,6 +27,7 @@ import SdIcon from '@/layout/SdIcon'
 import IconLogo from '@/components/IconLogo'
 import IconHamburgerAlt from '@/components/IconHamburgerAlt'
 import SdButton from '@/layout/SdButton'
+import SdTooltip from '@/layout/SdTooltip'
 export default {
   name: 'TheHeader',
   props: {
@@ -55,7 +57,7 @@ export default {
       }
     }
   },
-  components: { IconHamburgerAlt, IconLogo, SdIcon, SdButton }
+  components: { IconHamburgerAlt, IconLogo, SdIcon, SdButton, SdTooltip }
 }
 </script>
 

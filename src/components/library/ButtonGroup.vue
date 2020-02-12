@@ -96,7 +96,7 @@ export default {
       selectedSize: 'md',
       selectedPill: 'Default',
       selectedStyle: 'Default',
-      selectedTag: 'button',
+      selectedTag: 'Default',
       isBlock: false,
       isIconOnly: false,
       showIcon: false,

@@ -1,9 +1,3 @@
-  <!-- <button :id="id" :class="['sd--button', themeClass, modifiers]">
-    <div :class="['sd--button__content', sizeClass]" :style="alignmentStyle">
-      <slot/>
-    </div>
-    </button> -->
-
 <script>
 import SdFocused from '@/core/mixins/SdFocused'
 import sdUuid from '@/utilities/SdUuid'
@@ -14,15 +8,15 @@ export default {
   name: 'SdButton',
   mixins: [SdFocused, SdRouterLink],
   props: {
+    id: {
+      type: String,
+      default: () => 'sd--button--' + sdUuid()
+    },
     type: {
       type: String,
       default: 'button'
     },
     href: String,
-    id: {
-      type: String,
-      default: () => 'sd--button--' + sdUuid()
-    },
     disabled: {
       type: Boolean,
       default: false
@@ -64,7 +58,7 @@ export default {
     isRouterLink: function () {
       return this.$router && this.to
     },
-    modifiers: function () {
+    attrs: function () {
       return {
         'is--focused': this.sdHasFocus,
         'is--disabled': this.disabled,
@@ -104,13 +98,18 @@ export default {
       staticClass: 'sd--button',
       class: {
         [this.themeClass]: true,
-        ...this.modifiers
+        ...this.attrs
       },
       attrs: {
-        ...this.modifiers,
+        ...this.attrs,
         disabled: this.disabled,
         type: !this.href && (this.type || 'button'),
         href: this.href
+      },
+      on: {
+        click: () => {
+          this.$emit('click')
+        }
       }
     }
 

@@ -3,9 +3,11 @@
     <transition name="slide-in" appear>
       <div class="sd--toast" v-if="active">
         <div class="sd--toast__content">
-          portal to body
+          <slot/>
         </div>
-        <sd-button rounded icon-only size="sm" theme="default" @click="onClose($event)"><sd-icon size="sm" name="close"/></sd-button>
+        <sd-button rounded icon-only size="sm" theme="default" @click="onClose($event)">
+          <sd-icon size="sm" name="close"/>
+        </sd-button>
       </div>
     </transition>
   </sd-portal>
@@ -33,7 +35,7 @@ export default {
   methods: {
     onClose: function (event) {
       this.isActive = false
-      this.$emit('closed')
+      this.$emit('on-close')
     }
   },
   components: { SdPortal, SdIcon, SdButton }
