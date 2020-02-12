@@ -13,7 +13,13 @@ export default {
   },
   computed: {
     classes: function () {
-      return `sd--container--${this.break}`
+      if (this.full) {
+        return `sd--container--auto`
+      } else if (this.break) {
+        return `sd--container--${this.break}`
+      } else {
+        return `sd--container`
+      }
     }
   }
 }

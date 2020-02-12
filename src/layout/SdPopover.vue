@@ -61,7 +61,7 @@ export default {
         modifiers: {
           preventOverflow: {
             boundriesElement: 'viewport',
-            padding: 16
+            padding: 8
           },
           computeStyle: {
             enabled: true,

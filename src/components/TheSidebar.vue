@@ -41,9 +41,10 @@ export default {
   color: var(--text);
   display:block;
   padding: 16px 0 16px 16px;
-  transition: background-color .23s ease-in-out;
+  transition: background-color .23s ease-in-out, color .23s ease-in-out;
   &--active {
-    color: var(--primary);
+    color: var(--primary-highlight);
+    background-color: var(--background-accent);
     font-weight: 500;
   }
   &:after{
@@ -57,7 +58,7 @@ export default {
     border-bottom: 2px solid var(--primary);
   }
   &:hover{
-    background-color: var(--background);
+    background-color: var(--background-accent);
   }
   &--active{
     &:after{

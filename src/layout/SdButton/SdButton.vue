@@ -1,23 +1,22 @@
-<template>
-  <button :id="id" :class="['sd--button', themeClass, modifiers]" @click="onClick">
-    <div :class="['sd--button__content', sizeClass]" :style="alignmentStyle">
-      <slot/>
-    </div>
-    </button>
-</template>
-
 <script>
 import SdFocused from '@/core/mixins/SdFocused'
 import sdUuid from '@/utilities/SdUuid'
+import SdRouterLink from '@/core/mixins/SdRouterLink'
+import SdRouterLinkProps from '@/utilities/SdRouterLinkProps'
 // import SdPropValidator from '@/utilities/SdPropValidator'
 export default {
   name: 'SdButton',
-  mixins: [SdFocused],
+  mixins: [SdFocused, SdRouterLink],
   props: {
     id: {
       type: String,
       default: () => 'sd--button--' + sdUuid()
     },
+    type: {
+      type: String,
+      default: 'button'
+    },
+    href: String,
     disabled: {
       type: Boolean,
       default: false
@@ -56,7 +55,10 @@ export default {
     iconOnly: Boolean
   },
   computed: {
-    modifiers: function () {
+    isRouterLink: function () {
+      return this.$router && this.to
+    },
+    attrs: function () {
       return {
         'is--focused': this.sdHasFocus,
         'is--disabled': this.disabled,
@@ -81,10 +83,56 @@ export default {
       return `sd--button__${this.theme}`
     }
   },
-  methods: {
-    onClick: function () {
-      this.$emit('click')
+  render (createElement) {
+    const buttonContent = createElement('div', {
+      staticClass: 'sd--button__content',
+      class: [
+        this.sizeClass
+      ],
+      style: [
+        this.alignmentStyle
+      ]
+    }, this.$slots.default)
+
+    let buttonAttributes = {
+      staticClass: 'sd--button',
+      class: {
+        [this.themeClass]: true,
+        ...this.attrs
+      },
+      attrs: {
+        ...this.attrs,
+        disabled: this.disabled,
+        type: !this.href && (this.type || 'button'),
+        href: this.href
+      },
+      on: {
+        click: () => {
+          this.$emit('click')
+        }
+      }
     }
+
+    let tag = 'button'
+
+    if (this.href) {
+      tag = 'a'
+    } else if (this.isRouterLink) {
+      this.$options.props = SdRouterLinkProps(this, this.$options.props)
+      tag = 'router-link'
+      const exactActiveClass = this.$props.exactActiveClass
+      const activeClass = `${this.$props.activeClass} is--active`
+      buttonAttributes.props = {
+        ...this.$props,
+        exactActiveClass,
+        activeClass
+      }
+      delete buttonAttributes.props.type
+      delete buttonAttributes.attrs.type
+      delete buttonAttributes.props.href
+      delete buttonAttributes.attrs.href
+    }
+    return createElement(tag, buttonAttributes, [buttonContent])
   }
 }
 </script>
@@ -205,10 +253,6 @@ export default {
             }
           }
         }
-        &--focused {
-          box-shadow: 0 0 0 5px $lighter;
-          transition: all .2s ease-out;
-        }
         &--outline {
           border: 1px solid $base;
           background:none;
@@ -229,6 +273,10 @@ export default {
             padding-left: 20px;
             padding-right: 20px;
           }
+        }
+        &--focused {
+          box-shadow: 0 0 0 5px $lighter;
+          transition: all .2s ease-out;
         }
       }
     }

@@ -10,6 +10,8 @@
           <sd-button
             :aria-label="`${color} button`"
             :theme="color"
+            :href="selectedTag === 'Link' ? '/link' : ''"
+            :to="selectedTag === 'Route' ? '/route' : ''"
             :pill="selectedPill === 'Pill'"
             :rounded="selectedPill === 'Rounded'"
             :flat="selectedStyle === 'Flat'"
@@ -55,6 +57,16 @@
             {{style}}
           </sd-radio>
         </sd-fieldset>
+        <sd-fieldset title="Tag">
+          <sd-radio
+            name="Tags"
+            v-for="(tag, index) in tagType"
+            :key="`tag-${index}`"
+            :value="tag"
+            v-model="selectedTag">
+            {{tag}}
+          </sd-radio>
+        </sd-fieldset>
         <sd-fieldset title="Layout Options" stack>
           <sd-checkbox v-model="isBlock">
             Block Level
@@ -84,6 +96,7 @@ export default {
       selectedSize: 'md',
       selectedPill: 'Default',
       selectedStyle: 'Default',
+      selectedTag: 'Default',
       isBlock: false,
       isIconOnly: false,
       showIcon: false,
@@ -95,6 +108,7 @@ export default {
         'danger',
         'success'
       ],
+      tagType: ['Default', 'Route', 'Link'],
       boxStyle: [ 'Default', 'Flat', 'Outline' ],
       pills: [ 'Default', 'Pill', 'Rounded' ],
       sizes: [

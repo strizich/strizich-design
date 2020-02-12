@@ -1,5 +1,5 @@
 <template>
-  <div :class="['sd--row', classes]">
+  <div :class="['sd--row', classes]" :style="{alignItems, justifyContent}">
     <slot/>
   </div>
 </template>
@@ -8,7 +8,9 @@
 export default {
   name: 'SdRow',
   props: {
-    gutterless: Boolean
+    gutterless: Boolean,
+    alignItems: String,
+    justifyContent: String
   },
   computed: {
     classes: function () {

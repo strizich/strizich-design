@@ -66,6 +66,7 @@ export default {
     font-weight: 500;
     position: relative;
     justify-content: space-between;
+    align-items: center;
     display: flex;
     width: 100%;
      &:after{
