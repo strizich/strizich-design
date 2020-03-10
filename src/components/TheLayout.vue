@@ -1,5 +1,5 @@
 <template>
-  <main class="sd--layout">
+  <main :class="`sd--layout`">
     <portal-target name="body" multiple />
     <the-header
         @toggle:menu="onToggle($event)"
@@ -30,6 +30,7 @@ export default {
   data () {
     return {
       sidebarState: false,
+      userTheme: false,
       window: {
         width: 0
       }
@@ -81,8 +82,11 @@ export default {
     }
   },
   computed: {
+    setTheme: function () {
+      return this.userTheme ? 'light' : 'dark'
+    },
     isSmall: function () {
-      if (this.window.width <= 812) {
+      if (this.window.width <= 768) {
         return true
       }
       return false
@@ -123,7 +127,7 @@ export default {
     flex-grow: 1;
     background:var(--background);
     order: 0;
-    transition: width .23s 0s ease-in-out;
+    transition: width .23s ease-in-out;
     box-shadow: inset -1px 0 0 0 var(--background-highlight);
     @include breakpoint-down('sm') {
       position: fixed;

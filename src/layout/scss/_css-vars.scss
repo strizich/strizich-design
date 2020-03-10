@@ -11,6 +11,12 @@
       }
     }
   }
+  .sd--layout--#{$scheme}{
+    @each $key, $color in $map {
+      $color: sd-color($scheme, $key);
+      --#{$key}: #{$color};
+    }
+  }
 }
 
 :root {

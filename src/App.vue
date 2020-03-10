@@ -57,7 +57,7 @@ export default {
 </script>
 <style lang="scss">
   body, html{
-    background: v(--background);
-    color: v(--text);
+    background: var(--background);
+    color: var(--text);
   }
 </style>

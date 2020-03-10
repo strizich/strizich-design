@@ -1,6 +1,6 @@
 $primary: #8F00F8;
 $default: #414141;
-$secondary: rgb(49, 74, 177);
+$secondary: #314AB1;
 $danger: #AE1A2C;
 $success: #83CF2A;
 $warning: #F5A623;
@@ -46,10 +46,14 @@ $sd-color-schemes: (
     background-inverse: #f9f9f9,
     background-opaque: #2d2d2da8,
     text: rgba(255,255,255,.87),
-    text-accent: rgba(255,255,255,.54),
     text-light: rgba(255,255,255,.87),
     text-dark: rgba(0,0,0,.87),
+    text-accent: rgba(255,255,255,.54),
+    text-accent-light: rgba(0,0,0,.54),
+    text-accent-dark: rgba(255,255,255,.54),
     text-hint: rgba(255,255,255,.38),
+    text-hint-light: rgba(255,255,255,.38),
+    text-hint-dark: rgba(0,0,0,.38),
     disabled: rgba(255,255,255,.26),
     disabled-background: rgba(255,255,255,.12),
     highlight: rgba(255,255,255,.12),

@@ -20,6 +20,7 @@
         <sd-button theme="default" @click="modalActive = false">Close this thing</sd-button>
       </sd-modal-footer>
     </sd-modal>
+
     <sd-container>
       <sd-toast :active="toastActive" @on-close="toastActive = false">
         This is very much a work in progress
@@ -30,16 +31,19 @@
             Show me the modal!
           </sd-button>
         </sd-col>
-        <sd-col :md="6">
+        <sd-col :md="6" :lg="4" :sm="8">
           <sd-button theme="secondary" @click="toastActive = !toastActive">
             Show me the totes!
           </sd-button>
         </sd-col>
       </sd-row>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus orci ante, vel pulvinar diam convallis eget. Sed egestas erat ut velit egestas tincidunt. Duis vel magna enim. Ut lacinia tincidunt malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis id nunc et velit ultrices semper non eget augue. Vestibulum venenatis varius ante vitae volutpat. Aenean pulvinar convallis malesuada. Donec quis sapien augue. Nam eleifend id sem ac rutrum. Etiam bibendum nulla vitae ante lobortis dapibus a semper nibh. Aenean eu quam ut magna gravida molestie.</p>
+      <span class="test test--green">
+        Testing
+      </span>
     </sd-container>
-  </div>
 
+  </div>
 </template>
 
 <script>

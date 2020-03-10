@@ -7,11 +7,6 @@
 <script>
 export default {
   name: 'SdCol',
-  data () {
-    return {
-      thingy: true
-    }
-  },
   props: {
     xs: Number,
     sm: Number,

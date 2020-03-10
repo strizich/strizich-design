@@ -45,7 +45,7 @@ export default new Router({
     {
       path: '/modals',
       name: 'modals',
-      component: () => import(/* webpackChunkName: "buttons" */ './views/ModalDemo.vue')
+      component: () => import(/* webpackChunkName: "modal" */ './views/ModalDemo.vue')
     }
   ]
 })
