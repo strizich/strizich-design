@@ -1,6 +1,38 @@
 <template>
   <div class="home">
-    <home-mast/>
+    <home-mast />
+    <sd-container>
+      <sd-toast :active="toastActive" @on-close="toastActive = false">
+        This is very much a work in progress
+      </sd-toast>
+      <sd-row>
+        <sd-col :md="6">
+          <article-card title="blah">
+            <template v-slot:body>
+              Boday
+            </template>
+            <template #footer>
+              <sd-button @click="modalActive = !modalActive">
+                Show me the modal!
+              </sd-button>
+            </template>
+          </article-card>
+        </sd-col>
+        <sd-col :md="6" :sm="8">
+           <article-card title="blah">
+            <template #body>
+                Boday
+            </template>
+            <template #footer>
+              <sd-button @click="modalActive = !modalActive">
+                Show me the modal!
+              </sd-button>
+            </template>
+          </article-card>
+        </sd-col>
+      </sd-row>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus orci ante, vel pulvinar diam convallis eget. Sed egestas erat ut velit egestas tincidunt. Duis vel magna enim. Ut lacinia tincidunt malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis id nunc et velit ultrices semper non eget augue. Vestibulum venenatis varius ante vitae volutpat. Aenean pulvinar convallis malesuada. Donec quis sapien augue. Nam eleifend id sem ac rutrum. Etiam bibendum nulla vitae ante lobortis dapibus a semper nibh. Aenean eu quam ut magna gravida molestie.</p>
+    </sd-container>
     <sd-modal :active.sync="modalActive">
       <sd-modal-title>
         <h3>Blah</h3>
@@ -20,38 +52,16 @@
         <sd-button theme="default" @click="modalActive = false">Close this thing</sd-button>
       </sd-modal-footer>
     </sd-modal>
-
-    <sd-container>
-      <sd-toast :active="toastActive" @on-close="toastActive = false">
-        This is very much a work in progress
-      </sd-toast>
-      <sd-row>
-        <sd-col :md="6">
-          <sd-button @click="modalActive = !modalActive">
-            Show me the modal!
-          </sd-button>
-        </sd-col>
-        <sd-col :md="6" :lg="4" :sm="8">
-          <sd-button theme="secondary" @click="toastActive = !toastActive">
-            Show me the totes!
-          </sd-button>
-        </sd-col>
-      </sd-row>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus orci ante, vel pulvinar diam convallis eget. Sed egestas erat ut velit egestas tincidunt. Duis vel magna enim. Ut lacinia tincidunt malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis id nunc et velit ultrices semper non eget augue. Vestibulum venenatis varius ante vitae volutpat. Aenean pulvinar convallis malesuada. Donec quis sapien augue. Nam eleifend id sem ac rutrum. Etiam bibendum nulla vitae ante lobortis dapibus a semper nibh. Aenean eu quam ut magna gravida molestie.</p>
-      <span class="test test--green">
-        Testing
-      </span>
-    </sd-container>
-
   </div>
 </template>
 
 <script>
+import HomeMast from '@/components/HomeMast'
+import ArticleCard from '@/components/ArticleCard'
 import SdToast from '@/layout/SdToast/SdToast'
 import SdContainer from '@/layout/SdGrid/SdContainer'
 import SdRow from '@/layout/SdGrid/SdRow'
 import SdCol from '@/layout/SdGrid/SdCol'
-import HomeMast from '@/components/HomeMast'
 import SdModal from '@/layout/SdModal/SdModal'
 import SdModalTitle from '@/layout/SdModal/SdModalTitle'
 import SdModalContent from '@/layout/SdModal/SdModalContent'
@@ -79,7 +89,8 @@ export default {
     SdContainer,
     SdToast,
     SdRow,
-    SdCol
+    SdCol,
+    ArticleCard
   },
   metaInfo: {
     title: 'Personal UI framework'
@@ -105,28 +116,4 @@ export default {
     margin-bottom: 32px;
    }
  }
-
-.buttons{
-  display: flex;
-  justify-content: space-evenly;
-}
-.cards{
-  display:flex;
-  max-width: 930px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  & > .article-card{
-     max-width: 50%;
-    @include breakpoint-down('md'){
-       max-width:100%;
-    }
-    @include breakpoint-down('sm'){
-      max-width:100%;
-    }
-  }
-}
-.buttons{
-  flex-wrap: wrap;
-}
 </style>

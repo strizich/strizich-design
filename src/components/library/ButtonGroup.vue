@@ -139,11 +139,11 @@ export default {
   .buttons{
     background-color: var(--background-accent);
     padding: 64px;
-    @include breakpoint-down('md'){
+    @include breakpoint-down('sm'){
       padding: 32px;
     }
-     @include breakpoint-down('sm'){
-      padding: 32px 16px;
+     @include breakpoint-down('xs'){
+      padding: 32px;
     }
     &__header{
       width: 100%;
@@ -168,13 +168,14 @@ export default {
       padding: 0 32px;
       flex-direction: column;
       margin-bottom: 16px;
-      @include breakpoint-down('md'){
+      @include breakpoint-down('sm'){
         width: 100%;
         min-width: 100%;
-        padding: 0px;
+        padding: 0;
       }
     }
     &__results{
+      @include sd--elevation(6, inset);
       display:flex;
       height: 400px;
       align-items: center;
@@ -183,7 +184,6 @@ export default {
       min-width: 66%;
       background-color: var(--background-accent);
       border: 1px solid var(--background-highlight);
-      @include sd--elevation(6, inset);
       flex-wrap: wrap;
       @include breakpoint-down('md'){
         width: 100%;

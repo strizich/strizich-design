@@ -1,9 +1,9 @@
 <template>
-  <main :class="`sd--layout`">
+  <main class="sd--layout">
     <portal-target name="body" multiple />
     <the-header
         @toggle:menu="onToggle($event)"
-        :menuOpen="sidebarState"
+        :menuOpen.sync="sidebarState"
         :handleScroll="showHeader"
       />
     <div class="sd--layout__wrapper">
@@ -37,17 +37,23 @@ export default {
     }
   },
   watch: {
-    '$route' () {
+    $route () {
       if (this.isSmall) {
+        this.sidebarState = false
+      }
+    },
+    isSmall (newValue) {
+      // Update the sidebar state if the user changes the screensize.
+      if (newValue) {
         this.sidebarState = false
       }
     }
   },
   created () {
+    this.updateWindowWidth()
     this.getStoredMenuState()
   },
   mounted () {
-    this.updateWindowWidth()
     this.addResizeListener()
   },
   destroyed () {
@@ -69,6 +75,9 @@ export default {
     updateWindowWidth: function () {
       const width = window.innerWidth
       this.window.width = width
+      if (this.isSmall === true) {
+        window.localStorage.setItem('SDUI:navState', false)
+      }
     },
     addResizeListener: function () {
       window.addEventListener('resize', () => {

@@ -31,12 +31,5 @@ export default {
     }
     overflow-y: auto;
     overflow-x:hidden;
-    &.is{
-      &--md{
-        @include breakpoint-up('md'){
-          min-width: 768px;
-        }
-      }
-    }
   }
 </style>

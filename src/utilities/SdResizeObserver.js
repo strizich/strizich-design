@@ -1,8 +1,8 @@
 import raf from 'raf'
-import MdObserveEvent from './MdObserveEvent'
+import SdObserveEvent from './SdObserveEvent'
 
 export default (el = window, observerFn) => {
-  const observer = MdObserveEvent(el, 'resize', () => {
+  const observer = SdObserveEvent(el, 'resize', () => {
     raf(observerFn)
   }, { passive: true })
 

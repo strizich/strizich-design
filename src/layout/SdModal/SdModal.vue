@@ -69,6 +69,7 @@ export default {
     active (isActive) {
       this.$nextTick().then(() => {
         if (isActive) {
+          document.body.classList.add('sd--modal--open')
           document.body.style.top = `-${window.scrollY}px`
           document.body.style.position = 'fixed'
           document.body.style.left = '0'
@@ -76,6 +77,7 @@ export default {
           this.$emit('sd-opened')
         } else {
           const scrollY = document.body.style.top
+          document.body.classList.remove('sd--modal--open')
           document.body.style.position = ''
           document.body.style.top = ''
           window.scrollTo(0, parseInt(scrollY || '0') * -1)
@@ -118,8 +120,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .sd--modal{
+    &--open{
+      padding-right: 10px;
+    }
     min-width: 280px;
     max-width: 80%;
     max-height: 80%;
@@ -137,23 +142,31 @@ export default {
     pointer-events: auto;
     transform: translate(-50%, -50%);
     transform-origin: center center;
-    transition: opacity .2s .1s ease-in-out,
-                transform .2s .1s  ease-in-out;
+    transition: opacity .2s ease-in-out,
+                transform .2s  ease-in-out;
     will-change: opacity, transform, left, top;
     &__container{
+      width: 100%;
       display: flex;
-      flex-flow: column;
+      flex-flow: column nowrap;
       flex: 1;
     }
     &.sd-modal-enter {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(.95);
+      transform: translate(-50%, -50%) scale(.9);
     }
     &.sd-enter-active, &.sd-modal-leave-active {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(.95);
+      transform: translate(-50%, -40%) scale(1);
     }
     &.is{
+      &--md{
+        width: 80%;
+        height: 80%;
+      }
+      &--lg{
+        width: 90%;
+      }
       &--fullscreen{
         @include breakpoint-down('sm'){
           max-width: 100%;
@@ -167,11 +180,11 @@ export default {
           transform: none;
           &.sd-modal-enter {
             opacity: 0;
-            transform: translate3D(0, 30%, 0);
+            transform: translate3D(0, 10%, 0);
           }
           &.sd-modal-leave-active {
             opacity: 0;
-            transform: translate3D(0, 0, 0);
+            transform: translate3D(0, -10%, 0);
           }
         }
       }

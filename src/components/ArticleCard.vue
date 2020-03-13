@@ -2,16 +2,16 @@
   <article class="article-card">
     <sd-card :elevation="elevation">
       <sd-card-header v-if="title" :title="title" align="space-between">
-        <sd-chicklet :content="category" theme="success" size="sm" uppercase/>
+        <sd-chicklet :content="category" theme="success" size="sm" uppercase v-if="category"/>
       </sd-card-header>
-      <sd-card-media :ratio="ratio">
+      <sd-card-media :ratio="ratio" v-if="imgUrl">
         <img :src="`https://media.graphcms.com/${imgUrl}`" :alt="title"/>
       </sd-card-media>
-      <sd-card-body v-if="content">
-        {{content}}
+      <sd-card-body>
+        <slot name="body"/>
       </sd-card-body>
        <sd-card-footer align="flex-end">
-         <small>two</small>
+         <slot name="footer" />
       </sd-card-footer>
     </sd-card>
   </article>
@@ -55,7 +55,10 @@ export default {
 
 <style lang="scss" scoped>
 .article-card{
-  padding: 8px;
-  width:100%;
+  display:flex;
+  .sd--card{
+    width: 100%;
+    height:100%;
+  }
 }
 </style>
