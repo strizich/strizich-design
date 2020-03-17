@@ -44,14 +44,15 @@ export default {
         .sd--checkbox{
           margin-left:0;
           margin-right: 0;
-          padding-top: 16px;
-          padding-bottom: 16px;
         }
         .sd--radio{
           margin-left:0;
           margin-right: 0;
           padding-top: 8px;
           padding-bottom: 8px;
+        }
+        .sd--button{
+          margin: 4px;
         }
       }
     }

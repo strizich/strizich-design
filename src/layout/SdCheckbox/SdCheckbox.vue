@@ -114,12 +114,14 @@ export default {
   %disabled{
     opacity: .65;
     cursor: not-allowed;
+    color: var(--disabled);
   }
 
   .sd--checkbox {
+    min-height: 34px;
     position:relative;
     padding: 8px 16px 8px 28px ;
-    margin: 0 8px;
+    margin: 0 8px 8px 0;
     display: inline-flex;
     align-items: center;
     -webkit-user-select: none;

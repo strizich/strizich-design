@@ -8,6 +8,7 @@
 export default {
   name: 'SdRow',
   props: {
+    dense: Boolean,
     gutterless: Boolean,
     alignItems: String,
     justifyContent: String
@@ -15,7 +16,8 @@ export default {
   computed: {
     classes: function () {
       return {
-        'is--gutterless': this.gutterless
+        'is--gutterless': this.gutterless,
+        'is--dense': this.dense
       }
     }
   }
@@ -25,16 +27,24 @@ export default {
 <style lang="scss">
   .sd--row {
     @include make-row();
+    margin: 0 -16px;
   }
-
-  .is--gutterless{
+  .is--gutterless {
     margin-right: 0;
     margin-left: 0;
-
     > .sd--col,
     > [class*="col-"] {
       padding-right: 0;
       padding-left: 0;
+    }
+  }
+  .is--dense {
+    margin-right: 0;
+    margin-left: 0;
+    > .sd--col,
+    > [class*="col-"] {
+      padding-right: 8px;
+      padding-left:8px;
     }
   }
 </style>

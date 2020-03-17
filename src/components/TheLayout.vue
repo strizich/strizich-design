@@ -1,6 +1,5 @@
 <template>
   <main class="sd--layout">
-    <portal-target name="body" multiple />
     <the-header
         @toggle:menu="onToggle($event)"
         :menuOpen.sync="sidebarState"
@@ -81,7 +80,7 @@ export default {
     },
     addResizeListener: function () {
       window.addEventListener('resize', () => {
-        SdThrottle(10, this.updateWindowWidth())
+        SdThrottle(600, this.updateWindowWidth())
       }, false)
     },
     removeResizeListener: function () {
@@ -113,6 +112,7 @@ export default {
   &__wrapper {
     display:flex;
     width:100%;
+
     min-height: calc(100vh - 100px);
   }
   &__content {
@@ -127,12 +127,10 @@ export default {
   &__sidebar {
     width:100%;
     max-width:230px;
-    max-height:calc(100vh - 50px);
+    // max-height:calc(100vh - 50px);
     overflow-y: auto;
     overflow-x: hidden;
-    position:sticky;
-    top:50px;
-    left:0;
+    position: relative;
     flex-grow: 1;
     background:var(--background);
     order: 0;

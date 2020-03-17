@@ -8,7 +8,7 @@
         <img :src="`https://media.graphcms.com/${imgUrl}`" :alt="title"/>
       </sd-card-media>
       <sd-card-body>
-        <slot name="body"/>
+        <slot />
       </sd-card-body>
        <sd-card-footer align="flex-end">
          <slot name="footer" />
@@ -56,6 +56,9 @@ export default {
 <style lang="scss" scoped>
 .article-card{
   display:flex;
+  @include breakpoint-down(sm){
+    margin-bottom: 16px;
+  }
   .sd--card{
     width: 100%;
     height:100%;

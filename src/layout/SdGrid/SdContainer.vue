@@ -14,7 +14,7 @@ export default {
   computed: {
     classes: function () {
       if (this.full) {
-        return `sd--container--auto`
+        return `sd--container--full`
       } else if (this.break) {
         return `sd--container--${this.break}`
       } else {
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
-.sd--container{
+.sd--container {
   @each $size, $value in $container-max-widths{
     @include media-breakpoint-down($size){
       max-width: $value;
@@ -38,6 +38,9 @@ export default {
       max-width: $value;
       margin: 0 auto;
     }
+  }
+  &--full {
+    max-width: 100%;
   }
 }
 </style>

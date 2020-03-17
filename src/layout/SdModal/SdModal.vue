@@ -78,8 +78,7 @@ export default {
         } else {
           const scrollY = document.body.style.top
           document.body.classList.remove('sd--modal--open')
-          document.body.style.position = ''
-          document.body.style.top = ''
+          document.body.removeAttribute('style')
           window.scrollTo(0, parseInt(scrollY || '0') * -1)
           this.$emit('sd-closed')
         }

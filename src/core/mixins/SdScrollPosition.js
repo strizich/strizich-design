@@ -14,11 +14,6 @@ export default {
     window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
-    getRandomInt: function (min, max) {
-      min = Math.ceil(min)
-      max = Math.floor(max)
-      return Math.floor(Math.random() * (max - min + 1)) + min
-    },
     onScroll: function () {
       // Look into throttling this.
       const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop

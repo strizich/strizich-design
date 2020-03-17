@@ -48,7 +48,6 @@ export default {
     TheSidebar,
     TheLayout
   },
-
   metaInfo: {
     title: 'Default Title',
     titleTemplate: '%s | Strizich Design'

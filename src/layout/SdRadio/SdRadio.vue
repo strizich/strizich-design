@@ -140,16 +140,19 @@ export default {
     &.is--focused{
       color: var(--primary-highlight);
     }
+    &.is--disabled{
+      color: var(--disabled);
+    }
     &:hover{
       transition: background-color .15s ease-in-out;
       background-color: var(--background-highlight);
       cursor:pointer;
     }
     &__input{
+      @extend %radio;
       -webkit-appearance: none;
       appearance: none;
       border: none;
-      @extend %radio;
       position: absolute;
       top: 50%;
       left: 0;
