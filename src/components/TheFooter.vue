@@ -20,20 +20,15 @@ export default {
 <style lang="scss" scoped>
   .footer{
     padding: 16px;
-    background: var(--background);
-    position:absolute;
-    bottom: 0;
+    background: var(--background-accent);
+    box-shadow: 0 -1px 0 0 rgba(0,0,0,.54);
+    position: absolute;
+    bottom:0;
     left: 0;
     right: 0;
-    box-shadow: 0 -1px 0 0 var(--background-accent);
     &__wrapper{
       display:flex;
-      @include iosSafeArea;
       justify-content: space-between;
-      @include breakpoint-down(sm){
-        flex-direction: column;
-        justify-content: flex-start;
-      }
     }
   }
 </style>

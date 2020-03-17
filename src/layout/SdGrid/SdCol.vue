@@ -1,5 +1,5 @@
 <template>
-  <div :class="breakpointClasses" :style="{order}">
+  <div :class="[breakpointClasses, tightSpacing]" :style="{order}">
     <slot/>
   </div>
 </template>
@@ -7,12 +7,8 @@
 <script>
 export default {
   name: 'SdCol',
-  data () {
-    return {
-      thingy: true
-    }
-  },
   props: {
+    tight: Boolean,
     xs: Number,
     sm: Number,
     md: Number,
@@ -21,6 +17,9 @@ export default {
     order: Number
   },
   computed: {
+    tightSpacing: function () {
+      return `sd--spacing--tight`
+    },
     breakpointClasses: function () {
       let classes = []
       const breakpointXs = `sd--col--xs--${this.xs}`

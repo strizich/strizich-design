@@ -1,6 +1,6 @@
 <template>
   <div>
-    <modal-group/>
+    <modal-group />
   </div>
 </template>
 

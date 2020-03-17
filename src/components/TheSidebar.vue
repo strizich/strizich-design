@@ -1,6 +1,6 @@
 <template>
   <nav class="sidebar">
-    <sd-list>
+    <sd-list class="sidebar__list">
       <template v-for="(section, i) in navigationConfig">
         <sd-list-header v-if="section.name" :key="i" :title="section.name"/>
         <sd-list-item v-for="link in section.children" :key="link.route" link>
@@ -37,6 +37,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.sidebar{
+  position:fixed;
+  max-width: 230px;
+  top:50px;
+  left:0;
+  right:0;
+  @include breakpoint-down(sm){
+    max-width: 100%;
+  }
+}
 .link {
   color: var(--text);
   display:block;

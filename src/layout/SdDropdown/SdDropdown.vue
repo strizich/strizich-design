@@ -1,6 +1,6 @@
 <template>
   <div class="sd--dropdown" v-on="$listeners">
-    <slot/>
+    <slot />
   </div>
 </template>
 
@@ -92,9 +92,6 @@ export default {
       } else {
         this.$emit('sd-opened')
       }
-    },
-    closeOnSelect () {
-      this.sdDropdown.closeOnSelect
     }
   },
   methods: {
@@ -103,8 +100,6 @@ export default {
     }
   },
   mounted () {
-    this.SdDropdown.$el = $el
-
     this.$nextTick().then(() => {
       this.triggerEl = this.$el.querySelector('[sd-dropdown-trigger]')
       if (this.triggerEl) {

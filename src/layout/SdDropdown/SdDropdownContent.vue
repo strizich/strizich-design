@@ -11,7 +11,6 @@
 <script>
 import SdPopover from '@/layout/SdPopover'
 import SdPropValidator from '@/utilities/SdPropValidator.js'
-import anime from 'animejs'
 
 export default {
   name: 'SdDropdown',
@@ -24,7 +23,7 @@ export default {
   props: {
     active: Boolean,
     delay: {
-      type: [String, Boolean],
+      type: [String, Number],
       default: 0
     },
     direction: {

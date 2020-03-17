@@ -1,9 +1,8 @@
 <template>
   <main class="sd--layout">
-    <portal-target name="body" multiple />
     <the-header
         @toggle:menu="onToggle($event)"
-        :menuOpen="sidebarState"
+        :menuOpen.sync="sidebarState"
         :handleScroll="showHeader"
       />
     <div class="sd--layout__wrapper">
@@ -30,23 +29,30 @@ export default {
   data () {
     return {
       sidebarState: false,
+      userTheme: false,
       window: {
         width: 0
       }
     }
   },
   watch: {
-    '$route' () {
+    $route () {
       if (this.isSmall) {
+        this.sidebarState = false
+      }
+    },
+    isSmall (newValue) {
+      // Update the sidebar state if the user changes the screensize.
+      if (newValue) {
         this.sidebarState = false
       }
     }
   },
   created () {
+    this.updateWindowWidth()
     this.getStoredMenuState()
   },
   mounted () {
-    this.updateWindowWidth()
     this.addResizeListener()
   },
   destroyed () {
@@ -68,10 +74,13 @@ export default {
     updateWindowWidth: function () {
       const width = window.innerWidth
       this.window.width = width
+      if (this.isSmall === true) {
+        window.localStorage.setItem('SDUI:navState', false)
+      }
     },
     addResizeListener: function () {
       window.addEventListener('resize', () => {
-        SdThrottle(10, this.updateWindowWidth())
+        SdThrottle(600, this.updateWindowWidth())
       }, false)
     },
     removeResizeListener: function () {
@@ -81,8 +90,11 @@ export default {
     }
   },
   computed: {
+    setTheme: function () {
+      return this.userTheme ? 'light' : 'dark'
+    },
     isSmall: function () {
-      if (this.window.width <= 812) {
+      if (this.window.width <= 768) {
         return true
       }
       return false
@@ -100,6 +112,7 @@ export default {
   &__wrapper {
     display:flex;
     width:100%;
+
     min-height: calc(100vh - 100px);
   }
   &__content {
@@ -114,16 +127,14 @@ export default {
   &__sidebar {
     width:100%;
     max-width:230px;
-    max-height:calc(100vh - 50px);
+    // max-height:calc(100vh - 50px);
     overflow-y: auto;
     overflow-x: hidden;
-    position:sticky;
-    top:50px;
-    left:0;
+    position: relative;
     flex-grow: 1;
     background:var(--background);
     order: 0;
-    transition: width .23s 0s ease-in-out;
+    transition: width .23s ease-in-out;
     box-shadow: inset -1px 0 0 0 var(--background-highlight);
     @include breakpoint-down('sm') {
       position: fixed;

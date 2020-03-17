@@ -136,9 +136,7 @@ export default {
   }
 }
 </script>
-
 <style lang="scss">
-
 .sd--button {
   touch-action: manipulation;
   -webkit-user-select: none;
@@ -147,10 +145,11 @@ export default {
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 1px;
-  display:inline-flex;
+  display: inline-flex;
   align-items: center;
   padding: 0;
-  &__content{
+
+  &__content {
     position: relative;
     z-index: 10;
     flex-grow: 2;
@@ -158,124 +157,150 @@ export default {
     text-transform: uppercase;
     display: flex;
     align-items: center;
-    .sd--icon{
+
+    .sd--icon {
       margin-top: -8px;
       margin-bottom: -8px;
       margin-right: 8px;
     }
-    &.is{
-      &--sm{
+
+    &.is {
+      &--sm {
         font-size: rem(14);
         line-height: rem(14);
         padding: spacing(inset, sm);
         min-width: 30px;
       }
-      &--md{
+
+      &--md {
         font-size: rem(16);
         line-height: rem(16);
         padding: spacing(offset);
         min-width: 43px;
       }
-      &--lg{
+
+      &--lg {
         font-size: rem(18);
         line-height: rem(18);
         padding: 16px 24px
       }
     }
   }
-  &__icon{
-    &--left{
-       margin: -8px 8px -8px -8px;
+
+  &__icon {
+    &--left {
+      margin: -8px 8px -8px -8px;
     }
-    &--right{
-       margin: -8px -8px -8px 8px;
+
+    &--right {
+      margin: -8px -8px -8px 8px;
     }
   }
-  @each $state, $color in $sd-color-global {
+
+  @each $state,
+  $color in $sd-color-global {
     $base: nth($color, 1);
-    $lighter: nth($color, 2);
-    $darker: nth($color, 3);
+    $highlight: nth($color, 2);
+    $accent: nth($color, 3);
     $contrast: sd-pick-contrast($base);
-    $contrast-highlight: sd-pick-contrast($lighter);
-    $contrast-accent: sd-pick-contrast($darker);
+    $contrast-highlight: sd-pick-contrast($highlight);
+    $contrast-accent: sd-pick-contrast($accent);
+
     &__#{$state} {
       @include sd--elevation(2);
       color: sd-color($contrast, text);
       background-color: $base;
       transition: all .2s ease-out;
       border-radius: 3px;
+
       &:hover {
         @include sd--elevation(4);
         color: sd-color($contrast-accent, text);
-        background-color: $darker;
+        background-color: $accent;
         transition: all .2s ease-out;
       }
+
       &:active {
         @include sd--elevation(6);
         color: sd-color($contrast-highlight, text);
-        background-color: $lighter;
+        background-color: $highlight;
         transition: all .2s ease-out;
       }
-      &.is{
-        &--block{
-          display:block;
-          width:100%;
+
+      &.is {
+        &--block {
+          display: block;
+          width: 100%;
         }
-        &--icon-only{
-          display:flex;
-          align-items:center;
+
+        &--icon-only {
+          display: flex;
+          align-items: center;
           justify-content: center;
-          .is{
-            &--sm, &--md, &--lg{
-              padding:0;
-              margin:0;
-              display:flex;
+
+          .is {
+            &--sm,
+            &--md,
+            &--lg {
+              padding: 0;
+              margin: 0;
+              display: flex;
               text-emphasis: center;
               align-items: center;
               justify-content: center;
               min-width: 0;
-              .sd--icon{
-                padding:0;
-                margin:0;
+
+              .sd--icon {
+                padding: 0;
+                margin: 0;
               }
             }
+
             &--sm {
               width: 24px;
               height: 24px;
             }
+
             &--md {
               width: 32px;
               height: 32px;
             }
+
             &--lg {
               width: 52px;
               height: 52px;
             }
           }
         }
+
         &--outline {
           border: 1px solid $base;
-          background:none;
-          @include flatten($base, $lighter, $darker, $contrast);
+          background: none;
+          @include flatten($base, $highlight, $accent, $contrast);
         }
+
         &--flat {
           background: none;
           border: none;
           outline: none;
-          @include flatten($base, $lighter, $darker, $contrast);
+          @include flatten($base, $highlight, $accent, $contrast);
         }
-        &--rounded{
+
+        &--rounded {
           border-radius: 30px;
         }
-        &--pill{
+
+        &--pill {
           border-radius: 30px;
+
           .sd--button__content {
             padding-left: 20px;
             padding-right: 20px;
           }
         }
+
         &--focused {
-          box-shadow: 0 0 0 5px $lighter;
+          box-shadow: 0 0 0 5px $highlight;
           transition: all .2s ease-out;
         }
       }

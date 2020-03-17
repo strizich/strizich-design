@@ -1,10 +1,9 @@
 // Bootstrap grid system.
 
 $enable-grid-classes: true;
-$grid-gutter: 32px;
-$grid-gutter-tight: 8px;
+$grid-gutter: 64px;
 $grid-columns: 12;
-$grid-row-columns: 6 !default;
+$grid-row-columns: 6!default;
 $grid-gutter-width: $grid-gutter / 2;
 
 $container-max-widths: (
@@ -21,8 +20,6 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1200px
 ) !default;
-
-
 
 @function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
   $n: index($breakpoint-names, $name);

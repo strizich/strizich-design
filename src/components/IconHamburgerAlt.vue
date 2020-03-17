@@ -3,7 +3,7 @@
    :class="['sd--button', 'sd--button__flat', isFocused]"
    @click="toggleOpen">
       <span class="sd--hamburger" :class="isActive">
-        <i class="sd--hamburger__bar" :class="`bar--${n}--alt`" v-for="n in 3" :key="n"/>
+        <i class="sd--hamburger__bar" :class="`bar--${n}`" v-for="n in 3" :key="n"/>
       </span>
     </button>
 </template>
@@ -40,38 +40,38 @@ export default {
       })
       if (!open) {
         tl.add({
-          targets: '.bar--1--alt',
+          targets: '.bar--1',
           keyframes: [
             { rotateZ: 0, translateY: 0, translateX: 0, easing: 'easeInOutQuad' },
             { width: 24, easing: 'easeInOutQuad' }
           ]
         }, 0).add({
-          targets: '.bar--3--alt',
+          targets: '.bar--3',
           keyframes: [
             { rotateZ: 0, translateY: 0, translateX: 0, easing: 'easeInOutQuad' },
             { width: 24, easing: 'easeInOutQuad' }
           ]
         }, 0).add({
-          targets: '.bar--2--alt',
+          targets: '.bar--2',
           keyframes: [
             { width: 24, translateX: 0, easing: 'easeInOutQuad' }
           ]
         }, 0)
       } else if (open) {
         tl.add({
-          targets: '.bar--1--alt',
+          targets: '.bar--1',
           keyframes: [
             { width: 12, easing: 'easeInOutQuad' },
             { rotateZ: -45, translateY: 7, translateX: -4, easing: 'easeInOutQuad' }
           ]
         }, 0).add({
-          targets: '.bar--3--alt',
+          targets: '.bar--3',
           keyframes: [
             { width: 12, easing: 'easeInOutQuad' },
             { rotateZ: 45, translateY: -7, translateX: -4, easing: 'easeInOutQuad' }
           ]
         }, 0).add({
-          targets: '.bar--2--alt',
+          targets: '.bar--2',
           keyframes: [
             { width: 21, translateX: 3, easing: 'easeInOutQuad' },
             { translateX: 3 }
@@ -133,15 +133,15 @@ export default {
   &.is--open{
     transform-origin: 0% 100%;
     .bar{
-      &--1--alt{
+      &--1{
         transform: translateY(7px) translateX(1px) rotateZ(45deg);
         width: 12px;
       }
-      &--2--alt{
+      &--2{
         transform: translateX(3px);
         width: 21px;
       }
-      &--3--alt{
+      &--3{
         transform: translateY(-7px) translateX(1px) rotateZ(-45deg);
         width: 12px;
       }
