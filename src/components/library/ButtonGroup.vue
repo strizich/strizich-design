@@ -82,7 +82,7 @@
               </sd-radio>
             </sd-fieldset>
           </sd-col>
-          <sd-col class="group__options" :lg="2" :md="3" :sm="6">
+          <sd-col class="group__options" :lg="2" :md="6" :sm="6">
             <sd-fieldset title="Layout Options" stack>
               <sd-checkbox v-model="isBlock">
                 Block Level
@@ -95,7 +95,7 @@
               </sd-checkbox>
             </sd-fieldset>
           </sd-col>
-          <sd-col class="group__options" :lg="2" :md="3" :sm="6">
+          <sd-col class="group__options" :lg="2" :md="6" :sm="6">
             <sd-fieldset title="Layout Options" stack>
               <sd-radio
                 name="Alignment"
@@ -136,11 +136,11 @@ export default {
       showIcon: false,
       selectedAlignment: 'center',
       alignmentOptions: [
-        { name: 'Center (Default)', value: 'center' },
+        { name: 'Center', value: 'center' },
         { name: 'Start', value: 'flex-start' },
         { name: 'End', value: 'flex-end' },
-        { name: 'Space Around', value: 'space-around' },
-        { name: 'Space between', value: 'space-between' }
+        { name: 'Around', value: 'space-around' },
+        { name: 'Between', value: 'space-between' }
       ],
       colors: [
         'primary',
@@ -192,20 +192,14 @@ export default {
       display: inline-flex;
       align-items: center;
     }
-    &__options{
-      border-right: 1px solid var(--divider);
-      &:last-child{
-        border-right:none;
-      }
-    }
   }
   .buttons{
     background-color: var(--background-accent);
     @include breakpoint-down('sm'){
-      padding: 32px;
+      padding: 16px;
     }
      @include breakpoint-down('xs'){
-      padding: 32px;
+      padding: 0px;
     }
     &__header{
       width: 100%;
@@ -235,7 +229,7 @@ export default {
     &__results{
       @include sd--elevation(6, inset);
       display:flex;
-      height: 400px;
+      min-height: 250px;
       align-items: center;
       align-content: center;
       justify-content: center;
