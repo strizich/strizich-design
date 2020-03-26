@@ -18,7 +18,7 @@
             </template>
           </article-card>
         </sd-col>
-        <sd-col :md="6" :sm="8">
+        <sd-col :md="6">
            <article-card title="blah">
             <template #body>
                 Boday

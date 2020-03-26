@@ -46,6 +46,22 @@ export default {
       if (newValue) {
         this.sidebarState = false
       }
+    },
+    sidebarState (isActive) {
+      this.$nextTick().then(() => {
+        if (isActive && this.isSmall) {
+          document.body.classList.add('sd--sidebar--open')
+          document.body.style.top = `-${window.scrollY}px`
+          document.body.style.position = 'fixed'
+          document.body.style.left = '0'
+          document.body.style.right = '0'
+        } else {
+          const scrollY = document.body.style.top
+          document.body.classList.remove('sd--sidebar--open')
+          document.body.removeAttribute('style')
+          window.scrollTo(0, parseInt(scrollY || '0') * -1)
+        }
+      })
     }
   },
   created () {
