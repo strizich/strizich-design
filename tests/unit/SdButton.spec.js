@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import SdButton from '@/layout/SdButton.vue'
+import SdButton from '@/layout/SdButton/SdButton.vue'
 
 describe('SdButton', () => {
   it('should create the default classes', () => {

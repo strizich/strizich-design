@@ -122,14 +122,13 @@ export default {
 
 <style lang="scss">
 .sd--layout {
-  min-height: 100vh;
   min-width: 100%;
+  min-height: 100vh;
   position: relative;
   &__wrapper {
     display:flex;
     width:100%;
-
-    min-height: calc(100vh - 100px);
+    min-height: fill-available;
   }
   &__content {
     position: relative;

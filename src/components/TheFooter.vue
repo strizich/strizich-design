@@ -19,6 +19,7 @@ export default {
 
 <style lang="scss" scoped>
   .footer{
+
     padding: 16px;
     background: var(--background-accent);
     box-shadow: 0 -1px 0 0 rgba(0,0,0,.54);
@@ -28,6 +29,7 @@ export default {
     right: 0;
     &__wrapper{
       display:flex;
+          margin-top: -40px;
       justify-content: space-between;
     }
   }

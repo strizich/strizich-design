@@ -1,6 +1,6 @@
 <template>
   <div class="mast sd--elevation--4">
-    <sd-container>
+    <sd-container full>
       <sd-row align-items="center">
         <sd-col :sm="4" :md="6" :xl="3">
           <sd-card-media :ratio="ratio">

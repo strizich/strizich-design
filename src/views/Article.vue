@@ -1,13 +1,14 @@
 <template>
   <div class="article">
     <article-mast :title="title" imgSrc="Q9Mfd5PSn2bEULCnYRi7" ratio="4x3"/>
-    <div class="article__content">
+    <sd-container full>
       <vue-markdown :source="placeholder" />
-    </div>
+    </sd-container>
   </div>
 </template>
 
 <script>
+import SdContainer from '@/layout/SdGrid/SdContainer'
 import VueMarkdown from 'vue-markdown'
 import ArticleMast from '@/components/ArticleMast'
 
@@ -33,7 +34,7 @@ export default {
       placeholder: mdPlaceholder
     }
   },
-  components: { ArticleMast, VueMarkdown },
+  components: { ArticleMast, VueMarkdown, SdContainer },
   metaInfo: {
     title: 'Article'
   }
@@ -41,9 +42,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.article{
-  &__content{
-    padding: 0 16px 32px;
-  }
-}
+
 </style>

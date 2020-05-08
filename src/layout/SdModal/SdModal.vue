@@ -149,6 +149,9 @@ export default {
       display: flex;
       flex-flow: column nowrap;
       flex: 1;
+      &:focus {
+        outline: none;
+      }
     }
     &.sd-modal-enter {
       opacity: 0;

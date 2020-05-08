@@ -43,10 +43,11 @@ export default {
   top:50px;
   left:0;
   right:0;
-  @include breakpoint-down(sm){
+  @include breakpoint-down(sm) {
     max-width: 100%;
   }
 }
+
 .link {
   color: var(--text);
   display:block;
