@@ -38,21 +38,14 @@ export default {
 
 <style lang="scss" scoped>
 .sidebar{
-  min-height: 100%;
   max-width: 230px;
-  top:50px;
-  left:0;
-  right:0;
-
+  height: 100%;
   @include breakpoint-down(sm){
     max-width: 100%;
   }
   &__list{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom:0;
-    right: 0;
+    position: sticky;
+    top:50px;
     overflow: auto;
   }
 }

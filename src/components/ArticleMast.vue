@@ -1,13 +1,13 @@
 <template>
-  <div class="mast sd--elevation--4">
-    <sd-container>
-      <sd-row align-items="center">
+  <div class="mast">
+    <sd-container full>
+      <sd-row align-items="center" justify-content="space-between">
         <sd-col :sm="4" :md="6" :xl="3">
           <sd-card-media :ratio="ratio">
             <img :src="`https://media.graphcms.com/${imgSrc}`" :alt="title"/>
           </sd-card-media>
         </sd-col>
-        <sd-col :sm="8" :md="6" :xl="9" :order="-1">
+        <sd-col :sm="8" :md="6" :xl="7" :order="-1">
           <div class="mast__details">
             <div class="mast__header">
               <p class="sd--text__caption">Leading description</p>
@@ -61,7 +61,7 @@ export default {
 
 <style lang="scss" scoped>
   .mast{
-    background-color: var(--background-highlight);
+    background-color: var(--background-accent);
     margin-bottom: 40px;
     padding: 32px 0;
     &__image{
@@ -69,8 +69,6 @@ export default {
       padding: 16px;
       min-width: 400px;
     }
-    &__details{
-      margin-top: 32px;
-    }
+
   }
 </style>

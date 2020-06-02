@@ -128,7 +128,6 @@ export default {
   &__wrapper {
     display:flex;
     width:100%;
-
     min-height: calc(100vh - 100px);
   }
   &__content {
@@ -143,15 +142,12 @@ export default {
   &__sidebar {
     width:100%;
     max-width:230px;
-    // max-height:calc(100vh - 50px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    position: relative;
     flex-grow: 1;
     background:var(--background);
     order: 0;
     transition: width .23s ease-in-out;
     box-shadow: inset -1px 0 0 0 var(--background-highlight);
+
     @include breakpoint-down('sm') {
       position: fixed;
       top: 50px;
