@@ -8,9 +8,6 @@ export default {
   name: 'About',
   metaInfo: {
     title: 'About'
-  },
-  created () {
-    this.getUsers()
   }
 }
 </script>

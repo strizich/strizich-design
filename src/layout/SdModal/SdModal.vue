@@ -15,7 +15,7 @@
                 :class="backdropClass"
                 :blur="backdropBlur"
                 :active="active"
-                @click="onClick"
+                @click="onOutsideClick"
                 v-if="backdrop"
                 fixed />
             </keep-alive>
@@ -89,11 +89,11 @@ export default {
     closeModal: function () {
       this.$emit('update:active', false)
     },
-    onClick: function () {
+    onOutsideClick: function () {
       if (this.clickOutsideToClose) {
         this.closeModal()
       }
-      this.$emit('sd-clicked-outside')
+      this.$emit('clicked-outside')
     },
     onEsc: function () {
       if (this.closeOnEsc) {

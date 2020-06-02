@@ -123,7 +123,7 @@ export default {
       this.$emit('sd-original-parent', this.$el.parentNode)
     }
 
-    if (this.mdAttachToParent && this.$el.parentNode.parentNode) {
+    if (this.attachToParent && this.$el.parentNode.parentNode) {
       this.changeParentEl(this.$el.parentNode.parentNode)
     } else if (document) {
       this.changeParentEl(this.target || document.body)
