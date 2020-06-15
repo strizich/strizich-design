@@ -3,20 +3,20 @@
     <sd-button @click="modalOne = true">
       Show Me
     </sd-button>
-    <sd-modal :active.sync="modalOne">
-      <sd-modal-title>
+    <sd-dialog :active.sync="modalOne">
+      <sd-dialog-title>
         <h3>I am title &mdash; [modalOne]</h3>
         <sd-button @click="modalOne = false" theme="default" icon-only flat rounded>
           <sd-icon name="close"/>
         </sd-button>
-      </sd-modal-title>
-      <sd-modal-content>
+      </sd-dialog-title>
+      <sd-dialog-content>
         <p>Modal Content</p>
-      </sd-modal-content>
-      <sd-modal-footer>
+      </sd-dialog-content>
+      <sd-dialog-footer>
         <span>Modal Footer</span>
-      </sd-modal-footer>
-    </sd-modal>
+      </sd-dialog-footer>
+    </sd-dialog>
   </div>
 
 </template>
@@ -24,10 +24,10 @@
 <script>
 import SdButton from '@/layout/SdButton'
 import SdIcon from '@/layout/SdIcon'
-import SdModal from '@/layout/SdModal/SdModal'
-import SdModalTitle from '@/layout/SdModal/SdModalTitle'
-import SdModalContent from '@/layout/SdModal/SdModalContent'
-import SdModalFooter from '@/layout/SdModal/SdModalFooter'
+import SdDialog from '@/layout/SdDialog/SdDialog'
+import SdDialogTitle from '@/layout/SdDialog/SdDialogTitle'
+import SdDialogContent from '@/layout/SdDialog/SdDialogContent'
+import SdDialogFooter from '@/layout/SdDialog/SdDialogFooter'
 
 export default {
   name: 'ModalGroup',
@@ -39,10 +39,10 @@ export default {
   components: {
     SdButton,
     SdIcon,
-    SdModal,
-    SdModalTitle,
-    SdModalContent,
-    SdModalFooter
+    SdDialog,
+    SdDialogTitle,
+    SdDialogContent,
+    SdDialogFooter
   }
 }
 </script>

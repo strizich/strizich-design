@@ -21,7 +21,7 @@ export default {
   .footer{
     padding: 16px;
     background: var(--background-accent);
-    box-shadow: 0 -1px 0 0 rgba(0,0,0,.54);
+    box-shadow: 0 -1px 0 0 var(--divider);
     position: absolute;
     bottom:0;
     left: 0;

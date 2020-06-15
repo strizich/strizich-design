@@ -1,30 +1,19 @@
 <template>
-  <div :class="['sd--modal__content', sizeClass]">
+  <div :class="['sd--dialog__content', sizeClass]">
     <slot/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SdModalContent',
-  props: {
-    size: {
-      type: String,
-      default: 'md'
-    }
-  },
-  computed: {
-    sizeClass: function () {
-      return `is--${this.size}`
-    }
-  }
+  name: 'SdDialogContent'
 }
 </script>
 
 <style lang="scss" scoped>
-  .sd--modal__content{
+  .sd--dialog__content{
     background-color: var(--background);
-    padding: 16px;
+    padding: 8px 16px;
     flex-grow: 2;
     @include breakpoint-up('md'){
       max-height: 600px;

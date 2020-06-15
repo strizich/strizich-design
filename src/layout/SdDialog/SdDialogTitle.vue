@@ -1,30 +1,30 @@
 <template>
-  <div class="sd--modal__header">
+  <div class="sd--dialog__header">
     <slot/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SdModalTitle'
+  name: 'SdDialogTitle'
 }
 </script>
 
 <style lang="scss" scoped>
-  .sd--modal{
+  .sd--dialog{
     &__header{
       display:flex;
       justify-content: space-between;
       align-items: center;
       padding: 8px 16px;
-      border-top: 1px solid var(--background-highlight);
-      -webkit-backdrop-filter: blur(20px);
-      backdrop-filter: blur(20px);
-      background-color: var(--background-opaque);
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+      background-color: var(--background);
       flex-shrink: 0;
       & > h3 {
-        font-size: 24px;
+        font-size: 20px;
         margin: 0;
+        font-weight: 500;
       }
     }
   }

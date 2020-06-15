@@ -1,14 +1,14 @@
 <template>
   <sd-portal>
-    <transition name="sd-modal">
+    <transition name="sd-dialog">
       <div
-        :class="['sd--modal', 'sd--elevation--24', sizeClass, classes]"
+        :class="['sd--dialog', classes, sizeClass ]"
         v-on="$listeners"
         @keydown.esc="onEsc"
         v-if="active"
         >
         <sd-focus-trap>
-          <div class="sd--modal__container">
+          <div class="sd--dialog__container">
             <slot />
             <keep-alive>
               <sd-overlay
@@ -34,7 +34,7 @@ import SdOverlay from '@/layout/SdOverlay/SdOverlay'
 export default {
   data () {
     return {
-      name: 'SdModal'
+      name: 'SdDialog'
     }
   },
   props: {
@@ -45,7 +45,7 @@ export default {
     },
     backdropClass: {
       type: String,
-      default: 'sd--modal__overlay'
+      default: 'sd--dialog__overlay'
     },
     backdropBlur: Boolean,
     clickOutsideToClose: {
@@ -63,13 +63,14 @@ export default {
     fullscreen: {
       type: Boolean,
       default: true
-    }
+    },
+    aside: Boolean
   },
   watch: {
     active (isActive) {
       this.$nextTick().then(() => {
         if (isActive) {
-          document.body.classList.add('sd--modal--open')
+          document.body.classList.add('sd--dialog--open')
           document.body.style.top = `-${window.scrollY}px`
           document.body.style.position = 'fixed'
           document.body.style.left = '0'
@@ -77,7 +78,7 @@ export default {
           this.$emit('sd-opened')
         } else {
           const scrollY = document.body.style.top
-          document.body.classList.remove('sd--modal--open')
+          document.body.classList.remove('sd--dialog--open')
           document.body.removeAttribute('style')
           window.scrollTo(0, parseInt(scrollY || '0') * -1)
           this.$emit('sd-closed')
@@ -104,6 +105,7 @@ export default {
   computed: {
     classes: function () {
       return {
+        'is--aside': this.aside,
         'is--fullscreen': this.fullscreen
       }
     },
@@ -120,11 +122,13 @@ export default {
 </script>
 
 <style lang="scss">
-  .sd--modal{
+  .sd--dialog{
     &--open{
-      padding-right: 10px;
+      @include breakpoint-up('sm') {
+        padding-right: 10px;
+      }
     }
-    min-width: 280px;
+    min-width: 300px;
     max-width: 80%;
     max-height: 80%;
     margin: auto;
@@ -149,28 +153,40 @@ export default {
       display: flex;
       flex-flow: column nowrap;
       flex: 1;
+      &:focus{
+        outline: none;
+      }
     }
-    &.sd-modal-enter {
+    &.sd-dialog-enter {
       opacity: 0;
       transform: translate(-50%, -50%) scale(.9);
     }
-    &.sd-enter-active, &.sd-modal-leave-active {
+    &.sd-enter-active, &.sd-dialog-leave-active {
       opacity: 0;
       transform: translate(-50%, -40%) scale(1);
     }
     &.is{
+      &--sm{
+        width: 25%;
+      }
       &--md{
-        width: 80%;
+        width: 60%;
         height: 80%;
+        &.is--aside{
+          width: 60%
+        }
       }
       &--lg{
         width: 90%;
+        &.is--aside{
+          width: 75%
+        }
       }
       &--fullscreen{
         @include breakpoint-down('sm'){
           max-width: 100%;
           max-height: 100%;
-          position: fixed;
+          min-width: 100%;
           top: 0;
           right: 0;
           bottom: 0;
@@ -179,12 +195,45 @@ export default {
           transform: none;
           &.sd-modal-enter {
             opacity: 0;
-            transform: translate3D(0, 10%, 0);
+            transform: translate3D(0, 100%, 0);
           }
           &.sd-modal-leave-active {
             opacity: 0;
-            transform: translate3D(0, -10%, 0);
+            transform: translate3D(0, -100%, 0);
           }
+        }
+      }
+      &--aside{
+        min-height: 100%;
+        left: 100%;
+        top:0;
+        bottom:0;
+        right: 0;
+        transform: translate3D(-100%, 0, 0);
+        overflow: hidden;
+        transition: opacity .2s ease-in-out,
+                    transform .2s ease-in-out;
+        @include breakpoint-down('sm'){
+          left: 0;
+          right: 0;
+          top:0;
+          bottom:0;
+          min-width: 100%;
+          transform: none;
+          opacity: 1;
+           &.sd-dialog-enter, &.sd-dialog-leave-active {
+            opacity: 0;
+            transform: translate3D(-10px, 0, 0);
+           }
+        }
+        &.sd-dialog-enter, &.sd-dialog-leave-active  {
+          opacity: 1;
+          transform: translate3D(0, 0, 0);
+        }
+        .sd--dialog__content{
+          // min-height: 100%;
+          flex-grow: 3;
+          max-height: 100%;
         }
       }
     }
