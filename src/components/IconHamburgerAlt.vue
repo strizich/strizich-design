@@ -1,6 +1,7 @@
 <template>
    <button
    :class="['sd--button', 'sd--button__flat', isFocused]"
+   type="menu"
    @click="toggleOpen">
       <span class="sd--hamburger" :class="isActive">
         <i class="sd--hamburger__bar" :class="`bar--${n}`" v-for="n in 3" :key="n"/>

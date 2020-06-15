@@ -63,8 +63,10 @@ export default {
 
 <style lang="scss" scoped>
 .header{
-  position: sticky;
+  position: fixed;
   top:0;
+  left:0;
+  right:0;
   z-index: 100;
   min-height:50px;
   transition: background-color .23s ease-in-out;

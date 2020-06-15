@@ -23,9 +23,10 @@ export default {
     background: var(--background-accent);
     box-shadow: 0 -1px 0 0 var(--divider);
     position: absolute;
-    bottom:0;
+    bottom: 0;
     left: 0;
     right: 0;
+    z-index: 100;
     &__wrapper{
       display:flex;
       justify-content: space-between;

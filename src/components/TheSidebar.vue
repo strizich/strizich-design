@@ -28,6 +28,16 @@ export default {
       navigationConfig
     }
   },
+  props: {
+    overlay: Boolean
+  },
+  computed: {
+    classes: function () {
+      return {
+        'is--overlay': this.overlay
+      }
+    }
+  },
   components: {
     SdList,
     SdListItem,
@@ -40,14 +50,29 @@ export default {
 .sidebar{
   max-width: 230px;
   height: 100%;
+  &.is {
+    &--overlay{
+      position:fixed;
+      top:50px;
+      bottom: 50px;
+      width: 230px;
+    }
+  }
   @include breakpoint-down(sm){
     max-width: 100%;
   }
-  &__list{
-    position: sticky;
-    top:50px;
-    overflow: auto;
-  }
+  // &__list{
+  //   position: fixed;
+  //   top:50px;
+  //   width:230px;
+  //   left:0;
+  //   overflow-x: none;
+  //   overflow-y: auto;
+  //   @include breakpoint-down(sm){
+  //     width: 100%;
+  //     position:static;
+  //   }
+  // }
 }
 .link {
   color: var(--text);
@@ -81,5 +106,9 @@ export default {
       border-bottom: 2px solid var(--primary)
     }
   }
+}
+.sd--list__wrapper{
+  overflow: scroll;
+  height:100%;
 }
 </style>

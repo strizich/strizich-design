@@ -48,20 +48,22 @@ export default {
       }
     },
     sidebarState (isActive) {
-      this.$nextTick().then(() => {
-        if (isActive && this.isSmall) {
-          document.body.classList.add('sd--sidebar--open')
-          document.body.style.top = `-${window.scrollY}px`
-          document.body.style.position = 'fixed'
-          document.body.style.left = '0'
-          document.body.style.right = '0'
-        } else {
-          const scrollY = document.body.style.top
-          document.body.classList.remove('sd--sidebar--open')
-          document.body.removeAttribute('style')
-          window.scrollTo(0, parseInt(scrollY || '0') * -1)
-        }
-      })
+      if (this.isSmall) {
+        this.$nextTick().then(() => {
+          if (isActive) {
+            document.body.classList.add('sd--sidebar--open')
+            document.body.style.top = `-${window.scrollY}px`
+            document.body.style.position = 'fixed'
+            document.body.style.left = '0'
+            document.body.style.right = '0'
+          } else {
+            const scrollY = document.body.style.top
+            document.body.classList.remove('sd--sidebar--open')
+            document.body.removeAttribute('style')
+            window.scrollTo(0, parseInt(scrollY || '0') * -1)
+          }
+        })
+      }
     }
   },
   created () {
@@ -125,6 +127,7 @@ export default {
   min-height: 100vh;
   min-width: 100%;
   position: relative;
+
   &__wrapper {
     display:flex;
     width:100%;
@@ -136,26 +139,33 @@ export default {
     width: 100%;
     flex-grow: 2;
     order:1;
-    padding-bottom: 72px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     padding-bottom: calc(64px + ios-safe-area(bottom));
   }
   &__sidebar {
     width:100%;
+    height: 100vh;
+    position:sticky;
+    padding-top: 50px;
+    top:0px;
     max-width:230px;
     flex-grow: 1;
     background:var(--background);
     order: 0;
     transition: width .23s ease-in-out;
     box-shadow: inset -1px 0 0 0 var(--background-highlight);
+    overflow-y: auto;
 
     @include breakpoint-down('sm') {
       position: fixed;
-      top: 50px;
+      top: 0px;
       left:0;
       right:0;
       bottom: 0;
       z-index: 500;
       max-width: 100%;
+      z-index: 99;
     }
   }
   &__block {

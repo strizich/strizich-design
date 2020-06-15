@@ -53,9 +53,8 @@ export default {
     padding: 0 env(safe-area-inset-left) 0 env(safe-area-inset-right);
     &__content{
       width: 100%;
-      max-width: 920px;
       margin: 0 auto;
-      padding: 0 16px 64px;
+      padding: 0 32px 32px;
     }
   }
 
