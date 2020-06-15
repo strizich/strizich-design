@@ -26,9 +26,39 @@ const navigationConfig = [
         name: 'Buttons',
         route: 'buttons',
         type: 'link'
-      },
-      {
+      }, {
+        name: 'Card',
+        route: 'modals',
+        type: 'link'
+      }, {
+        name: 'Chicklet',
+        route: 'modals',
+        type: 'link'
+      }, {
+        name: 'Forms',
+        route: 'modals',
+        type: 'link',
+        children: [
+          {
+            name: 'Input',
+            route: 'modals',
+            type: 'link'
+          }, {
+            name: 'Radio',
+            route: 'modals',
+            type: 'link'
+          }, {
+            name: 'Checkbox',
+            route: 'modals',
+            type: 'link'
+          }
+        ]
+      }, {
         name: 'Modals',
+        route: 'modals',
+        type: 'link'
+      }, {
+        name: 'Tooltip',
         route: 'modals',
         type: 'link'
       }

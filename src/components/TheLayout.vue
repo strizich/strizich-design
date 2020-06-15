@@ -149,7 +149,7 @@ export default {
     position:sticky;
     padding-top: 50px;
     top:0px;
-    max-width:230px;
+    max-width:180px;
     flex-grow: 1;
     background:var(--background);
     order: 0;

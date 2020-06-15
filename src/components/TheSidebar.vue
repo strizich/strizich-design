@@ -10,6 +10,17 @@
             :to="link.route">
               {{link.name}}
           </router-link>
+          <!-- <template v-if="link">
+            <router-link
+              v-for="sublink in link.children"
+              tag="div"
+              class="sublink"
+              exact-active-class="link--active"
+              :key="sublink.name"
+              :to="sublink.route">
+                {{sublink.name}}
+            </router-link>
+          </template> -->
         </sd-list-item>
       </template>
     </sd-list>

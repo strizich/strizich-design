@@ -59,4 +59,9 @@ export default {
     background: var(--background);
     color: var(--text);
   }
+  .app{
+    &__content{
+      min-height:100%;
+    }
+  }
 </style>
