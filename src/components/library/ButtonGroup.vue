@@ -203,7 +203,7 @@ export default {
     }
     &__header{
       width: 100%;
-      padding: 64px 32px 16px;
+      padding: 16px 32px 16px;
     }
     &__group{
       padding: 8px 0;

@@ -1,5 +1,5 @@
 <template>
-  <div :class="[breakpointClasses, tightSpacing]" :style="{order}">
+  <div :class="[breakpointClasses]" :style="{order}">
     <slot/>
   </div>
 </template>

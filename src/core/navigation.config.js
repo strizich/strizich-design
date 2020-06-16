@@ -31,25 +31,25 @@ const navigationConfig = [
         route: 'cards',
         type: 'link'
       }, {
-        name: 'Chicklet',
-        route: 'modals',
+        name: 'Chicklets',
+        route: 'chicklets',
         type: 'link'
       }, {
         name: 'Forms',
-        route: 'modals',
+        route: 'forms',
         type: 'link',
         children: [
           {
             name: 'Input',
-            route: 'modals',
+            route: 'forms',
             type: 'link'
           }, {
             name: 'Radio',
-            route: 'modals',
+            route: 'forms',
             type: 'link'
           }, {
             name: 'Checkbox',
-            route: 'modals',
+            route: 'forms',
             type: 'link'
           }
         ]
@@ -58,8 +58,8 @@ const navigationConfig = [
         route: 'modals',
         type: 'link'
       }, {
-        name: 'Tooltip',
-        route: 'modals',
+        name: 'Tooltips',
+        route: 'tooltips',
         type: 'link'
       }
     ]

@@ -36,8 +36,7 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    },
-    {
+    }, {
       path: '/buttons',
       name: 'buttons',
       component: () => import(/* webpackChunkName: "buttons" */ './views/ButtonsDemo.vue')
@@ -49,6 +48,18 @@ export default new Router({
       path: '/modals',
       name: 'modals',
       component: () => import(/* webpackChunkName: "modal" */ './views/ModalDemo.vue')
+    }, {
+      path: '/chicklets',
+      name: 'chicklets',
+      component: () => import(/* webpackChunkName: "chicklets" */ './views/ChickletDemo.vue')
+    }, {
+      path: '/forms',
+      name: 'forms',
+      component: () => import(/* webpackChunkName: "forms" */ './views/FormsDemo.vue')
+    }, {
+      path: '/tooltips',
+      name: 'tooltips',
+      component: () => import(/* webpackChunkName: "forms" */ './views/TooltipDemo.vue')
     }
   ]
 })
