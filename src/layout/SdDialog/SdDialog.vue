@@ -58,7 +58,7 @@ export default {
     },
     size: {
       type: String,
-      default: 'lg'
+      default: 'md'
     },
     fullscreen: {
       type: Boolean,
@@ -159,11 +159,11 @@ export default {
     }
     &.sd-dialog-enter {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(.9);
+      transform: translate(-50%, -48%);
     }
     &.sd-enter-active, &.sd-dialog-leave-active {
       opacity: 0;
-      transform: translate(-50%, -40%) scale(1);
+      transform: translate(-50%, -52%);
     }
     &.is{
       &--sm{
@@ -173,13 +173,13 @@ export default {
         width: 60%;
         height: 80%;
         &.is--aside{
-          width: 60%
+          width: 40%
         }
       }
       &--lg{
         width: 90%;
         &.is--aside{
-          width: 75%
+          width: 70%
         }
       }
       &--fullscreen{

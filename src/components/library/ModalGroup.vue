@@ -1,8 +1,15 @@
 <template>
   <div>
-    <sd-button @click="modalOne = true">
-     Show Default Modal
-    </sd-button>
+    <div class="modal">
+      <sd-button class="modal__trigger" @click="modalOne = true">
+        Show Default Modal
+      </sd-button>
+
+      <sd-button @click="modalTwo = true">
+        Show Aside Modal
+      </sd-button>
+    </div>
+
     <sd-dialog :active.sync="modalOne">
       <sd-dialog-title>
         <h3>I am title &mdash; [modalOne]</h3>
@@ -18,10 +25,6 @@
       </sd-dialog-footer>
     </sd-dialog>
 
-    <sd-button @click="modalTwo = true">
-     Show Aside Modal
-    </sd-button>
-
     <sd-dialog :active.sync="modalTwo" aside>
       <sd-dialog-title>
         <h3>I am title &mdash; [modalOne]</h3>
@@ -33,7 +36,7 @@
         <p>Modal Content</p>
       </sd-dialog-content>
       <sd-dialog-footer>
-        <span>Modal Footer</span>
+        <sd-button flat @click="modalTwo = false">Close Modal</sd-button>
       </sd-dialog-footer>
     </sd-dialog>
   </div>
@@ -68,7 +71,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .sd--button{
-    margin-right: 16px;
+  .modal{
+    &__trigger{
+      margin-right: 16px;
+    }
   }
 </style>
