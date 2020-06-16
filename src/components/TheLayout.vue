@@ -139,8 +139,6 @@ export default {
     width: 100%;
     flex-grow: 2;
     order:1;
-    padding-top: 50px;
-    padding-bottom: 50px;
     padding-bottom: calc(64px + ios-safe-area(bottom));
   }
   &__sidebar {
@@ -148,6 +146,7 @@ export default {
     height: 100vh;
     position:sticky;
     padding-top: 50px;
+    padding-bottom:50px;
     top:0px;
     max-width:180px;
     flex-grow: 1;

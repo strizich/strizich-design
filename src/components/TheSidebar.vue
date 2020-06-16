@@ -85,6 +85,9 @@ export default {
   //   }
   // }
 }
+.sidebar__list{
+  padding-bottom: 50px;
+}
 .link {
   color: var(--text);
   display:block;
@@ -117,9 +120,5 @@ export default {
       border-bottom: 2px solid var(--primary)
     }
   }
-}
-.sd--list__wrapper{
-  overflow: scroll;
-  height:100%;
 }
 </style>
