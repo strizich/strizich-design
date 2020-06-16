@@ -41,8 +41,11 @@ export default new Router({
       path: '/buttons',
       name: 'buttons',
       component: () => import(/* webpackChunkName: "buttons" */ './views/ButtonsDemo.vue')
-    },
-    {
+    }, {
+      path: '/cards',
+      name: 'cards',
+      component: () => import(/* webpackChunkName: "cards" */ './views/CardDemo.vue')
+    }, {
       path: '/modals',
       name: 'modals',
       component: () => import(/* webpackChunkName: "modal" */ './views/ModalDemo.vue')

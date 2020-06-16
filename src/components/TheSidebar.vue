@@ -3,7 +3,7 @@
     <sd-list class="sidebar__list">
       <template v-for="(section, i) in navigationConfig">
         <sd-list-header v-if="section.name" :key="i" :title="section.name"/>
-        <sd-list-item v-for="link in section.children" :key="link.route" link>
+        <sd-list-item v-for="(link, i) in section.children" :key="link.route + i" link>
           <router-link
             class="link"
             exact-active-class="link--active"

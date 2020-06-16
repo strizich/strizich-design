@@ -33,7 +33,7 @@
         </sd-row>
       </sd-container>
       <sd-container full>
-        <sd-row class="group">
+        <sd-row class="group" gutterless>
           <sd-col class="group__options" :lg="2" :md="3" :sm="6">
             <sd-fieldset title="Button Size" stack>
               <sd-radio
@@ -70,7 +70,7 @@
               </sd-radio>
             </sd-fieldset>
           </sd-col>
-          <sd-col class="group__options" :lg="2" :md="3" :sm="6">
+          <!-- <sd-col class="group__options" :lg="2" :md="3" :sm="6">
             <sd-fieldset title="Tag" stack>
               <sd-radio
                 name="Tags"
@@ -81,14 +81,14 @@
                 {{tag}}
               </sd-radio>
             </sd-fieldset>
-          </sd-col>
-          <sd-col class="group__options" :lg="2" :md="6" :sm="6">
-            <sd-fieldset title="Layout Options" stack>
+          </sd-col> -->
+          <sd-col class="group__options" :xl="3" :lg="2" :md="6" :sm="6">
+            <sd-fieldset title="Layout" stack>
               <sd-checkbox v-model="isBlock">
-                Block Level
+                Full Width
               </sd-checkbox>
               <sd-checkbox v-model="showIcon">
-                Show Icon
+                Icon
               </sd-checkbox>
               <sd-checkbox v-model="isIconOnly" :disabled="!showIcon">
                 Icon Only
@@ -96,7 +96,7 @@
             </sd-fieldset>
           </sd-col>
           <sd-col class="group__options" :lg="2" :md="6" :sm="6">
-            <sd-fieldset title="Layout Options" stack>
+            <sd-fieldset title="Alignment" stack>
               <sd-radio
                 name="Alignment"
                 v-for="(align, index) in alignmentOptions"

@@ -8,7 +8,6 @@
 export default {
   name: 'SdCol',
   props: {
-    tight: Boolean,
     xs: Number,
     sm: Number,
     md: Number,
@@ -17,9 +16,6 @@ export default {
     order: Number
   },
   computed: {
-    tightSpacing: function () {
-      return `sd--spacing--tight`
-    },
     breakpointClasses: function () {
       let classes = []
       const breakpointXs = `sd--col--xs--${this.xs}`

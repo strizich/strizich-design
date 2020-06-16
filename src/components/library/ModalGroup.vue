@@ -1,12 +1,31 @@
 <template>
   <div>
     <sd-button @click="modalOne = true">
-      Show Me
+     Show Default Modal
     </sd-button>
     <sd-dialog :active.sync="modalOne">
       <sd-dialog-title>
         <h3>I am title &mdash; [modalOne]</h3>
         <sd-button @click="modalOne = false" theme="default" icon-only flat rounded>
+          <sd-icon name="close"/>
+        </sd-button>
+      </sd-dialog-title>
+      <sd-dialog-content>
+        <p>Modal Content</p>
+      </sd-dialog-content>
+      <sd-dialog-footer>
+        <span>Modal Footer</span>
+      </sd-dialog-footer>
+    </sd-dialog>
+
+    <sd-button @click="modalTwo = true">
+     Show Aside Modal
+    </sd-button>
+
+    <sd-dialog :active.sync="modalTwo" aside>
+      <sd-dialog-title>
+        <h3>I am title &mdash; [modalOne]</h3>
+        <sd-button @click="modalTwo = false" theme="default" icon-only flat rounded>
           <sd-icon name="close"/>
         </sd-button>
       </sd-dialog-title>
@@ -33,7 +52,8 @@ export default {
   name: 'ModalGroup',
   data () {
     return {
-      modalOne: false
+      modalOne: false,
+      modalTwo: false
     }
   },
   components: {
@@ -48,5 +68,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  .sd--button{
+    margin-right: 16px;
+  }
 </style>

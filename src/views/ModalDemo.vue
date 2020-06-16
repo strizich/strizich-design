@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app__page">
     <modal-group />
   </div>
 </template>

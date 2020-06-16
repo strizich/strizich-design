@@ -28,23 +28,26 @@ export default {
   .sd--row {
     @include make-row();
     margin: 0 -16px;
-  }
-  .is--gutterless {
-    margin-right: 0;
-    margin-left: 0;
-    > .sd--col,
-    > [class*="col-"] {
-      padding-right: 0;
-      padding-left: 0;
+    &.is{
+      &--gutterless {
+        margin-right: 0;
+        margin-left: 0;
+        > .sd--col,
+        > [class*="col-"] {
+          padding-right: 0;
+          padding-left: 0;
+        }
+      }
+      &--dense {
+        margin-right: 0;
+        margin-left: 0;
+        > .sd--col,
+        > [class*="col-"] {
+          padding-right: 8px;
+          padding-left:8px;
+        }
+      }
     }
   }
-  .is--dense {
-    margin-right: 0;
-    margin-left: 0;
-    > .sd--col,
-    > [class*="col-"] {
-      padding-right: 8px;
-      padding-left:8px;
-    }
-  }
+
 </style>

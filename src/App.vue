@@ -63,5 +63,8 @@ export default {
     &__content{
       min-height:100%;
     }
+    &__page{
+      padding: 32px;
+    }
   }
 </style>

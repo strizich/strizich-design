@@ -28,7 +28,7 @@ const navigationConfig = [
         type: 'link'
       }, {
         name: 'Card',
-        route: 'modals',
+        route: 'cards',
         type: 'link'
       }, {
         name: 'Chicklet',
