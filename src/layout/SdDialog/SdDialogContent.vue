@@ -1,5 +1,5 @@
 <template>
-  <div :class="['sd--dialog__content', sizeClass]">
+  <div :class="['sd--dialog__content']">
     <slot/>
   </div>
 </template>

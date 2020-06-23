@@ -2,7 +2,7 @@
   <sd-portal>
     <transition name="sd-dialog">
       <div
-        :class="['sd--dialog', classes, sizeClass ]"
+        :class="['sd--dialog', classes ]"
         v-on="$listeners"
         @keydown.esc="onEsc"
         v-if="active"
@@ -104,14 +104,16 @@ export default {
   },
   computed: {
     classes: function () {
+      const sizeClass = `is--${this.size}`
       return {
+        [sizeClass]: true,
         'is--aside': this.aside,
         'is--fullscreen': this.fullscreen
       }
-    },
-    sizeClass: function () {
-      return `is--${this.size}`
     }
+    // sizeClass: function () {
+    //   return `is--${this.size}`
+    // }
   },
   components: {
     SdFocusTrap,
