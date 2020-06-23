@@ -5,14 +5,14 @@ import Home from './views/Home'
 Vue.use(Router)
 
 let scrollBehavior = (to, from, savedPosition) => {
+  if (to.hash) {
+    return {
+      selector: to.hash
+    }
+  }
   if (savedPosition) {
     return savedPosition
   } else {
-    if (to.hash) {
-      return {
-        selector: to.hash
-      }
-    }
     return { x: 0, y: 0 }
   }
 }
