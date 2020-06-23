@@ -47,7 +47,7 @@ export default new Router({
     }, {
       path: '/modals',
       name: 'modals',
-      component: () => import(/* webpackChunkName: "modal" */ './views/ModalDemo.vue')
+      component: () => import(/* webpackChunkName: "modals" */ './views/ModalDemo.vue')
     }, {
       path: '/chicklets',
       name: 'chicklets',
@@ -59,7 +59,7 @@ export default new Router({
     }, {
       path: '/tooltips',
       name: 'tooltips',
-      component: () => import(/* webpackChunkName: "forms" */ './views/TooltipDemo.vue')
+      component: () => import(/* webpackChunkName: "tooltips" */ './views/TooltipDemo.vue')
     }
   ]
 })
