@@ -34,7 +34,7 @@
       </sd-container>
       <sd-container full>
         <sd-row class="group" gutterless>
-          <sd-col class="group__options" :lg="2" :md="3" :sm="6">
+          <sd-col class="group__options" :lg="2" :md="2" :sm="6" :xs="6">
             <sd-fieldset title="Button Size" stack>
               <sd-radio
                 name="sizes"
@@ -46,7 +46,7 @@
               </sd-radio>
             </sd-fieldset>
           </sd-col>
-          <sd-col class="group__options" :lg="2" :md="3" :sm="6">
+          <sd-col class="group__options" :lg="2" :md="2" :sm="6" :xs="6">
             <sd-fieldset title="Types" stack>
               <sd-radio
                 name="pills"
@@ -58,7 +58,7 @@
               </sd-radio>
             </sd-fieldset>
           </sd-col>
-          <sd-col class="group__options" :lg="2" :md="3" :sm="6">
+          <sd-col class="group__options" :lg="2" :md="2" :sm="6" :xs="6">
             <sd-fieldset title="Style" stack>
               <sd-radio
                 name="Styles"
@@ -70,19 +70,7 @@
               </sd-radio>
             </sd-fieldset>
           </sd-col>
-          <!-- <sd-col class="group__options" :lg="2" :md="3" :sm="6">
-            <sd-fieldset title="Tag" stack>
-              <sd-radio
-                name="Tags"
-                v-for="(tag, index) in tagType"
-                :key="`tag-${index}`"
-                :value="tag"
-                v-model="selectedTag">
-                {{tag}}
-              </sd-radio>
-            </sd-fieldset>
-          </sd-col> -->
-          <sd-col class="group__options" :xl="3" :lg="2" :md="6" :sm="6">
+          <sd-col class="group__options" :lg="2" :md="3" :sm="6" :xs="6">
             <sd-fieldset title="Layout" stack>
               <sd-checkbox v-model="isBlock">
                 Full Width
@@ -95,7 +83,7 @@
               </sd-checkbox>
             </sd-fieldset>
           </sd-col>
-          <sd-col class="group__options" :lg="2" :md="6" :sm="6">
+          <sd-col class="group__options" :lg="2" :md="2" :sm="6" :xs="6">
             <sd-fieldset title="Alignment" stack>
               <sd-radio
                 name="Alignment"
