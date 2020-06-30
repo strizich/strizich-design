@@ -9,7 +9,7 @@
           <IconLogo />
         </router-link>
         <div class="header__wrapper--right">
-          <sd-button theme="default" href="https://github.com/strizich/strizich-design" target="_blank" flat icon-only>
+          <sd-button theme="default" href="https://github.com/strizich/strizich-design" target="_blank" rel="noreferrer" flat icon-only>
             <sd-icon/>
             <sd-tooltip direction="left">To Github! (icon WIP)</sd-tooltip>
           </sd-button>
